@@ -20,6 +20,6 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <include layout="@layout/fragment_pin_keys" />
+    <include layout="@layout/fragment_keypad" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

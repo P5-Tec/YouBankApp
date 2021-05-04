@@ -1,5 +1,6 @@
-package com.example.youbank.fragments
+package com.example.youbank
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -7,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
-import com.example.youbank.R
 
 class KeypadFragment : Fragment() {
 
@@ -30,10 +30,19 @@ class KeypadFragment : Fragment() {
             //findNavController().navigate(R.id.action_pinKeysFragment_to_FirstFragment)
         }*/
 
-        val btn1 = view.findViewById<Button>(R.id.btn1)
+        val btn1: Button = view.findViewById(R.id.btn1)
 
-        btn1.setOnClickListener { Toast.makeText(this.context, "Hejsa", Toast.LENGTH_LONG).show() }
+        btn1.setOnClickListener {
+            Toast.makeText(this.context, "Hejsa", Toast.LENGTH_LONG).show()
+        }
+
+
+
+
 
         //view.findViewById<Button>(R.id.btn1).setOnClickListener { Toast.makeText(this.context, "Hejsa", Toast.LENGTH_LONG).show() }
     }
+
+
 }
+
