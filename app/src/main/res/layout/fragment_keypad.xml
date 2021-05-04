@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:orientation="horizontal"
+    android:background="@color/black"
+    tools:context=".fragments.KeypadFragment">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/ic_baseline_circle_24" />
+
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/ic_baseline_circle_24" />
+
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/ic_baseline_circle_24" />
+
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/ic_baseline_circle_24" />
+    </LinearLayout>
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:layout_marginBottom="50dp"
+        android:columnCount="3"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn1"
+            android:layout_column="0"
+            android:layout_columnWeight="1"
+            style="@style/pinBtnStyle"
+            android:text="1" />
+
+        <Button
+            android:id="@+id/btn2"
+            android:layout_column="1"
+            android:layout_columnWeight="1"
+            style="@style/pinBtnStyle"
+            android:text="2" />
+
+        <Button
+            android:id="@+id/btn3"
+            android:layout_column="2"
+            android:layout_columnWeight="1"
+            style="@style/pinBtnStyle"
+            android:text="3" />
+
+        <Button
+            android:id="@+id/btn4"
+            android:layout_column="0"
+            android:layout_columnWeight="1"
+            style="@style/pinBtnStyle"
+            android:text="4" />
+
+        <Button
+            android:id="@+id/btn5"
+            android:layout_column="1"
+            android:layout_columnWeight="1"
+            style="@style/pinBtnStyle"
+            android:text="5" />
+
+        <Button
+            android:id="@+id/btn6"
+            android:layout_column="2"
+            android:layout_columnWeight="1"
+            style="@style/pinBtnStyle"
+            android:text="6" />
+
+        <Button
+            android:id="@+id/btn7"
+            android:layout_column="0"
+            android:layout_columnWeight="1"
+            style="@style/pinBtnStyle"
+            android:text="7" />
+
+        <Button
+            android:id="@+id/btn8"
+            android:layout_column="1"
+            android:layout_columnWeight="1"
+            style="@style/pinBtnStyle"
+            android:text="8" />
+
+        <Button
+            android:id="@+id/btn9"
+            android:layout_column="2"
+            android:layout_columnWeight="1"
+            style="@style/pinBtnStyle"
+            android:text="9" />
+
+        <Button
+            android:id="@+id/btnForgotPass"
+            android:layout_column="0"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill_vertical"
+            android:padding="0dp"
+            android:textSize="15dp"
+            style="@style/pinBtnStyle"
+            android:text="Forgot?"/>
+
+        <Button
+            android:id="@+id/btn0"
+            android:layout_column="1"
+            android:layout_columnWeight="1"
+            style="@style/pinBtnStyle"
+            android:text="0" />
+
+        <ImageButton
+            android:id="@+id/btnBioAuth"
+            android:layout_column="2"
+            android:layout_columnWeight="1"
+            android:layout_gravity="center"
+            android:background="@drawable/ic_baseline_fingerprint_24_white" />
+
+    </GridLayout>
+
+</FrameLayout>
