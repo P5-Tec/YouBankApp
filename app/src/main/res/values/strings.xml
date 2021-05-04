@@ -9,4 +9,25 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="greet_login">Login</string>
+    <string name="greet_create_account">Create Account</string>
+
+
+    <!-- Content descriptions -->
+    <string name="greet_logo_descriptions">YouBank Logo</string>
+    <string name="fake_profile_img"></string>
+
+
+    <!-- Account creation -->
+    <string name="account_create_btn">Create Account</string>
+
+    <string name="account_create_cpr">CPR</string>
+    <string name="account_create_full_name">Full name</string>
+    <string name="account_create_address">Address</string>
+    <string name="account_create_city">City</string>
+    <string name="account_create_postal">Postal</string>
+
 </resources>
