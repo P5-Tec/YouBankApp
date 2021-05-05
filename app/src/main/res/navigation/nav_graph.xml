@@ -2,8 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph"
-    app:startDestination="@id/transactionFragment">
+    android:id="@+id/nav_graph">
 
     <fragment
         android:id="@+id/FirstFragment"
@@ -25,9 +24,4 @@
             android:id="@+id/action_SecondFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/transactionFragment"
-        android:name="com.example.youbank.fragments.TransactionFragment"
-        android:label="fragment_transaction"
-        tools:layout="@layout/fragment_transaction" />
 </navigation>
