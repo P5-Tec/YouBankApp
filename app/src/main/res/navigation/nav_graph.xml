@@ -2,26 +2,43 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph">
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/greeterFragment">
 
     <fragment
-        android:id="@+id/FirstFragment"
-        android:name="com.example.youbank.FirstFragment"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
-
+        android:id="@+id/greeterFragment"
+        android:name="com.example.youbank.fragments.GreeterFragment"
+        android:label="fragment_greeter"
+        tools:layout="@layout/fragment_greeter" >
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+            android:id="@+id/action_greeterFragment_to_accountCreationFragment"
+            app:destination="@id/accountCreationFragment"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit" />
+        <action
+            android:id="@+id/action_greeterFragment_to_keypadFragment"
+            app:destination="@id/keypadFragment"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit" />
     </fragment>
     <fragment
-        android:id="@+id/SecondFragment"
-        android:name="com.example.youbank.SecondFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
-
+        android:id="@+id/accountCreationFragment"
+        android:name="com.example.youbank.fragments.AccountCreationFragment"
+        android:label="fragment_account_creation"
+        tools:layout="@layout/fragment_account_creation" >
         <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
+            android:id="@+id/action_accountCreationFragment_to_greeterFragment"
+            app:destination="@id/greeterFragment"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit" />
+    </fragment>
+    <fragment
+        android:id="@+id/keypadFragment"
+        android:name="com.example.youbank.fragments.KeypadFragment"
+        android:label="fragment_keypad"
+        tools:layout="@layout/fragment_keypad" >
+        <action
+            android:id="@+id/action_keypadFragment_to_cardHorizontalFragment"
+            app:destination="@id/cardHorizontalFragment" />
     </fragment>
 </navigation>

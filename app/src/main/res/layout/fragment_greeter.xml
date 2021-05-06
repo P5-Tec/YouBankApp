@@ -26,12 +26,13 @@
         android:layout_marginBottom="24dp"
         android:textColor="?attr/colorOnPrimary"
         android:text="@string/greet_create_account"
-        app:layout_constraintBottom_toTopOf="@+id/materialButton"
+        android:id="@+id/createAccBtn"
+        app:layout_constraintBottom_toTopOf="@+id/loginBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/materialButton"
+        android:id="@+id/loginBtn"
         android:layout_width="300dp"
         android:layout_height="60dp"
         android:layout_marginBottom="16dp"
