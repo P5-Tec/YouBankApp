@@ -1,4 +1,4 @@
-package com.example.youbank.fragments.dummy
+package com.example.youbank.dummy
 
 import java.util.ArrayList
 import java.util.HashMap
@@ -21,7 +21,7 @@ object DummyContent {
      */
     val ITEM_MAP: MutableMap<String, DummyItem> = HashMap()
 
-    private val COUNT = 50
+    private val COUNT = 25
 
     init {
         // Add some sample items.
