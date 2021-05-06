@@ -30,4 +30,11 @@
     <string name="account_create_city">City</string>
     <string name="account_create_postal">Postal</string>
 
+    <!-- Account Support modal -->
+    <string name="account_support_greeting">What\'s Up ?</string>
+    <string name="account_support_chat">Chat support</string>
+    <string name="account_support_chat_sub">24/7 Meme support</string>
+    <string name="account_support_logout">Log Out</string>
+
+
 </resources>
