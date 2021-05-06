@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/greeterFragment">
+    app:startDestination="@id/transactionListFragment">
 
     <fragment
         android:id="@+id/greeterFragment"
@@ -41,4 +41,14 @@
             android:id="@+id/action_keypadFragment_to_cardHorizontalFragment"
             app:destination="@id/cardHorizontalFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/transactionListFragment"
+        android:name="com.example.youbank.fragments.TransactionListFragment"
+        android:label="transaction_item_list"
+        tools:layout="@layout/transaction_item_list" />
+    <fragment
+        android:id="@+id/cardHorizontalFragment"
+        android:name="com.example.youbank.fragments.CardHorizontalFragment"
+        android:label="fragment_card_horizontal"
+        tools:layout="@layout/fragment_card_horizontal" />
 </navigation>

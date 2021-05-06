@@ -5,16 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/square_rounded_corners"
-    android:padding="16dp"
+    android:padding="10dp"
+    android:layout_margin="8dp"
     tools:context=".fragments.TransactionFragment">
 
     <ImageView
         android:id="@+id/pic"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_marginStart="4dp"
         android:contentDescription="Account image"
-        android:src="@drawable/square_pic_frame"
+        android:src="@drawable/circle_white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -24,10 +25,10 @@
         android:id="@+id/txtTransactionName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
+        android:layout_marginStart="8dp"
         android:text="Johnson &amp; Johnson's"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/pic"
         app:layout_constraintTop_toTopOf="parent" />
@@ -50,7 +51,7 @@
         android:layout_marginEnd="4dp"
         android:text="235"
         android:textColor="@color/white"
-        android:textSize="25sp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
