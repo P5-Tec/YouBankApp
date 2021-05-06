@@ -36,5 +36,14 @@
         android:id="@+id/keypadFragment"
         android:name="com.example.youbank.fragments.KeypadFragment"
         android:label="fragment_keypad"
-        tools:layout="@layout/fragment_keypad" />
+        tools:layout="@layout/fragment_keypad" >
+        <action
+            android:id="@+id/action_keypadFragment_to_cardHorizontalFragment"
+            app:destination="@id/cardHorizontalFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cardHorizontalFragment"
+        android:name="com.example.youbank.fragments.CardHorizontalFragment"
+        android:label="fragment_card_horizontal"
+        tools:layout="@layout/fragment_card_horizontal" />
 </navigation>
