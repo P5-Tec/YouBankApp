@@ -15,4 +15,11 @@
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
     </style>
+
+
+    <!-- Rounded Bottom Dialog-->
+    <style name="dialog_round">
+        <item name="cornerSize">8dp</item>
+        <item name="cornerFamily">rounded</item>
+    </style>
 </resources>
