@@ -7,7 +7,7 @@
     android:background="@drawable/square_rounded_corners"
     android:padding="10dp"
     android:layout_margin="8dp"
-    tools:context=".fragments.TransactionFragment">
+    tools:context=".fragments.TransactionListFragment">
 
     <ImageView
         android:id="@+id/pic"
