@@ -6,13 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.example.youbank.R
-
 import com.example.youbank.fragments.dummy.DummyContent.DummyItem
 
-/**
- * [RecyclerView.Adapter] that can display a [DummyItem].
- * TODO: Replace the implementation with code for your data type.
- */
 class MyTransactionListRecyclerViewAdapter(
     private val values: List<DummyItem>
 ) : RecyclerView.Adapter<MyTransactionListRecyclerViewAdapter.ViewHolder>() {
