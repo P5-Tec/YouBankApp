@@ -10,7 +10,7 @@ import com.example.youbank.R
 import com.example.youbank.fragments.AccountSupportDialogFragment
 
 
-class FreezeCardTestFragment : Fragment() {
+class AcccountSupportDialogTestFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
