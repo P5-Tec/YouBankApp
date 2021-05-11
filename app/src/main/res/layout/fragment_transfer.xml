@@ -116,7 +116,7 @@
         app:layout_constraintGuide_end="321dp" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/paynow"
         android:layout_width="240dp"
         android:layout_height="69dp"
         android:layout_marginEnd="16dp"
