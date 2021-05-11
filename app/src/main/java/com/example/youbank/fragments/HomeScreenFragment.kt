@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.navigation.fragment.findNavController
 import com.example.youbank.R
+import com.google.android.material.imageview.ShapeableImageView
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -42,5 +43,9 @@ class HomeScreenFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        view.findViewById<ShapeableImageView>(R.id.profileImg).setOnClickListener {
+            AccountSupportDialogFragment.newInstance().show(childFragmentManager, "dialog")
+        }
     }
 }
