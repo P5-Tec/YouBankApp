@@ -85,14 +85,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Add Money"
-        app:layout_constraintBottom_toBottomOf="@+id/materialButton2"
-        app:layout_constraintEnd_toStartOf="@+id/materialButton2"
+        app:layout_constraintBottom_toBottomOf="@+id/transaction_button"
+        app:layout_constraintEnd_toStartOf="@+id/transaction_button"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toStartOf="@id/left_spacing_guideline" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/materialButton2"
+        android:id="@+id/transaction_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Transfer"
@@ -108,10 +108,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Details"
-        app:layout_constraintBottom_toBottomOf="@+id/materialButton2"
+        app:layout_constraintBottom_toBottomOf="@+id/transaction_button"
         app:layout_constraintEnd_toEndOf="@id/right_spacing_guideline"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/materialButton2" />
+        app:layout_constraintStart_toEndOf="@+id/transaction_button" />
 
 
     <fragment

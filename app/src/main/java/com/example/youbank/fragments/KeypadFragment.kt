@@ -103,7 +103,7 @@ class KeypadFragment : Fragment(), View.OnClickListener {
             if (valueString == correctString) {
                 Toast.makeText(this.context, "Correct", Toast.LENGTH_SHORT).show()
                 valueString = ""
-                findNavController().navigate(R.id.action_keypadFragment_to_cardFragment)
+                findNavController().navigate(R.id.action_keypadFragment_to_homeScreenFragment)
             } else {
                 Toast.makeText(this.context, "Incorrect", Toast.LENGTH_SHORT).show()
                 valueString = ""
