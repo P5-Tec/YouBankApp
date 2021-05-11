@@ -6,6 +6,7 @@
         <item name="android:background">@android:color/transparent</item>
         <item name="android:textColor">@color/white</item>
     </style>
+
     <style name="pinLinearStyle">
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_width">0dp</item>
@@ -21,5 +22,10 @@
     <style name="dialog_round">
         <item name="cornerSize">8dp</item>
         <item name="cornerFamily">rounded</item>
+    </style>
+
+    <style name="button_border">
+        <item name="strokeWidth">1dp</item>
+        <item name="strokeColor">?attr/strokeColor</item>
     </style>
 </resources>

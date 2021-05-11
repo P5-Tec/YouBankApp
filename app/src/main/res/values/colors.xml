@@ -10,4 +10,5 @@
 
     <!-- Custom colors-->
     <color name="brand_main">#30D95D</color>
+    <color name="holo_dark">#121212</color>
 </resources>

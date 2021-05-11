@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/greeterFragment">
+    app:startDestination="@id/transferFragment">
 
     <fragment
         android:id="@+id/greeterFragment"
@@ -46,4 +46,9 @@
         android:name="com.example.youbank.fragments.CardFragment"
         android:label="card_item_list"
         tools:layout="@layout/card_item_list" />
+    <fragment
+        android:id="@+id/transferFragment"
+        android:name="com.example.youbank.fragments.TransferFragment"
+        android:label="fragment_transfer"
+        tools:layout="@layout/fragment_transfer" />
 </navigation>
