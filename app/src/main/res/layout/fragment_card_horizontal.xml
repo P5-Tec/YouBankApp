@@ -16,7 +16,7 @@
             android:id="@+id/txtBalance"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:drawableRight="@drawable/card_icon_white"
+            android:drawableRight="@drawable/ic_card_icon"
             android:text="80 $"
             android:textColor="@color/white"
             android:textSize="35dp" />

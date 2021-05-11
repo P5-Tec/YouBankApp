@@ -9,7 +9,6 @@
     android:focusableInTouchMode="true"
     tools:context=".fragments.AccountCreationFragment">
 
-
     <com.google.android.material.button.MaterialButton
         android:id="@+id/backbtn"
         style="@style/Widget.MaterialComponents.Button.TextButton"

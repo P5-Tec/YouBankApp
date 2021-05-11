@@ -113,12 +113,11 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/transaction_button" />
 
-
     <fragment
         android:id="@+id/transaction_fragment"
         android:name="com.example.youbank.fragments.TransactionListFragment"
         android:layout_width="372dp"
-        android:layout_height="300dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="@id/right_spacing_guideline"
         app:layout_constraintHorizontal_bias="0.466"
