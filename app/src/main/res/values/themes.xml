@@ -17,6 +17,8 @@
 
         <item name="shapeAppearanceLargeComponent">@style/dialog_round</item>
 
+        <item name="strokeColor">@color/black</item>
+
     </style>
 
     <style name="Theme.YouBank.NoActionBar">

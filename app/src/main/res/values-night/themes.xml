@@ -16,6 +16,6 @@
         <item name="backgroundColor">@color/black</item>
         <item name="shapeAppearanceLargeComponent">@style/dialog_round</item>
 
-
+        <item name="strokeColor">@color/white</item>
     </style>
 </resources>
