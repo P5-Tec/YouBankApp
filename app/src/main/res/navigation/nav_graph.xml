@@ -5,6 +5,7 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/homeScreenFragment">
 
+
     <fragment
         android:id="@+id/greeterFragment"
         android:name="com.example.youbank.fragments.GreeterFragment"
@@ -46,14 +47,4 @@
         android:name="com.example.youbank.fragments.CardFragment"
         android:label="card_item_list"
         tools:layout="@layout/card_item_list" />
-    <fragment
-        android:id="@+id/homeScreenFragment"
-        android:name="com.example.youbank.fragments.HomeScreenFragment"
-        android:label="fragment_home_screen"
-        tools:layout="@layout/fragment_home_screen" />
-    <fragment
-        android:id="@+id/includefragFragment"
-        android:name="com.example.youbank.IncludefragFragment"
-        android:label="fragment_includefrag"
-        tools:layout="@layout/fragment_includefrag" />
 </navigation>
