@@ -13,12 +13,13 @@
         android:layout_height="wrap_content"
         android:text="@string/account_support_greeting"
         android:textFontWeight="700"
-        android:textSize="30dp"
+        android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/header_gutter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.6" />
 
     <ImageView
         android:id="@+id/SupportImg"
@@ -38,7 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:text="@string/account_support_chat"
-        android:textSize="20sp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/SupportSubHeader"
         app:layout_constraintStart_toEndOf="@+id/SupportImg"
         app:layout_constraintTop_toTopOf="@+id/SupportImg" />
@@ -49,7 +50,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:text="@string/account_support_chat_sub"
-        android:textSize="14sp"
+        android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@+id/SupportImg"
         app:layout_constraintStart_toEndOf="@+id/SupportImg"
         app:layout_constraintTop_toBottomOf="@+id/SupportHeader" />
@@ -72,7 +73,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:text="@string/account_support_logout"
-        android:textSize="20sp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@+id/LogoutImg"
         app:layout_constraintStart_toEndOf="@+id/LogoutImg"
         app:layout_constraintTop_toTopOf="@+id/LogoutImg" />
@@ -99,7 +100,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintGuide_begin="294dp"
+        app:layout_constraintGuide_begin="235dp"
         app:layout_constraintTop_toBottomOf="@+id/LogoutImg" />
 
 
