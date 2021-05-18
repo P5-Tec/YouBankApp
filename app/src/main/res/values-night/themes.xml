@@ -18,4 +18,21 @@
 
         <item name="strokeColor">@color/white</item>
     </style>
+
+
+    <style name="Theme.YouBank.New">
+        <item name="colorPrimary">@color/n_brand_main</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorOnSurface">@color/n_surface</item>
+        <item name="backgroundColor">@color/holo_dark</item>
+        <item name="colorOnBackground">@color/white</item>
+        <item name="android:colorBackground">@color/holo_dark</item>
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="strokeColor">@color/n_stroke_brand</item>
+    </style>
+
+    <style name="Theme.YouBank.NoActionBar" parent="Theme.YouBank.New">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
 </resources>

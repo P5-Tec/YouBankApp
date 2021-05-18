@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:drawableRight="@drawable/ic_card_icon"
             android:text="80 $"
-            android:textColor="@color/white"
+            android:textColor="?attr/colorOnBackground"
             android:textSize="35dp" />
 
         <TextView
@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="65dp"
             android:text="My Card"
-            android:textColor="@color/white"
+            android:textColor="?attr/colorOnBackground"
             android:textSize="20sp" />
 
         <TextView
@@ -36,7 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:text="4561 3268 4496 1234"
-            android:textColor="@color/white"
+            android:textColor="?attr/colorOnBackground"
             android:textSize="15sp" />
 
     </LinearLayout>
