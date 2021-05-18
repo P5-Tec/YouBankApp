@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".CardInformationFragment">
+    tools:context=".fragments.CardOverviewFragment">
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/backbtn"
@@ -21,13 +21,22 @@
         tools:ignore="MissingConstraints" />
 
     <fragment
-        android:id="@+id/cardFragment"
+        android:id="@+id/nav_host_card_fragment"
+        android:layout_width="250dp"
+        android:layout_height="400dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="70dp"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        app:navGraph="@navigation/nav_graph_card" />
+
+    <!--<fragment
+        android:id="@+id/cardHolder"
         android:name="com.example.youbank.fragments.CardVerticalFragment"
         android:layout_width="250dp"
         android:layout_height="400dp"
         android:layout_gravity="bottom|center"
         android:layout_margin="70dp"
-        tools:layout="@layout/fragment_card_vertical" />
+        tools:layout="@layout/fragment_card_vertical" />-->
 
     <!--<LinearLayout
         android:layout_width="wrap_content"

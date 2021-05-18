@@ -73,7 +73,7 @@
         tools:layout="@layout/fragment_transfer" />
     <fragment
         android:id="@+id/cardInformationFragment"
-        android:name="com.example.youbank.CardInformationFragment"
+        android:name="com.example.youbank.fragments.CardOverviewFragment"
         android:label="fragment_card_information"
-        tools:layout="@layout/fragment_card_information" />
+        tools:layout="@layout/fragment_card_overview" />
 </navigation>

@@ -17,5 +17,9 @@
         <item name="shapeAppearanceLargeComponent">@style/dialog_round</item>
 
         <item name="strokeColor">@color/white</item>
+
+        <!-- Makes checkboxes green when checked -->
+        <item name="buttonTint">@color/brand_main</item>
+
     </style>
 </resources>

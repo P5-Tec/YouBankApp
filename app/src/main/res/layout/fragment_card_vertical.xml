@@ -1,14 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="250dp"
+    android:layout_height="400dp"
+    android:background="@drawable/square_rounded_corners"
+    android:orientation="vertical"
     tools:context=".fragments.CardVerticalFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <ImageView
+        android:id="@+id/cardIcon"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_gravity="end"
+        android:layout_margin="12dp"
+        android:rotation="90"
+        app:srcCompat="@drawable/ic_card_icon"
+        app:tint="?attr/colorOnSecondary" />
 
-</FrameLayout>
+    <ImageView
+        android:id="@+id/cardLogo"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="35dp"
+        app:srcCompat="@drawable/ic_yb_logo"
+        app:tint="?attr/colorOnSecondary" />
+
+    <TextView
+        android:id="@+id/omniTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="8dp"
+        android:text="OmniCard" />
+
+    <TextView
+        android:id="@+id/activeOrFrozenTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="5dp"
+        android:layout_weight="1"
+        android:text="Active"
+        android:textColor="?attr/colorPrimary" />
+
+    <TextView
+        android:id="@+id/cardNumberLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:text="My card"
+        android:textColor="?attr/colorOnSecondary"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/cardNumberValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="15dp"
+        android:text="7540 2645 2637 2374"
+        android:textColor="?attr/colorOnSecondary"
+        android:textSize="12sp" />
+
+</LinearLayout>

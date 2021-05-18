@@ -1,21 +1,23 @@
-package com.example.youbank
+package com.example.youbank.fragments
 
-import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
-import androidx.core.graphics.drawable.DrawableCompat
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
+import com.example.youbank.R
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.checkbox.MaterialCheckBox
-import org.w3c.dom.Text
 
 
-class CardInformationFragment : Fragment(), View.OnClickListener {
+class CardOverviewFragment : Fragment() {
+
+    private lateinit var localController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,29 +29,26 @@ class CardInformationFragment : Fragment(), View.OnClickListener {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_card_information, container, false)
+        return inflater.inflate(R.layout.fragment_card_overview, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val freezeCheckbox: MaterialCheckBox = view.findViewById(R.id.checkboxFreeze)
         val btnShowInformation: MaterialButton = view.findViewById(R.id.btnShowInformation)
         val btnShowPIN: MaterialButton = view.findViewById(R.id.btnShowPIN)
 
-        val card: LinearLayout = view.findViewById(R.id.card)
-
+/*
         val cardIcon: ImageView = view.findViewById(R.id.cardIcon)
         val cardLogo: ImageView = view.findViewById(R.id.cardLogo)
         val omniTxt: TextView = view.findViewById(R.id.omniTxt)
         val activeOrFrozenTxt: TextView = view.findViewById(R.id.activeOrFrozenTxt)
         val cardNumberLabel: TextView = view.findViewById(R.id.cardNumberLabel)
-        val cardNumber: TextView = view.findViewById(R.id.cardNumber)
-
+        val cardNumber: TextView = view.findViewById(R.id.cardNumberValue)*/
 
 
         // Below is shown when "show information" button is clicked
-        val infoCardLogo: ImageView = view.findViewById(R.id.infoCardLogo)
+        /*val infoCardLogo: ImageView = view.findViewById(R.id.infoCardLogo)
         val infoOmniTxt: TextView = view.findViewById(R.id.infoOmniTxt)
         val infoActiveOrFrozenTxt: TextView = view.findViewById(R.id.infoActiveOrFrozenTxt)
 
@@ -58,34 +57,37 @@ class CardInformationFragment : Fragment(), View.OnClickListener {
         val infoCCVLabel: TextView = view.findViewById(R.id.infoCCVLabel)
         val infoCCV: TextView = view.findViewById(R.id.infoCCV)
         val infoExpiryDateLabel: TextView = view.findViewById(R.id.infoExpiryDateLabel)
-        val infoExpiryDate: TextView = view.findViewById(R.id.infoExpiryDate)
+        val infoExpiryDate: TextView = view.findViewById(R.id.infoExpiryDate)*/
 
 
-
-        freezeCheckbox.setOnCheckedChangeListener { buttonView, isChecked ->
+        /*freezeCheckbox.setOnCheckedChangeListener { buttonView, isChecked ->
             if(freezeCheckbox.isChecked)
             {
-                activeOrFrozenTxt.setTextColor(ContextCompat.getColor(view.context, R.color.redColor))
+                activeOrFrozenTxt.setTextColor(ContextCompat.getColor(view.context,
+                    R.color.redColor
+                ))
                 activeOrFrozenTxt.text = "Frozen"
             }
             else
             {
-                activeOrFrozenTxt.setTextColor(ContextCompat.getColor(view.context, R.color.brand_main))
+                activeOrFrozenTxt.setTextColor(ContextCompat.getColor(view.context,
+                    R.color.brand_main
+                ))
                 activeOrFrozenTxt.text = "Active"
             }
-        }
+        }*/
 
-        btnShowInformation.setOnClickListener {
+        /*btnShowInformation.setOnClickListener {
             // Hiding views/Showing when clicked again
-            showHide(cardIcon)
+            *//*showHide(cardIcon)
             showHide(cardLogo)
             showHide(omniTxt)
             showHide(activeOrFrozenTxt)
             showHide(cardNumberLabel)
-            showHide(cardNumber)
+            showHide(cardNumber)*//*
 
             // Showing information views/Hiding when clicked again
-            showHide(infoCardLogo)
+            *//*showHide(infoCardLogo)
             showHide(infoOmniTxt)
             showHide(infoActiveOrFrozenTxt)
             showHide(infoCardNumberLabel)
@@ -93,22 +95,57 @@ class CardInformationFragment : Fragment(), View.OnClickListener {
             showHide(infoCCVLabel)
             showHide(infoCCV)
             showHide(infoExpiryDateLabel)
-            showHide(infoExpiryDate)
+            showHide(infoExpiryDate)*//*
         }
 
         btnShowPIN.setOnClickListener {
 
+        }*/
+
+        /*btnShowInformation.setOnClickListener(this)
+        btnShowPIN.setOnClickListener(this)*/
+
+
+        btnShowInformation.setOnClickListener {
+            val localNavHostFragment =
+                childFragmentManager.findFragmentById(R.id.nav_host_card_fragment) as NavHostFragment
+            localController = localNavHostFragment.navController
+
+            when (localController.currentDestination?.id) {
+                R.id.cardVerticalFragment -> {
+                    localController.navigate(R.id.action_cardVerticalFragment_to_cardVerticalInformationFragment)
+                }
+                R.id.cardVerticalPinFragment -> {
+                    localController.navigate(R.id.action_cardVerticalPinFragment_to_cardVerticalInformationFragment)
+                }
+                else -> {
+                    localController.navigate(R.id.action_cardVerticalInformationFragment_to_cardVerticalFragment)
+                }
+            }
         }
 
-        btnShowInformation.setOnClickListener(this)
-        btnShowPIN.setOnClickListener(this)
+        btnShowPIN.setOnClickListener {
+            val localNavHostFragment =
+                childFragmentManager.findFragmentById(R.id.nav_host_card_fragment) as NavHostFragment
+            localController = localNavHostFragment.navController
 
 
+            when (localController.currentDestination?.id) {
+                R.id.cardVerticalFragment -> {
+                    localController.navigate(R.id.action_cardVerticalFragment_to_cardVerticalPinFragment)
+                }
+                R.id.cardVerticalInformationFragment -> {
+                    localController.navigate(R.id.action_cardVerticalInformationFragment_to_cardVerticalPinFragment)
+                }
+                else -> {
+                    localController.navigate(R.id.action_cardVerticalPinFragment_to_cardVerticalFragment)
+                }
+            }
+        }
     }
 
 
-
-    private fun showHide(view:View) {
+    /*private fun showHide(view:View) {
         view.visibility = if (view.visibility == View.VISIBLE){
             View.GONE
         } else{
@@ -116,17 +153,22 @@ class CardInformationFragment : Fragment(), View.OnClickListener {
 
 
         }
-    }
+    }*/
 
-    override fun onClick(v: View?) {
+
+    /*override fun onClick(v: View?) {
         if(v?.id == R.id.btnShowInformation){
+
+            childFragmentManager.findFragmentById(R.id.nav_host_card_fragment) as NavHostFragment
+            findNavController().navigate(R.id.action_cardVerticalFragment_to_cardVerticalInformationFragment)
 
         }
         else if (v?.id == R.id.btnShowPIN){
 
 
+
         }
-    }
+    }*/
 
 }
 
