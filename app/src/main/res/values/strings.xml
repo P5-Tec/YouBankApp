@@ -37,4 +37,12 @@
     <string name="account_support_logout">Log Out</string>
 
 
+    <!-- Card Freeze modal -->
+    <string name="card_freeze_headline">Freeze the card ?</string>
+    <string name="card_freeze_subheader">All transactions will be locked</string>
+    <string name="card_freeze_subheader2">You can unfreeze at any time</string>
+    <string name="card_freeze_accept">Freeze</string>
+    <string name="card_freeze_cancel">Cancel</string>
+
+
 </resources>
