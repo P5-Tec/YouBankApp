@@ -1,16 +1,16 @@
-package com.example.youbank.fragments
+package com.example.youbank.fragments.FragmentLists
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.*
 import com.example.youbank.R
+import com.example.youbank.RecyclerViewAdapters.MyCardRecyclerViewAdapter
 import com.example.youbank.fragments.dummy.DummyContent
 
-class CardFragment : Fragment(), MyCardRecyclerViewAdapter.OnItemClickListener {
+class CardListFragment : Fragment() {
 
     private var columnCount = 1
 
@@ -42,18 +42,9 @@ class CardFragment : Fragment(), MyCardRecyclerViewAdapter.OnItemClickListener {
                 val snapHelper: SnapHelper = PagerSnapHelper()
                 snapHelper.attachToRecyclerView(rl)
 
-                adapter = MyCardRecyclerViewAdapter(DummyContent.ITEMS, this)
+                adapter = MyCardRecyclerViewAdapter(DummyContent.ITEMS)
             }
         }
         return view
     }
-
-    override fun onItemClick() {
-        TODO("Not yet implemented")
-    }
-/*override fun onItemClick()
-    {
-        findNavController().navigate(R.id.action_homeScreenFragment_to_cardOverviewFragment)
-    }*/
-
 }

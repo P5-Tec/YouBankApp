@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="0dp"
-    tools:context=".fragments.AccountSupportDialogFragment">
+    tools:context=".fragments.ButtomModals.AccountSupportDialogFragment">
 
     <TextView
         android:id="@+id/textView7"

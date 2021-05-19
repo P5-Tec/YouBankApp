@@ -1,4 +1,4 @@
-package com.example.youbank.fragments
+package com.example.youbank.fragments.Items
 
 import android.os.Bundle
 import android.view.LayoutInflater

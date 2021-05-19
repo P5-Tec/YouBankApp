@@ -7,7 +7,7 @@
     android:layout_height="180dp"
     android:layout_marginEnd="10dp"
     android:background="@drawable/square_rounded_corners"
-    tools:context=".fragments.CardItemFragment">
+    tools:context=".fragments.Items.CardItemFragment">
 
     <TextView
         android:id="@+id/txtBalance"

@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import com.example.youbank.R
-import com.example.youbank.fragments.AccountSupportDialogFragment
+import com.example.youbank.fragments.ButtomModals.AccountSupportDialogFragment
 
 
 class AcccountSupportDialogTestFragment : Fragment() {
