@@ -23,7 +23,8 @@
     <style name="Theme.YouBank.New">
         <item name="colorPrimary">@color/n_brand_main</item>
         <item name="colorOnPrimary">@color/white</item>
-        <item name="colorOnSurface">@color/n_surface</item>
+        <item name="colorOnSurface">@color/white</item>
+        <item name="colorSurface">@color/n_surface</item>
         <item name="backgroundColor">@color/holo_dark</item>
         <item name="colorOnBackground">@color/white</item>
         <item name="android:colorBackground">@color/holo_dark</item>
