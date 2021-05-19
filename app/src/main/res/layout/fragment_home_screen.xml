@@ -38,17 +38,17 @@
         android:name="com.example.youbank.fragments.CardFragment"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="32dp"/>
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="32dp"
+        tools:layout="@layout/card_item" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="16dp"
         android:text="Account"
         android:textColor="?attr/colorOnSecondary"
-        android:textSize="16sp"
-        android:layout_margin="16dp"/>
+        android:textSize="16sp" />
 
     <fragment
         android:id="@+id/accounts_list"
@@ -56,17 +56,17 @@
         android:layout_width="372dp"
         android:layout_height="80dp"
         android:layout_marginHorizontal="16dp"
-        tools:layout="@layout/fragment_account"/>
+        tools:layout="@layout/fragment_account" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="16dp"
         android:text="Transactions"
         android:textColor="?attr/colorOnSecondary"
-        android:textSize="16sp"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginBottom="16dp"
-        android:layout_marginTop="32dp"/>
+        android:textSize="16sp" />
 
     <fragment
         android:id="@+id/transactions_list"
@@ -74,6 +74,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginHorizontal="16dp"
-        tools:layout="@layout/transaction_item_list"/>
+        tools:layout="@layout/transaction_item_list" />
 
 </LinearLayout>

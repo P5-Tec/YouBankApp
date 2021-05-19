@@ -1,15 +1,16 @@
 package com.example.youbank.fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.*
 import com.example.youbank.R
 import com.example.youbank.fragments.dummy.DummyContent
 
-class CardFragment : Fragment() {
+class CardFragment : Fragment(), MyCardRecyclerViewAdapter.OnItemClickListener {
 
     private var columnCount = 1
 
@@ -41,24 +42,18 @@ class CardFragment : Fragment() {
                 val snapHelper: SnapHelper = PagerSnapHelper()
                 snapHelper.attachToRecyclerView(rl)
 
-                adapter = MyCardRecyclerViewAdapter(DummyContent.ITEMS)
+                adapter = MyCardRecyclerViewAdapter(DummyContent.ITEMS, this)
             }
         }
         return view
     }
 
-    companion object {
-
-        // TODO: Customize parameter argument names
-        const val ARG_COLUMN_COUNT = "column-count"
-
-        // TODO: Customize parameter initialization
-        @JvmStatic
-        fun newInstance(columnCount: Int) =
-            CardFragment().apply {
-                arguments = Bundle().apply {
-                    putInt(ARG_COLUMN_COUNT, columnCount)
-                }
-            }
+    override fun onItemClick() {
+        TODO("Not yet implemented")
     }
+/*override fun onItemClick()
+    {
+        findNavController().navigate(R.id.action_homeScreenFragment_to_cardOverviewFragment)
+    }*/
+
 }

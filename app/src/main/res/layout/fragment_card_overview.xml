@@ -29,35 +29,6 @@
         android:name="androidx.navigation.fragment.NavHostFragment"
         app:navGraph="@navigation/nav_graph_card" />
 
-    <!--<fragment
-        android:id="@+id/cardHolder"
-        android:name="com.example.youbank.fragments.CardVerticalFragment"
-        android:layout_width="250dp"
-        android:layout_height="400dp"
-        android:layout_gravity="bottom|center"
-        android:layout_margin="70dp"
-        tools:layout="@layout/fragment_card_vertical" />-->
-
-    <!--<LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_gravity="start|center"
-            app:srcCompat="@drawable/square_pic_frame" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@string/btn_freezecard"
-            android:textSize="16sp" />
-    </LinearLayout>-->
-
     <LinearLayout
         android:layout_width="350dp"
         android:layout_height="wrap_content"
@@ -68,7 +39,6 @@
             android:id="@+id/checkboxFreeze"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="?attr/colorOnPrimary"
             android:gravity="start|center_vertical"
             android:lineSpacingExtra="2dp"
             android:text="@string/btn_freezecard"
@@ -93,6 +63,5 @@
             android:text="Show PIN"
             android:textColor="?attr/colorOnSecondary" />
     </LinearLayout>
-
 
 </LinearLayout>
