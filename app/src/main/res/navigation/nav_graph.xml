@@ -3,12 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-<<<<<<< HEAD
-    app:startDestination="@id/itemListDialogFragment">
-
-=======
-    app:startDestination="@id/homeScreenFragment">
->>>>>>> feature_cardinformationscreen
+    app:startDestination="@id/greeterFragment">
 
     <fragment
         android:id="@+id/greeterFragment"
