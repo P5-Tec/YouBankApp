@@ -3,14 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
+<<<<<<< HEAD
     app:startDestination="@id/itemListDialogFragment">
 
+=======
+    app:startDestination="@id/homeScreenFragment">
+>>>>>>> feature_cardinformationscreen
 
     <fragment
         android:id="@+id/greeterFragment"
         android:name="com.example.youbank.fragments.GreeterFragment"
         android:label="fragment_greeter"
-        tools:layout="@layout/fragment_greeter" >
+        tools:layout="@layout/fragment_greeter">
         <action
             android:id="@+id/action_greeterFragment_to_accountCreationFragment"
             app:destination="@id/accountCreationFragment"
@@ -26,7 +30,7 @@
         android:id="@+id/accountCreationFragment"
         android:name="com.example.youbank.fragments.AccountCreationFragment"
         android:label="fragment_account_creation"
-        tools:layout="@layout/fragment_account_creation" >
+        tools:layout="@layout/fragment_account_creation">
         <action
             android:id="@+id/action_accountCreationFragment_to_greeterFragment"
             app:destination="@id/greeterFragment"
@@ -37,7 +41,7 @@
         android:id="@+id/keypadFragment"
         android:name="com.example.youbank.fragments.KeypadFragment"
         android:label="fragment_keypad"
-        tools:layout="@layout/fragment_keypad" >
+        tools:layout="@layout/fragment_keypad">
         <action
             android:id="@+id/action_keypadFragment_to_homeScreenFragment"
             app:destination="@id/homeScreenFragment"
@@ -48,18 +52,23 @@
         android:id="@+id/homeScreenFragment"
         android:name="com.example.youbank.fragments.HomeScreenFragment"
         android:label="fragment_home_screen"
-        tools:layout="@layout/fragment_home_screen" >
+        tools:layout="@layout/fragment_home_screen">
         <action
             android:id="@+id/action_homeScreenFragment_to_accountOverviewFragment"
             app:destination="@id/accountOverviewFragment"
             app:enterAnim="@anim/fragment_fade_enter"
             app:exitAnim="@anim/fragment_fade_exit" />
+        <action
+            android:id="@+id/action_homeScreenFragment_to_cardOverviewFragment"
+            app:destination="@id/cardOverviewFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
     <fragment
         android:id="@+id/accountOverviewFragment"
         android:name="com.example.youbank.fragments.AccountOverviewFragment"
         android:label="fragment_account_overview"
-        tools:layout="@layout/fragment_account_overview" >
+        tools:layout="@layout/fragment_account_overview">
         <action
             android:id="@+id/action_accountOverviewFragment2_to_transferFragment"
             app:destination="@id/transferFragment"
@@ -72,7 +81,14 @@
         android:label="fragment_transfer"
         tools:layout="@layout/fragment_transfer" />
     <fragment
+<<<<<<< HEAD
         android:id="@+id/itemListDialogFragment"
         android:name="com.example.youbank.fragments.BottomFragmentFreezeCard.ItemListDialogFragment"
         android:label="ItemListDialogFragment" />
+=======
+        android:id="@+id/cardOverviewFragment"
+        android:name="com.example.youbank.fragments.CardOverviewFragment"
+        android:label="fragment_card_overview"
+        tools:layout="@layout/fragment_card_overview" />
+>>>>>>> feature_cardinformationscreen
 </navigation>

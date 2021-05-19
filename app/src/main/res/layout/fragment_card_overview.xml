@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".fragments.CardOverviewFragment">
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/backbtn"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:backgroundTint="?attr/backgroundColor"
+        app:icon="@drawable/ic_baseline_arrow_back_24"
+        app:iconGravity="start"
+        app:iconTint="?attr/colorOnSecondary"
+        tools:ignore="MissingConstraints" />
+
+    <fragment
+        android:id="@+id/nav_host_card_fragment"
+        android:layout_width="250dp"
+        android:layout_height="400dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="70dp"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        app:navGraph="@navigation/nav_graph_card" />
+
+    <LinearLayout
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/checkboxFreeze"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start|center_vertical"
+            android:lineSpacingExtra="2dp"
+            android:text="@string/btn_freezecard"
+            android:textColor="?attr/colorOnSecondary" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnShowInformation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start|center_vertical"
+            android:lineSpacingExtra="2dp"
+            android:padding="15dp"
+            android:text="@string/btn_showinformation"
+            android:textColor="?attr/colorOnSecondary" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnShowPIN"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start|center_vertical"
+            android:padding="15dp"
+            android:text="Show PIN"
+            android:textColor="?attr/colorOnSecondary" />
+    </LinearLayout>
+
+</LinearLayout>

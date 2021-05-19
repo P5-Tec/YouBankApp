@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.youbank.R
+import com.example.youbank.RecyclerViewAdapters.MyTransactionListRecyclerViewAdapter
 import com.example.youbank.fragments.dummy.DummyContent
 
 /**

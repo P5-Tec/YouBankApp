@@ -1,14 +1,16 @@
-package com.example.youbank.fragments
+package com.example.youbank.fragments.ButtomModals
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import com.example.youbank.R
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.example.youbank.fragments.ButtomModals.AccountSupportDialogFragment
 
-class AccountSupportDialogFragment : BottomSheetDialogFragment() {
+
+class AcccountSupportDialogTestFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,19 +21,17 @@ class AccountSupportDialogFragment : BottomSheetDialogFragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_account_support_dialog, container, false)
+        return inflater.inflate(R.layout.fragment_freeze_card_test, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        view.findViewById<Button>(R.id.freeze).setOnClickListener {
+            //ItemListDialogFragment.newInstance(30).show(childFragmentManager, "dialog",)
+            AccountSupportDialogFragment.newInstance().show(childFragmentManager, "dialog")
+
+        }
     }
 
-    companion object {
-
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance() =
-            AccountSupportDialogFragment().apply {
-            }
-    }
 }

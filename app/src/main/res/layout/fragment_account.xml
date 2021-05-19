@@ -7,7 +7,7 @@
     android:background="@drawable/square_rounded_corners"
     android:padding="16dp"
     android:id="@+id/clayout"
-    tools:context=".fragments.AccountFragment">
+    tools:context=".fragments.Items.AccountFragment">
 
     <ImageView
         android:id="@+id/pic"

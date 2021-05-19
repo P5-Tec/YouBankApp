@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_card"
+    app:startDestination="@id/cardVerticalFragment">
+
+    <fragment
+        android:id="@+id/cardVerticalFragment"
+        android:name="com.example.youbank.fragments.CardVerticalFragment"
+        android:label="fragment_card_vertical"
+        tools:layout="@layout/fragment_card_vertical" >
+        <action
+            android:id="@+id/action_cardVerticalFragment_to_cardVerticalInformationFragment"
+            app:destination="@id/cardVerticalInformationFragment"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit" />
+        <action
+            android:id="@+id/action_cardVerticalFragment_to_cardVerticalPinFragment"
+            app:destination="@id/cardVerticalPinFragment"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit" />
+    </fragment>
+    <fragment
+        android:id="@+id/cardVerticalInformationFragment"
+        android:name="com.example.youbank.fragments.CardVerticalInformationFragment"
+        android:label="fragment_card_vertical_information"
+        tools:layout="@layout/fragment_card_vertical_information" >
+        <action
+            android:id="@+id/action_cardVerticalInformationFragment_to_cardVerticalFragment"
+            app:destination="@id/cardVerticalFragment"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit" />
+        <action
+            android:id="@+id/action_cardVerticalInformationFragment_to_cardVerticalPinFragment"
+            app:destination="@id/cardVerticalPinFragment"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit" />
+    </fragment>
+    <fragment
+        android:id="@+id/cardVerticalPinFragment"
+        android:name="com.example.youbank.fragments.CardVerticalPinFragment"
+        android:label="fragment_card_vertical_pin"
+        tools:layout="@layout/fragment_card_vertical_pin" >
+        <action
+            android:id="@+id/action_cardVerticalPinFragment_to_cardVerticalFragment"
+            app:destination="@id/cardVerticalFragment"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit" />
+        <action
+            android:id="@+id/action_cardVerticalPinFragment_to_cardVerticalInformationFragment"
+            app:destination="@id/cardVerticalInformationFragment"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit" />
+    </fragment>
+</navigation>
