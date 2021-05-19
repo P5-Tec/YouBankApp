@@ -76,14 +76,8 @@
         android:label="fragment_transfer"
         tools:layout="@layout/fragment_transfer" />
     <fragment
-<<<<<<< HEAD
-        android:id="@+id/itemListDialogFragment"
-        android:name="com.example.youbank.fragments.BottomFragmentFreezeCard.ItemListDialogFragment"
-        android:label="ItemListDialogFragment" />
-=======
         android:id="@+id/cardOverviewFragment"
         android:name="com.example.youbank.fragments.CardOverviewFragment"
         android:label="fragment_card_overview"
         tools:layout="@layout/fragment_card_overview" />
->>>>>>> feature_cardinformationscreen
 </navigation>

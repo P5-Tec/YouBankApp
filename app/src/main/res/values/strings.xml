@@ -37,7 +37,7 @@
     <string name="account_support_logout">Log Out</string>
 
 
-<<<<<<< HEAD
+
     <!-- Card Freeze modal -->
     <string name="card_freeze_headline">Freeze the card ?</string>
     <string name="card_freeze_subheader">All transactions will be locked</string>
@@ -45,9 +45,8 @@
     <string name="card_freeze_accept">Freeze</string>
     <string name="card_freeze_cancel">Cancel</string>
 
-=======
     <string name="btn_freezecard"><font size="16">Freeze Card</font>\n\<font size="8">All new transactions will be declined</font></string>
     <string name="btn_showinformation"><font size="16">Show Information</font>\n\<font size="8">Card number, Expiry date and CCV</font></string>
->>>>>>> feature_cardinformationscreen
+
 
 </resources>
