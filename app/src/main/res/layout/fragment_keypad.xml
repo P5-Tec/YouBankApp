@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
-    android:background="@color/black"
     android:orientation="horizontal"
     tools:context=".fragments.KeypadFragment">
 
@@ -26,7 +25,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="300dp"
         android:text="Hejsa, Mette"
-        android:textColor="@color/white"
+        android:textColor="?attr/colorOnSecondary"
         android:textSize="20sp" />
 
     <LinearLayout
@@ -39,25 +38,25 @@
             android:id="@+id/circl1"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/ic_baseline_circle_24" />
+            android:src="@drawable/ic_keypad_password_circle" />
 
         <ImageView
             android:id="@+id/circl2"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/ic_baseline_circle_24" />
+            android:src="@drawable/ic_keypad_password_circle" />
 
         <ImageView
             android:id="@+id/circl3"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/ic_baseline_circle_24" />
+            android:src="@drawable/ic_keypad_password_circle" />
 
         <ImageView
             android:id="@+id/circl4"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/ic_baseline_circle_24" />
+            android:src="@drawable/ic_keypad_password_circle" />
     </LinearLayout>
 
     <GridLayout
@@ -153,7 +152,7 @@
             android:layout_column="2"
             android:layout_columnWeight="1"
             android:layout_gravity="center"
-            android:background="@drawable/ic_baseline_fingerprint_24_white" />
+            android:background="@drawable/ic_baseline_fingerprint_24" />
 
     </GridLayout>
 

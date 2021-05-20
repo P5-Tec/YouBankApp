@@ -32,7 +32,6 @@ class CardOverviewFragment : Fragment() {
         val btnShowInformation: MaterialButton = view.findViewById(R.id.btnShowInformation)
         val btnShowPIN: MaterialButton = view.findViewById(R.id.btnShowPIN)
 
-
         btnShowInformation.setOnClickListener {
             val localNavHostFragment =
                 childFragmentManager.findFragmentById(R.id.nav_host_card_fragment) as NavHostFragment

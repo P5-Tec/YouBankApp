@@ -1,4 +1,4 @@
-package com.example.youbank.RecyclerViewAdapters
+package com.example.youbank.recyclerViewAdapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -9,9 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.youbank.R
 import com.example.youbank.fragments.dummy.DummyContent.DummyItem
 
-
-class MyCardRecyclerViewAdapter(private val values: List<DummyItem>) :
-    RecyclerView.Adapter<MyCardRecyclerViewAdapter.ViewHolder>() {
+class MyCardRecyclerViewAdapter(private val values: List<DummyItem>) : RecyclerView.Adapter<MyCardRecyclerViewAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -24,17 +22,14 @@ class MyCardRecyclerViewAdapter(private val values: List<DummyItem>) :
         val item = values[position]
         holder.idView.text = item.id
 
-        holder.itemView.setOnClickListener(){
+        holder.itemView.setOnClickListener {
             holder.itemView.findNavController().navigate(R.id.action_homeScreenFragment_to_cardOverviewFragment)
         }
-
     }
 
     override fun getItemCount(): Int = values.size
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val idView: TextView = view.findViewById(R.id.txtBalance)
-
     }
-
 }

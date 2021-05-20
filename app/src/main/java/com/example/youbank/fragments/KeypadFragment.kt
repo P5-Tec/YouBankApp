@@ -1,5 +1,6 @@
 package com.example.youbank.fragments
 
+import android.content.res.Configuration
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.youbank.R
@@ -18,11 +20,9 @@ class KeypadFragment : Fragment(), View.OnClickListener {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-
         return inflater.inflate(R.layout.fragment_keypad, container, false)
     }
 
@@ -100,7 +100,8 @@ class KeypadFragment : Fragment(), View.OnClickListener {
                 Toast.makeText(this.context, "Correct", Toast.LENGTH_SHORT).show()
                 valueString = ""
                 findNavController().navigate(R.id.action_keypadFragment_to_homeScreenFragment)
-            } else {
+            }
+            else {
                 Toast.makeText(this.context, "Incorrect", Toast.LENGTH_SHORT).show()
                 valueString = ""
             }
@@ -116,24 +117,51 @@ class KeypadFragment : Fragment(), View.OnClickListener {
         val circle3: ImageView? = view?.findViewById(R.id.circl3)
         val circle4: ImageView? = view?.findViewById(R.id.circl4)
 
-        when (valueString.length) {
-            1 -> {
-                circle1?.setImageResource(R.drawable.circle_white)
+        when (context?.resources?.configuration?.uiMode?.and(Configuration.UI_MODE_NIGHT_MASK)) {
+
+            Configuration.UI_MODE_NIGHT_YES -> {
+                when (valueString.length) {
+                    1 -> {
+                        circle1?.setColorFilter(ContextCompat.getColor(requireContext(), R.color.brand_main))
+                    }
+                    2 -> {
+                        circle2?.setColorFilter(ContextCompat.getColor(requireContext(), R.color.brand_main))
+                    }
+                    3 -> {
+                        circle3?.setColorFilter(ContextCompat.getColor(requireContext(), R.color.brand_main))
+                    }
+                    4 -> {
+                        circle4?.setColorFilter(ContextCompat.getColor(requireContext(), R.color.brand_main))
+                    }
+                    else -> {
+                        circle1?.setColorFilter(ContextCompat.getColor(requireContext(), R.color.white))
+                        circle2?.setColorFilter(ContextCompat.getColor(requireContext(), R.color.white))
+                        circle3?.setColorFilter(ContextCompat.getColor(requireContext(), R.color.white))
+                        circle4?.setColorFilter(ContextCompat.getColor(requireContext(), R.color.white))
+                    }
+                }
             }
-            2 -> {
-                circle2?.setImageResource(R.drawable.circle_white)
-            }
-            3 -> {
-                circle3?.setImageResource(R.drawable.circle_white)
-            }
-            4 -> {
-                circle4?.setImageResource(R.drawable.circle_white)
-            }
-            else -> {
-                circle1?.setImageResource(R.drawable.ic_baseline_circle_24)
-                circle2?.setImageResource(R.drawable.ic_baseline_circle_24)
-                circle3?.setImageResource(R.drawable.ic_baseline_circle_24)
-                circle4?.setImageResource(R.drawable.ic_baseline_circle_24)
+            Configuration.UI_MODE_NIGHT_NO -> {
+                when (valueString.length) {
+                    1 -> {
+                        circle1?.setColorFilter(ContextCompat.getColor(requireContext(), R.color.brand_main))
+                    }
+                    2 -> {
+                        circle2?.setColorFilter(ContextCompat.getColor(requireContext(), R.color.brand_main))
+                    }
+                    3 -> {
+                        circle3?.setColorFilter(ContextCompat.getColor(requireContext(), R.color.brand_main))
+                    }
+                    4 -> {
+                        circle4?.setColorFilter(ContextCompat.getColor(requireContext(), R.color.brand_main))
+                    }
+                    else -> {
+                        circle1?.setColorFilter(ContextCompat.getColor(requireContext(), R.color.black))
+                        circle2?.setColorFilter(ContextCompat.getColor(requireContext(), R.color.black))
+                        circle3?.setColorFilter(ContextCompat.getColor(requireContext(), R.color.black))
+                        circle4?.setColorFilter(ContextCompat.getColor(requireContext(), R.color.black))
+                    }
+                }
             }
         }
     }
