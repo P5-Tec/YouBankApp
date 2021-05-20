@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
 import com.example.youbank.R
 import com.google.android.material.button.MaterialButton
 
@@ -31,6 +32,10 @@ class CardOverviewFragment : Fragment() {
 
         val btnShowInformation: MaterialButton = view.findViewById(R.id.btnShowInformation)
         val btnShowPIN: MaterialButton = view.findViewById(R.id.btnShowPIN)
+
+        view.findViewById<MaterialButton>(R.id.backbtn).setOnClickListener {
+            findNavController().navigate(R.id.action_cardOverviewBackBtn)
+        }
 
         btnShowInformation.setOnClickListener {
             val localNavHostFragment =

@@ -11,7 +11,6 @@ import com.example.youbank.R
 
 class AccountCreationFragment : Fragment() {
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -28,7 +27,7 @@ class AccountCreationFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         view.findViewById<Button>(R.id.backbtn).setOnClickListener {
-            findNavController().navigate(R.id.action_accountCreationFragment_to_greeterFragment)
+            findNavController().navigate(R.id.action_accountCreationBackBtn)
         }
     }
 }
