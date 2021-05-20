@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/homeScreenFragment">
+    app:startDestination="@id/homeScreenFragment2">
 
 
     <fragment
@@ -72,7 +72,8 @@
         android:label="fragment_transfer"
         tools:layout="@layout/fragment_transfer" />
     <fragment
-        android:id="@+id/itemListDialogFragment"
-        android:name="com.example.youbank.fragments.BottomFragmentFreezeCard.ItemListDialogFragment"
-        android:label="ItemListDialogFragment" />
+        android:id="@+id/homeScreenFragment2"
+        android:name="com.example.youbank.fragments.HomeScreenFragment2"
+        android:label="fragment_home_screen_motion"
+        tools:layout="@layout/fragment_home_screen_motion" />
 </navigation>
