@@ -7,7 +7,7 @@
     android:background="@drawable/square_rounded_corners"
     android:padding="16dp"
     android:id="@+id/clayout"
-    tools:context=".fragments.Items.AccountFragment">
+    tools:context=".fragments.items.AccountFragment">
 
     <ImageView
         android:id="@+id/pic"
@@ -15,7 +15,7 @@
         android:layout_height="50dp"
         android:layout_marginStart="4dp"
         android:contentDescription="Account image"
-        android:src="@drawable/ic_baseline_circle_24"
+        android:src="@drawable/ic_keypad_password_circle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

@@ -1,4 +1,4 @@
-package com.example.youbank.fragments.FragmentLists
+package com.example.youbank.fragments.fragmentLists
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.*
 import com.example.youbank.R
-import com.example.youbank.RecyclerViewAdapters.MyCardRecyclerViewAdapter
+import com.example.youbank.recyclerViewAdapters.MyCardRecyclerViewAdapter
 import com.example.youbank.fragments.dummy.DummyContent
 
 class CardListFragment : Fragment() {

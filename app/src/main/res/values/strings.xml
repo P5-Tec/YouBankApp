@@ -15,11 +15,9 @@
     <string name="greet_login">Login</string>
     <string name="greet_create_account">Create Account</string>
 
-
     <!-- Content descriptions -->
     <string name="greet_logo_descriptions">YouBank Logo</string>
     <string name="fake_profile_img"></string>
-
 
     <!-- Account creation -->
     <string name="account_create_btn">Create Account</string>
@@ -36,8 +34,6 @@
     <string name="account_support_chat_sub">24/7 Meme support</string>
     <string name="account_support_logout">Log Out</string>
 
-
-
     <!-- Card Freeze modal -->
     <string name="card_freeze_headline">Freeze the card ?</string>
     <string name="card_freeze_subheader">All transactions will be locked</string>
@@ -47,6 +43,5 @@
 
     <string name="btn_freezecard"><font size="16">Freeze Card</font>\n\<font size="8">All new transactions will be declined</font></string>
     <string name="btn_showinformation"><font size="16">Show Information</font>\n\<font size="8">Card number, Expiry date and CCV</font></string>
-
 
 </resources>

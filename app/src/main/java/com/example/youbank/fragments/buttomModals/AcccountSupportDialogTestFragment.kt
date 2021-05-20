@@ -1,4 +1,4 @@
-package com.example.youbank.fragments.ButtomModals
+package com.example.youbank.fragments.buttomModals
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,8 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import com.example.youbank.R
-import com.example.youbank.fragments.ButtomModals.AccountSupportDialogFragment
-
 
 class AcccountSupportDialogTestFragment : Fragment() {
 
