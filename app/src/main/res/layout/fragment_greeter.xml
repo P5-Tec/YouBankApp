@@ -21,12 +21,12 @@
         tools:ignore="MissingConstraints" />
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/createAccBtn"
         android:layout_width="300dp"
         android:layout_height="60dp"
         android:layout_marginBottom="24dp"
-        android:textColor="?attr/colorOnPrimary"
         android:text="@string/greet_create_account"
-        android:id="@+id/createAccBtn"
+        android:textColor="?attr/colorOnPrimary"
         app:layout_constraintBottom_toTopOf="@+id/loginBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -36,12 +36,12 @@
         android:layout_width="300dp"
         android:layout_height="60dp"
         android:layout_marginBottom="16dp"
-        android:text="@string/greet_login"
         android:backgroundTint="?attr/colorPrimaryVariant"
+        android:text="@string/greet_login"
         android:textColor="?attr/colorOnPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
