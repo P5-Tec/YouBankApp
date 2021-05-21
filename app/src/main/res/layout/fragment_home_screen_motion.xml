@@ -52,15 +52,13 @@
 
         <fragment
             android:id="@+id/cards_list"
-            android:name="com.example.youbank.fragments.CardFragment"
+            android:name="com.example.youbank.fragments.fragmentLists.CardListFragment"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
-            app:layout_constraintHorizontal_bias="0.0"
-            tools:ignore="MissingConstraints" />
+            tools:layout="@layout/card_item" />
     </LinearLayout>
-
 
     <LinearLayout
         android:id="@+id/account_box"
@@ -86,7 +84,7 @@
 
         <fragment
             android:id="@+id/accounts_list"
-            android:name="com.example.youbank.fragments.AccountFragment"
+            android:name="com.example.youbank.fragments.items.AccountFragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"

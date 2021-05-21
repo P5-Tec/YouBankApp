@@ -23,7 +23,6 @@
 
     </style>
 
-
     <style name="Theme.YouBank.New">
         <item name="colorPrimary">@color/n_brand_main</item>
         <item name="colorOnPrimary">@color/white</item>

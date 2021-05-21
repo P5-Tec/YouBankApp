@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.*
 import com.example.youbank.R
-import com.example.youbank.recyclerViewAdapters.MyCardRecyclerViewAdapter
+import com.example.youbank.fragments.recyclerViewAdapters.MyCardRecyclerViewAdapter
 import com.example.youbank.fragments.dummy.DummyContent
 
 class CardListFragment : Fragment() {
