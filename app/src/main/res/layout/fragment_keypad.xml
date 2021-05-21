@@ -131,7 +131,7 @@
             android:text="9" />
 
         <Button
-            android:id="@+id/btnForgotPass"
+            android:id="@+id/btnForgotPassword"
             style="@style/pinBtnStyle"
             android:layout_column="0"
             android:layout_columnWeight="1"
