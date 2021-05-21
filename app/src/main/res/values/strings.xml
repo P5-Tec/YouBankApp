@@ -9,7 +9,7 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-    <!-- TODO: Remove or change this placeholder text -->
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string name="greet_login">Login</string>
@@ -40,6 +40,10 @@
     <string name="card_freeze_subheader2">You can unfreeze at any time</string>
     <string name="card_freeze_accept">Freeze</string>
     <string name="card_freeze_cancel">Cancel</string>
+
+    <!-- Forgot Password -->
+    <string name="forgot_password_text">Have you forgotten your password? Oh no! Do not worry, we got your back covered. Please enter your email below, and we\'ll reset it for you.
+        </string>
 
     <string name="btn_freezecard"><font size="16">Freeze Card</font>\n\<font size="8">All new transactions will be declined</font></string>
     <string name="btn_showinformation"><font size="16">Show Information</font>\n\<font size="8">Card number, Expiry date and CCV</font></string>

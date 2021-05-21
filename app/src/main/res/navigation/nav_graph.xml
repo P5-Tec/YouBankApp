@@ -9,7 +9,6 @@
         android:id="@+id/greeterFragment"
         android:name="com.example.youbank.fragments.GreeterFragment"
         android:label="fragment_greeter"
-        app:startDestination="@id/action_greeterFragment_to_accountCreationFragment"
         tools:layout="@layout/fragment_greeter">
         <action
             android:id="@+id/action_greeterFragment_to_accountCreationFragment"
