@@ -34,7 +34,7 @@ class CardOverviewFragment : Fragment() {
         val btnShowPIN: MaterialButton = view.findViewById(R.id.btnShowPIN)
 
         view.findViewById<MaterialButton>(R.id.backbtn).setOnClickListener {
-            findNavController().navigate(R.id.action_cardOverviewBackBtn)
+            findNavController().navigate(R.id.action_cardOverviewFragmentBackBtn)
         }
 
         btnShowInformation.setOnClickListener {

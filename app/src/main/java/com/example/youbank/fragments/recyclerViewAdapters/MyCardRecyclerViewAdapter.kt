@@ -1,4 +1,4 @@
-package com.example.youbank.recyclerViewAdapters
+package com.example.youbank.fragments.recyclerViewAdapters
 
 import android.view.LayoutInflater
 import android.view.View

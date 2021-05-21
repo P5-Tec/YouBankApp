@@ -21,7 +21,7 @@ object DummyContent {
      */
     val ITEM_MAP: MutableMap<String, DummyItem> = HashMap()
 
-    private val COUNT = 10
+    private val COUNT = 100
 
     init {
         // Add some sample items.

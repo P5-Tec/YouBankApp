@@ -9,8 +9,8 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.youbank.R
-import com.example.youbank.recyclerViewAdapters.MyTransactionListRecyclerViewAdapter
 import com.example.youbank.fragments.dummy.DummyContent
+import com.example.youbank.fragments.recyclerViewAdapters.MyTransactionListRecyclerViewAdapter
 
 class TransactionListFragment : Fragment() {
 
@@ -33,6 +33,7 @@ class TransactionListFragment : Fragment() {
                     columnCount <= 1 -> LinearLayoutManager(context)
                     else -> GridLayoutManager(context, columnCount)
                 }
+
                 adapter = MyTransactionListRecyclerViewAdapter(DummyContent.ITEMS)
             }
         }
