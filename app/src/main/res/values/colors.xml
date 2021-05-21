@@ -11,5 +11,14 @@
     <!-- Custom colors-->
     <color name="brand_main">#30D95D</color>
     <color name="holo_dark">#121212</color>
-    <color name="redColor">#e00000</color>
+
+
+    <!-- New Colors -->
+    <color name="n_brand_main">#319B41</color>
+    <color name="n_brand_sec">#EC8E3C</color>
+    <color name="color_error">#E55838</color>
+    <color name="n_bg">#121212</color>
+    <color name="n_surface">#292929</color>
+    <color name="n_color_on_primary">#E4E4E4</color>
+    <color name="n_stroke_brand">#FAFAFA</color>
 </resources>
