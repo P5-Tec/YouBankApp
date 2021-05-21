@@ -9,6 +9,7 @@
         android:id="@+id/greeterFragment"
         android:name="com.example.youbank.fragments.GreeterFragment"
         android:label="fragment_greeter"
+        app:startDestination="@id/action_greeterFragment_to_accountCreationFragment"
         tools:layout="@layout/fragment_greeter">
         <action
             android:id="@+id/action_greeterFragment_to_accountCreationFragment"
@@ -49,6 +50,13 @@
             app:destination="@id/homeScreenFragment"
             app:enterAnim="@anim/fragment_fade_enter"
             app:exitAnim="@anim/fragment_fade_exit" />
+        <action
+            android:id="@+id/action_keypadFragment_to_forgotPasswordFragment"
+            app:destination="@id/forgotPasswordFragment"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/accountOverviewFragment"
@@ -74,7 +82,7 @@
         android:id="@+id/transferFragment"
         android:name="com.example.youbank.fragments.TransferFragment"
         android:label="fragment_transfer"
-        tools:layout="@layout/fragment_transfer" >
+        tools:layout="@layout/fragment_transfer">
         <action
             android:id="@+id/action_transferBackBtn"
             app:destination="@id/accountOverviewFragment"
@@ -89,7 +97,7 @@
         android:id="@+id/cardOverviewFragment"
         android:name="com.example.youbank.fragments.CardOverviewFragment"
         android:label="fragment_card_overview"
-        tools:layout="@layout/fragment_card_overview" >
+        tools:layout="@layout/fragment_card_overview">
         <action
             android:id="@+id/action_cardOverviewFragmentBackBtn"
             app:destination="@id/homeScreenFragment"
@@ -102,7 +110,7 @@
         android:id="@+id/homeScreenFragment"
         android:name="com.example.youbank.fragments.HomeScreenFragment2"
         android:label="fragment_home_screen_motion"
-        tools:layout="@layout/fragment_home_screen_motion" >
+        tools:layout="@layout/fragment_home_screen_motion">
         <action
             android:id="@+id/action_homeScreenFragment_to_cardOverviewFragment"
             app:destination="@id/cardOverviewFragment"
@@ -124,5 +132,16 @@
             app:exitAnim="@anim/fragment_close_exit"
             app:popUpTo="@id/greeterFragment"
             app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/forgotPasswordFragment"
+        android:name="com.example.youbank.fragments.ForgotPasswordFragment"
+        android:label="ForgotPasswordFragment"
+        tools:layout="@layout/fragment_forgot_password">
+        <action
+            android:id="@+id/action_forgotPasswordFragmentBackBtn"
+            app:destination="@id/keypadFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right" />
     </fragment>
 </navigation>

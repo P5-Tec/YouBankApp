@@ -50,6 +50,10 @@ class KeypadFragment : Fragment(), View.OnClickListener {
         btn8.setOnClickListener(this)
         btn9.setOnClickListener(this)
         btn0.setOnClickListener(this)
+
+        view.findViewById<Button>(R.id.btnForgotPassword).setOnClickListener {
+            findNavController().navigate(R.id.action_keypadFragment_to_forgotPasswordFragment)
+        }
     }
 
     private val correctString: String = "5555"
@@ -91,7 +95,7 @@ class KeypadFragment : Fragment(), View.OnClickListener {
     }
 
     private fun password(value: Int) {
-        valueString += value;
+        valueString += value
 
         highlightCircles()
 
@@ -166,4 +170,3 @@ class KeypadFragment : Fragment(), View.OnClickListener {
         }
     }
 }
-
