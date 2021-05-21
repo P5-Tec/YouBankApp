@@ -16,7 +16,6 @@
         android:layout_height="40dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="4dp"
-        android:backgroundTint="?attr/backgroundColor"
         app:icon="@drawable/ic_baseline_arrow_back_24"
         app:iconGravity="start"
         app:iconTint="?attr/colorOnSecondary"
