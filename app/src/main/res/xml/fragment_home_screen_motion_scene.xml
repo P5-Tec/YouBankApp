@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetEnd="@+id/end"
+        motion:constraintSetStart="@id/start"
+        motion:duration="1000"
+        motion:pathMotionArc="none">
+       <KeyFrameSet>
+           <KeyAttribute
+               motion:motionTarget="@id/card_box"
+               motion:framePosition="100"
+               android:alpha="0.1" />
+       </KeyFrameSet>
+        <OnSwipe
+            motion:touchAnchorId="@+id/transaction_box"
+            motion:touchAnchorSide="top" />
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+        <Constraint
+            android:id="@+id/card_box"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            motion:layout_constraintTop_toBottomOf="@id/header_box"
+            motion:layout_constraintStart_toStartOf="parent"
+            android:visibility="visible"
+            android:layout_marginTop="16dp" />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@+id/card_box"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="visible"
+            motion:layout_constraintTop_toBottomOf="@id/header_box"
+            motion:layout_constraintStart_toStartOf="parent" />
+        <Constraint
+            motion:layout_constraintEnd_toEndOf="@id/guideline10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            motion:layout_constraintTop_toBottomOf="@id/card_box"
+            motion:layout_constraintStart_toStartOf="@id/guideline9"
+            android:layout_marginTop="0dp"
+            android:id="@+id/account_box" />
+    </ConstraintSet>
+</MotionScene>
