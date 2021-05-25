@@ -10,6 +10,7 @@ import com.example.youbank.fragments.buttomModals.AccountSupportDialogFragment
 import com.google.android.material.imageview.ShapeableImageView
 
 class HomeScreenFragment : Fragment() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }

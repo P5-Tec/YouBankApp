@@ -37,10 +37,6 @@
         android:layout_width="300dp"
         android:layout_height="60dp"
         android:layout_marginBottom="16dp"
-<<<<<<< HEAD
-        android:backgroundTint="?attr/colorPrimaryVariant"
-=======
->>>>>>> feature
         android:text="@string/greet_login"
         android:textColor="?attr/colorOnPrimary"
         android:backgroundTint="?attr/materialButtonTint"

@@ -26,10 +26,6 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="300dp"
         android:text="Hejsa, Mette"
-<<<<<<< HEAD
-
-=======
->>>>>>> feature
         android:textColor="?attr/colorOnBackground"
         android:textSize="20sp" />
 
@@ -158,12 +154,7 @@
             android:layout_columnWeight="1"
             android:layout_gravity="center"
             android:backgroundTint="?attr/colorOnBackground"
-<<<<<<< HEAD
-            android:background="@drawable/ic_baseline_fingerprint_24_white" />
-=======
             android:background="@drawable/ic_baseline_fingerprint_24" />
-
->>>>>>> feature
     </GridLayout>
 
 </FrameLayout>
