@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?attr/backgroundColor"
     tools:context=".fragments.GreeterFragment">
 
     <ImageView
@@ -26,6 +27,7 @@
         android:layout_marginBottom="24dp"
         android:text="@string/greet_create_account"
         android:textColor="?attr/colorOnPrimary"
+        android:backgroundTint="?attr/materialButtonTint"
         app:layout_constraintBottom_toTopOf="@+id/loginBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -38,6 +40,7 @@
         android:backgroundTint="?attr/colorPrimaryVariant"
         android:text="@string/greet_login"
         android:textColor="?attr/colorOnPrimary"
+        android:backgroundTint="?attr/materialButtonTint"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
