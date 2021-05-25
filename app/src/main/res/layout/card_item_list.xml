@@ -5,5 +5,5 @@
     android:name="com.example.youbank.fragments.CardFragment"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".fragments.CardFragment"
+    tools:context=".fragments.fragmentLists.CardListFragment"
     tools:listitem="@layout/card_item" />

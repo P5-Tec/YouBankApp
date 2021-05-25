@@ -1,10 +1,11 @@
-package com.example.youbank.fragments
+package com.example.youbank.fragments.buttomModals
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.navigation.fragment.findNavController
 import com.example.youbank.R
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
@@ -24,6 +25,11 @@ class AccountSupportDialogFragment : BottomSheetDialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val logoutHeader: TextView = view.findViewById(R.id.LogoutHeader)
+        logoutHeader.setOnClickListener{
+            findNavController().navigate(R.id.action_homeScreenFragmentLogOut)
+        }
     }
 
     companion object {
@@ -31,7 +37,6 @@ class AccountSupportDialogFragment : BottomSheetDialogFragment() {
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance() =
-            AccountSupportDialogFragment().apply {
-            }
+            AccountSupportDialogFragment().apply { }
     }
 }

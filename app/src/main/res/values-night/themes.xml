@@ -18,8 +18,11 @@
         <item name="shapeAppearanceLargeComponent">@style/dialog_round</item>
 
         <item name="strokeColor">@color/white</item>
-    </style>
 
+        <!-- Makes checkboxes green when checked -->
+        <item name="buttonTint">@color/brand_main</item>
+
+    </style>
 
     <style name="Theme.YouBank.New">
         <item name="colorPrimary">@color/n_brand_main</item>

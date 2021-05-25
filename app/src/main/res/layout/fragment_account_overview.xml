@@ -177,8 +177,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="Transactions"
-        android:textSize="16dp"
         android:textColor="?attr/colorOnBackground"
+        android:textSize="16dp"
         app:layout_constraintStart_toStartOf="@+id/left_spacing_guideline"
         app:layout_constraintTop_toTopOf="@+id/button_spacing_guideline" />
 

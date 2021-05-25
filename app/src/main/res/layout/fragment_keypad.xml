@@ -26,6 +26,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="300dp"
         android:text="Hejsa, Mette"
+
         android:textColor="?attr/colorOnBackground"
         android:textSize="20sp" />
 
@@ -39,25 +40,25 @@
             android:id="@+id/circl1"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/ic_baseline_circle_24" />
+            android:src="@drawable/ic_keypad_password_circle" />
 
         <ImageView
             android:id="@+id/circl2"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/ic_baseline_circle_24" />
+            android:src="@drawable/ic_keypad_password_circle" />
 
         <ImageView
             android:id="@+id/circl3"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/ic_baseline_circle_24" />
+            android:src="@drawable/ic_keypad_password_circle" />
 
         <ImageView
             android:id="@+id/circl4"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/ic_baseline_circle_24" />
+            android:src="@drawable/ic_keypad_password_circle" />
     </LinearLayout>
 
     <GridLayout
@@ -132,7 +133,7 @@
             android:text="9" />
 
         <Button
-            android:id="@+id/btnForgotPass"
+            android:id="@+id/btnForgotPassword"
             style="@style/pinBtnStyle"
             android:layout_column="0"
             android:layout_columnWeight="1"
@@ -155,7 +156,6 @@
             android:layout_gravity="center"
             android:backgroundTint="?attr/colorOnBackground"
             android:background="@drawable/ic_baseline_fingerprint_24_white" />
-
     </GridLayout>
 
 </FrameLayout>

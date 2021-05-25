@@ -7,7 +7,6 @@
     android:background="?attr/backgroundColor"
     tools:context=".fragments.GreeterFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <ImageView
         android:id="@+id/yb_logo"
         android:layout_width="wrap_content"
@@ -38,12 +37,13 @@
         android:layout_width="300dp"
         android:layout_height="60dp"
         android:layout_marginBottom="16dp"
+        android:backgroundTint="?attr/colorPrimaryVariant"
         android:text="@string/greet_login"
         android:textColor="?attr/colorOnPrimary"
         android:backgroundTint="?attr/materialButtonTint"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

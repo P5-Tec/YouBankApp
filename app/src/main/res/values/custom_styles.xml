@@ -1,4 +1,5 @@
 <resources>
+
     <style name="pinBtnStyle">
         <item name="android:layout_height">65dp</item>
         <item name="android:layout_width">wrap_content</item>
@@ -12,11 +13,11 @@
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_columnWeight">1</item>
     </style>
+
     <style name="circularImgView" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
     </style>
-
 
     <!-- Rounded Bottom Dialog-->
     <style name="dialog_round">
