@@ -155,7 +155,6 @@
             android:layout_gravity="center"
             android:backgroundTint="?attr/colorOnBackground"
             android:background="@drawable/ic_baseline_fingerprint_24" />
-
     </GridLayout>
 
 </FrameLayout>
