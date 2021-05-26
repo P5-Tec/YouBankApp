@@ -1,7 +1,6 @@
 package com.example.youbank.fragments
 
 import android.content.res.Configuration
-import android.content.res.Resources
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,20 +10,34 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.youbank.R
+import com.example.youbank.databinding.FragmentKeypadBinding
+import com.example.youbank.viewModels.KeypadViewModel
 
 class KeypadFragment : Fragment(), View.OnClickListener {
+
+    private lateinit var viewModel: KeypadViewModel
+    private var _binding: FragmentKeypadBinding? = null
+    private val binding get() = _binding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+    override fun onCreateView(inflater: LayoutInflater,
+                              container: ViewGroup?,
+                              savedInstanceState: Bundle?
     ): View? {
+
+        _binding = FragmentKeypadBinding.inflate(inflater, container, false)
+        viewModel = ViewModelProvider(this).get(KeypadViewModel::class.java)
+        viewModel.getName()
+            .observe(viewLifecycleOwner, { x -> binding?.txtNameOfUser?.text = x.toString() })
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_keypad, container, false)
+        return binding?.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -127,44 +140,60 @@ class KeypadFragment : Fragment(), View.OnClickListener {
             Configuration.UI_MODE_NIGHT_YES -> {
                 when (valueString.length) {
                     1 -> {
-                        circle1?.setColorFilter(ContextCompat.getColor(requireContext(), R.color.brand_main))
+                        circle1?.setColorFilter(
+                            ContextCompat.getColor(requireContext(), R.color.brand_main))
                     }
                     2 -> {
-                        circle2?.setColorFilter(ContextCompat.getColor(requireContext(), R.color.brand_main))
+                        circle2?.setColorFilter(
+                            ContextCompat.getColor(requireContext(), R.color.brand_main))
                     }
                     3 -> {
-                        circle3?.setColorFilter(ContextCompat.getColor(requireContext(), R.color.brand_main))
+                        circle3?.setColorFilter(
+                            ContextCompat.getColor(requireContext(), R.color.brand_main))
                     }
                     4 -> {
-                        circle4?.setColorFilter(ContextCompat.getColor(requireContext(), R.color.brand_main))
+                        circle4?.setColorFilter(
+                            ContextCompat.getColor(requireContext(), R.color.brand_main))
                     }
                     else -> {
-                        circle1?.setColorFilter(ContextCompat.getColor(requireContext(), R.color.white))
-                        circle2?.setColorFilter(ContextCompat.getColor(requireContext(), R.color.white))
-                        circle3?.setColorFilter(ContextCompat.getColor(requireContext(), R.color.white))
-                        circle4?.setColorFilter(ContextCompat.getColor(requireContext(), R.color.white))
+                        circle1?.setColorFilter(
+                            ContextCompat.getColor(requireContext(), R.color.white))
+                        circle2?.setColorFilter(
+                            ContextCompat.getColor(requireContext(), R.color.white))
+                        circle3?.setColorFilter(
+                            ContextCompat.getColor(requireContext(), R.color.white))
+                        circle4?.setColorFilter(
+                            ContextCompat.getColor(requireContext(), R.color.white))
                     }
                 }
             }
             Configuration.UI_MODE_NIGHT_NO -> {
                 when (valueString.length) {
                     1 -> {
-                        circle1?.setColorFilter(ContextCompat.getColor(requireContext(), R.color.brand_main))
+                        circle1?.setColorFilter(
+                            ContextCompat.getColor(requireContext(), R.color.brand_main))
                     }
                     2 -> {
-                        circle2?.setColorFilter(ContextCompat.getColor(requireContext(), R.color.brand_main))
+                        circle2?.setColorFilter(
+                            ContextCompat.getColor(requireContext(), R.color.brand_main))
                     }
                     3 -> {
-                        circle3?.setColorFilter(ContextCompat.getColor(requireContext(), R.color.brand_main))
+                        circle3?.setColorFilter(
+                            ContextCompat.getColor(requireContext(), R.color.brand_main))
                     }
                     4 -> {
-                        circle4?.setColorFilter(ContextCompat.getColor(requireContext(), R.color.brand_main))
+                        circle4?.setColorFilter(
+                            ContextCompat.getColor(requireContext(), R.color.brand_main))
                     }
                     else -> {
-                        circle1?.setColorFilter(ContextCompat.getColor(requireContext(), R.color.black))
-                        circle2?.setColorFilter(ContextCompat.getColor(requireContext(), R.color.black))
-                        circle3?.setColorFilter(ContextCompat.getColor(requireContext(), R.color.black))
-                        circle4?.setColorFilter(ContextCompat.getColor(requireContext(), R.color.black))
+                        circle1?.setColorFilter(
+                            ContextCompat.getColor(requireContext(), R.color.black))
+                        circle2?.setColorFilter(
+                            ContextCompat.getColor(requireContext(), R.color.black))
+                        circle3?.setColorFilter(
+                            ContextCompat.getColor(requireContext(), R.color.black))
+                        circle4?.setColorFilter(
+                            ContextCompat.getColor(requireContext(), R.color.black))
                     }
                 }
             }
