@@ -3,7 +3,7 @@
     <!-- Base application theme. -->
     <style name="Theme.YouBank" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/brand_main</item>
+        <item name="colorPrimary">@color/drac_orange</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/black</item>
         <!-- Secondary brand color. -->
@@ -13,7 +13,7 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">@color/black</item>
         <!-- Customize your theme here. -->
-        <item name="logo">@drawable/ic_yb_logo_white</item>
+        <item name="logo">@drawable/ic_yb_logo</item>
         <item name="backgroundColor">@color/black</item>
         <item name="shapeAppearanceLargeComponent">@style/dialog_round</item>
 
@@ -25,20 +25,7 @@
     </style>
 
     <style name="Theme.YouBank.New">
-        <item name="colorPrimary">@color/n_brand_main</item>
-        <item name="colorOnPrimary">@color/white</item>
-        <item name="colorOnSurface">@color/white</item>
-        <item name="colorSurface">@color/n_surface</item>
-        <item name="backgroundColor">@color/holo_dark</item>
-        <item name="colorOnBackground">@color/white</item>
-        <item name="android:colorBackground">@color/holo_dark</item>
-        <item name="android:textColorPrimary">@color/white</item>
-        <item name="strokeColor">@color/n_stroke_brand</item>
-    </style>
-
-    <style name="Theme.YouBank.Dracula">
-        <item name="android:background">@color/drac_bg</item>
-        <item name="colorPrimary">@color/drac_purple</item>
+        <item name="colorPrimary">@color/drac_orange</item>
         <item name="colorOnPrimary">@color/drac_forground</item>
         <item name="colorSecondary">@color/drac_gray</item>
         <item name="backgroundColor">@color/drac_bg</item>
@@ -55,16 +42,18 @@
         <item name="accBalanceNeg">@color/drac_red</item>
     </style>
 
-    <style name="Theme.YouBank.Dracula.Dark">
-        <item name="android:background">@color/drac_bg</item>
-        <item name="colorPrimary">@color/drac_purple</item>
+    <style name="Theme.YouBank.New.Dark">
+        <item name="colorPrimary">@color/drac_orange</item>
         <item name="colorOnPrimary">@color/drac_gray</item>
         <item name="colorSecondary">@color/drac_gray</item>
         <item name="colorOnBackground">@color/drac_comment</item>
-        <item name="backgroundColor">@color/drac_bg</item>
+        <item name="backgroundColor">@color/drac_gray</item>
         <item name="colorSurface">@color/drac_gray</item>
         <item name="colorOnSurface">@color/drac_forground</item>
         <item name="strokeColor">@color/drac_forground</item>
+
+        <item name="textAppearanceHeadline1">@color/drac_comment</item>
+        <item name="textAppearanceBody1">@color/drac_forground</item>
 
         <item name="materialButtonTint">@color/drac_gray</item>
         <item name="materialRippleColor">@color/drac_forground</item>
@@ -72,7 +61,7 @@
         <item name="android:textColorPrimary">@color/drac_forground</item>
     </style>
 
-    <style name="Theme.YouBank.NoActionBar" parent="Theme.YouBank.Dracula">
+    <style name="Theme.YouBank.NoActionBar" parent="Theme.YouBank.New">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>

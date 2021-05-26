@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="?attr/backgroundColor"
     tools:context=".fragments.CardOverviewFragment">
 
     <com.google.android.material.button.MaterialButton
@@ -50,6 +51,8 @@
             android:gravity="start|center_vertical"
             android:lineSpacingExtra="2dp"
             android:padding="15dp"
+            app:backgroundTint="?attr/materialButtonTint"
+            app:rippleColor="?attr/materialRippleColor"
             android:text="@string/btn_showinformation"
             android:textColor="?attr/colorOnSecondary" />
 
@@ -60,6 +63,8 @@
             android:gravity="start|center_vertical"
             android:padding="15dp"
             android:text="Show PIN"
+            app:backgroundTint="?attr/materialButtonTint"
+            app:rippleColor="?attr/materialRippleColor"
             android:textColor="?attr/colorOnSecondary" />
     </LinearLayout>
 

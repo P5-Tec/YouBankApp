@@ -34,6 +34,13 @@
     <string name="account_support_chat_sub">24/7 Meme support</string>
     <string name="account_support_logout">Log Out</string>
 
+
+    <string-array name="select_accounts">
+        <item>Martin</item>
+        <item>Dainish</item>
+        <item>Patrick</item>
+    </string-array>
+
     <!-- Card Freeze modal -->
     <string name="card_freeze_headline">Freeze the card ?</string>
     <string name="card_freeze_subheader">All transactions will be locked</string>

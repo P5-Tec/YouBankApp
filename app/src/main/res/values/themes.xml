@@ -2,7 +2,6 @@
     <!-- Base application theme. -->
     <style name="Theme.YouBank" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/brand_main</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
@@ -32,6 +31,8 @@
         <item name="colorOnSurface">@color/black</item>
         <item name="colorSurface">@color/n_l_surface</item>
         <item name="strokeColor">@color/n_l_surface</item>
+
+
 
         <item name="materialButtonTint">@color/n_l_main</item>
     </style>
