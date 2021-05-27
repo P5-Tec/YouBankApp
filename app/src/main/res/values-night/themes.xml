@@ -36,8 +36,6 @@
         <item name="materialButtonTint">@color/drac_gray</item>
         <item name="materialRippleColor">@color/drac_forground</item>
 
-        <item name="android:textColorPrimary">@color/drac_forground</item>
-
         <item name="accBalancePos">@color/drac_green</item>
         <item name="accBalanceNeg">@color/drac_red</item>
     </style>

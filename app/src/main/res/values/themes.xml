@@ -32,7 +32,10 @@
         <item name="colorSurface">@color/n_l_surface</item>
         <item name="strokeColor">@color/n_l_surface</item>
 
+        <item name="accBalancePos">@color/n_l_main</item>
+        <item name="accBalanceNeg">@color/drac_red</item>
 
+        <item name="materialRippleColor">@color/n_l_surface</item>
 
         <item name="materialButtonTint">@color/n_l_main</item>
     </style>

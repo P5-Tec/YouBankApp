@@ -1,17 +1,8 @@
 <resources>
     <string name="app_name">YouBank</string>
     <string name="action_settings">Settings</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
+    <!-- Greetings screen -->
     <string name="greet_login">Login</string>
     <string name="greet_create_account">Create Account</string>
 
@@ -21,7 +12,6 @@
 
     <!-- Account creation -->
     <string name="account_create_btn">Create Account</string>
-
     <string name="account_create_cpr">CPR</string>
     <string name="account_create_full_name">Full name</string>
     <string name="account_create_address">Address</string>
@@ -35,6 +25,7 @@
     <string name="account_support_logout">Log Out</string>
 
 
+    <!--Transfer screen -->
     <string-array name="select_accounts">
         <item>Martin</item>
         <item>Dainish</item>
@@ -48,11 +39,10 @@
     <string name="card_freeze_accept">Freeze</string>
     <string name="card_freeze_cancel">Cancel</string>
 
-    <!-- Forgot Password -->
-    <string name="forgot_password_text">Have you forgotten your password? Oh no! Do not worry, we got your back covered. Please enter your email below, and we\'ll reset it for you.
-        </string>
-
     <string name="btn_freezecard"><font size="16">Freeze Card</font>\n\<font size="8">All new transactions will be declined</font></string>
     <string name="btn_showinformation"><font size="16">Show Information</font>\n\<font size="8">Card number, Expiry date and CCV</font></string>
 
+    <!-- Forgot Password -->
+    <string name="forgot_password_text">Have you forgotten your password? Oh no! Do not worry, we got your back covered. Please enter your email below, and we\'ll reset it for you.
+        </string>
 </resources>
