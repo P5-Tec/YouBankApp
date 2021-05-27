@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/greeterFragment">
+    app:startDestination="@id/accountCreationFragment">
 
     <fragment
         android:id="@+id/greeterFragment"
@@ -38,6 +38,13 @@
             app:exitAnim="@android:anim/slide_out_right"
             app:popUpTo="@id/greeterFragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_accountCreationFragment_to_passwordCreationFragment"
+            app:destination="@id/passwordCreationFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/keypadFragment"
@@ -143,5 +150,20 @@
             app:destination="@id/keypadFragment"
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/passwordCreationFragment"
+        android:name="com.example.youbank.PasswordCreationFragment"
+        android:label="fragment_password_creation"
+        tools:layout="@layout/fragment_password_creation" >
+        <action
+            android:id="@+id/action_passwordCreationFragmentBackBtn"
+            app:destination="@id/accountCreationFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"
+            app:popUpTo="@id/accountCreationFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>

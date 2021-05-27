@@ -29,5 +29,9 @@ class AccountCreationFragment : Fragment() {
         view.findViewById<Button>(R.id.backbtn).setOnClickListener {
             findNavController().navigate(R.id.action_accountCreationBackBtn)
         }
+
+        view.findViewById<Button>(R.id.btnCreatePassword).setOnClickListener {
+            findNavController().navigate(R.id.action_accountCreationFragment_to_passwordCreationFragment)
+        }
     }
 }
