@@ -115,9 +115,9 @@
     <fragment
         android:id="@+id/homeScreenFragment"
         android:name="com.example.youbank.fragments.HomeScreenFragment"
-        android:label="fragment_home_screen_motion"
-        tools:layout="@layout/fragment_home_screen"
-        app:startDestination="@id/action_homeScreenFragment_to_cardOverviewFragment">
+        android:label="fragment_home_screen"
+        app:startDestination="@id/action_homeScreenFragment_to_cardOverviewFragment"
+        tools:layout="@layout/fragment_home_screen">
         <action
             android:id="@+id/action_homeScreenFragment_to_cardOverviewFragment"
             app:destination="@id/cardOverviewFragment"
