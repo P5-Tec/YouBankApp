@@ -13,28 +13,27 @@ import retrofit2.Response
 class KeypadViewModel : ViewModel() {
 
     private val service: CustomerService = ApiService.buildService(CustomerService::class.java)
-    private val req: Call<Customer> = service.getCustomerById(8)
+    private val req: Call<Customer> = service.getCustomerById(14)
 
-    val cName = MutableLiveData<String>()
+    private val cName = MutableLiveData<String>()
 
     init {
         req.enqueue(object : Callback<Customer> {
             override fun onResponse(call: Call<Customer>, response: Response<Customer>) {
-
-                Log.i("idk", response.code().toString())
                 if (response.isSuccessful) {
-                    setName(response.body() !!.fullName)
-                    Log.i("TestSucces", cName.value.toString())
+
+                    var c = Customer()
+                    c.fullName = response.body()!!.fullName
+
+                    setName(c.fullName)
                 }
             }
 
             override fun onFailure(call: Call<Customer>, t: Throwable) {
-
                 setName("Hans Pilgård")
-                Log.i("TestFail", t.message.toString())
+                Log.i("ApiNameFail", t.message.toString())
             }
         })
-
     }
 
     fun getName(): MutableLiveData<String> {
@@ -43,10 +42,5 @@ class KeypadViewModel : ViewModel() {
 
     fun setName(newName: String) {
         cName.value = newName
-    }
-
-    override fun onCleared() {
-        super.onCleared()
-        Log.i("Keypad", "KeypadViewmodel destroyed")
     }
 }
