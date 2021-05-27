@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:background="?attr/backgroundColor"
     app:layoutDescription="@xml/fragment_home_screen_motion_scene"
-    tools:context=".fragments.HomeScreenFragment2">
+    tools:context=".fragments.HomeScreenFragment">
 
     <LinearLayout
         android:id="@+id/header_box"
