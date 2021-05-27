@@ -153,7 +153,7 @@
     </fragment>
     <fragment
         android:id="@+id/passwordCreationFragment"
-        android:name="com.example.youbank.viewModels.PasswordCreationFragment"
+        android:name="com.example.youbank.fragments.PasswordCreationFragment"
         android:label="fragment_password_creation"
         tools:layout="@layout/fragment_password_creation">
         <action
