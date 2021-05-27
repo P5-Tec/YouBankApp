@@ -1,4 +1,4 @@
-package com.example.youbank
+package com.example.youbank.viewModels
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,12 +7,11 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-import androidx.core.view.isVisible
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.example.youbank.R
 import com.google.android.material.button.MaterialButton
-import kotlin.math.abs
 
 class PasswordCreationFragment : Fragment() {
 
@@ -42,39 +41,40 @@ class PasswordCreationFragment : Fragment() {
 
         passwordInput.doOnTextChanged { _, _, _, _ ->
             if (passwordInput.length() == 4 && passwordConfirmInput.length() == 4) {
-                warningLabel.visibility = View.INVISIBLE
-                btnCreateAccount.isEnabled = passwordInput.text.toString() == passwordConfirmInput.text.toString()
+                if (passwordInput.text.toString() == passwordConfirmInput.text.toString()) {
+                    warningLabel.visibility = View.INVISIBLE
+                    btnCreateAccount.isEnabled = true
+                }
+                else {
+                    warningLabel.visibility = View.VISIBLE
+                    btnCreateAccount.isEnabled = false
+                }
             }
-            else {
+            else{
                 warningLabel.visibility = View.VISIBLE
                 btnCreateAccount.isEnabled = false
             }
-        }
-        passwordConfirmInput.doOnTextChanged { _, _, _, _ ->
-            if (passwordInput.length() == 4 && passwordConfirmInput.length() == 4) {
-                warningLabel.visibility = View.INVISIBLE
-                btnCreateAccount.isEnabled = passwordInput.text.toString() == passwordConfirmInput.text.toString()
+            passwordConfirmInput.doOnTextChanged { _, _, _, _ ->
+                if (passwordInput.length() == 4 && passwordConfirmInput.length() == 4) {
+                    if (passwordInput.text.toString() == passwordConfirmInput.text.toString()) {
+                        warningLabel.visibility = View.INVISIBLE
+                        btnCreateAccount.isEnabled = true
+                    }
+                    else {
+                        warningLabel.visibility = View.VISIBLE
+                        btnCreateAccount.isEnabled = false
+                    }
+                }
+                else{
+                    warningLabel.visibility = View.VISIBLE
+                    btnCreateAccount.isEnabled = false
+                }
+
             }
-            else {
-                warningLabel.visibility = View.VISIBLE
-                btnCreateAccount.isEnabled = false
-            }
         }
 
 
 
 
-
-
-    }
-
-
-    fun onTextChanged(
-        charSequence: CharSequence?,
-        start: Int, before: Int, count: Int
-    ) {
-        val userChange = abs(count - before) == 1
-        if (userChange) {
-        }
     }
 }

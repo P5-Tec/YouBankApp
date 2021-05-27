@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/homeScreenFragment">
-    app:startDestination="@id/keypadFragment">
+    app:startDestination="@id/accountCreationFragment">
 
     <fragment
         android:id="@+id/greeterFragment"
@@ -116,7 +115,6 @@
     <fragment
         android:id="@+id/homeScreenFragment"
         android:name="com.example.youbank.fragments.HomeScreenFragment"
-        android:name="com.example.youbank.fragments.HomeScreenMotionFragment"
         android:label="fragment_home_screen_motion"
         app:startDestination="@id/action_homeScreenFragment_to_cardOverviewFragment">
         <action
@@ -154,9 +152,9 @@
     </fragment>
     <fragment
         android:id="@+id/passwordCreationFragment"
-        android:name="com.example.youbank.PasswordCreationFragment"
+        android:name="com.example.youbank.viewModels.PasswordCreationFragment"
         android:label="fragment_password_creation"
-        tools:layout="@layout/fragment_password_creation" >
+        tools:layout="@layout/fragment_password_creation">
         <action
             android:id="@+id/action_passwordCreationFragmentBackBtn"
             app:destination="@id/accountCreationFragment"
