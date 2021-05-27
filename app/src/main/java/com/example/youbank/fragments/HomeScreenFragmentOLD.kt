@@ -20,7 +20,7 @@ class HomeScreenFragmentOLD : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home_screen, container, false)
+        return inflater.inflate(R.layout.fragment_home_screen_motion, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

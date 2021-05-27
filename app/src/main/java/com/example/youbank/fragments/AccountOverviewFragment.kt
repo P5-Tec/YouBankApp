@@ -31,10 +31,12 @@ class AccountOverviewFragment : Fragment() {
         _binding = FragmentAccountOverviewBinding.inflate(inflater, container, false)
         viewModel = ViewModelProvider(this).get(AccountOverview_vm::class.java)
         viewModel.getAccountBalance().observe(viewLifecycleOwner, Observer<Int> { balance -> binding?.accountBalance?.text = balance.toString() })
+        viewModel.getAccountNumber().observe(viewLifecycleOwner, Observer<String> { number -> binding?.accountNumber?.text = number.toString()})
 
         binding?.detailsBtn?.setOnClickListener{
             viewModel.setAccountBalance()
         }
+
 
         // Inflate the layout for this fragment
         return binding?.root

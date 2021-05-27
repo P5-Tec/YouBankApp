@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
+    app:startDestination="@id/homeScreenFragment">
     app:startDestination="@id/keypadFragment">
 
     <fragment
@@ -114,6 +115,7 @@
     </fragment>
     <fragment
         android:id="@+id/homeScreenFragment"
+        android:name="com.example.youbank.fragments.HomeScreenFragment"
         android:name="com.example.youbank.fragments.HomeScreenMotionFragment"
         android:label="fragment_home_screen_motion"
         app:startDestination="@id/action_homeScreenFragment_to_cardOverviewFragment">
