@@ -8,14 +8,4 @@ class Customer {
     var birthday: String = ""
     var email: String = ""
     var password: String = ""
-
-    /*constructor(customerId: Int, fullName: String, phone: String, address: String, birthday: String, email: String, password: String) : this() {
-        this.customerId = customerId
-        this.fullName = fullName
-        this.phone = phone
-        this.address = address
-        this.birthday = birthday
-        this.email = email
-        this.password = password
-    }*/
 }
