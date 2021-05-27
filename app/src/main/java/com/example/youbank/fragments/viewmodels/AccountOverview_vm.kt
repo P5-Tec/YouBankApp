@@ -4,14 +4,18 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.youbank.models.Account
 
 class AccountOverview_vm : ViewModel() {
 
     private var accBalance =  MutableLiveData<Int>()
     private var accNumber = MutableLiveData<String>()
+    private val ac = Account()
 
     init {
-        accNumber.value = "7540 2645 2637 2374"
+        setAccountNumber()
+        Log.i("test", ac.accountNumber.toString())
+        //accNumber.value = "7540 2645 2637 2374"
         Log.i("Account Viewmodel", "Account Viewmodel Created")
     }
 
@@ -31,7 +35,16 @@ class AccountOverview_vm : ViewModel() {
         }else{accBalance.value = accBalance.value?.plus(131)}
     }
 
-    fun getAccountNumber(): LiveData<String> {
+    fun getAccountNumber(): MutableLiveData<String> {
+        setAccountNumber()
         return accNumber
+    }
+
+    fun setAccountNumber(){
+        if (ac.accountNumber == null){
+            accNumber.value = "0000 0000 0000 0000"
+        }else{
+            accNumber.value = ac.accountNumber
+        }
     }
 }

@@ -21,10 +21,7 @@ class KeypadViewModel : ViewModel() {
         req.enqueue(object : Callback<Customer> {
             override fun onResponse(call: Call<Customer>, response: Response<Customer>) {
                 if (response.isSuccessful) {
-
-                    var c = Customer()
-                    c.fullName = response.body()!!.fullName
-
+                    var c = Customer(response.body()!!.fullName)
                     setName(c.fullName)
                 }
             }
