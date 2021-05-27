@@ -3,11 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-<<<<<<< HEAD
-    app:startDestination="@id/accountCreationFragment">
-=======
     app:startDestination="@id/keypadFragment">
->>>>>>> a45c4d9... bla
 
     <fragment
         android:id="@+id/greeterFragment"
