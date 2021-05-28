@@ -26,9 +26,10 @@ class KeypadFragment : Fragment(), View.OnClickListener {
         super.onCreate(savedInstanceState)
     }
 
-    override fun onCreateView(inflater: LayoutInflater,
-                              container: ViewGroup?,
-                              savedInstanceState: Bundle?
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
 
         _binding = FragmentKeypadBinding.inflate(inflater, container, false)
@@ -141,29 +142,37 @@ class KeypadFragment : Fragment(), View.OnClickListener {
                 when (valueString.length) {
                     1 -> {
                         circle1?.setColorFilter(
-                            ContextCompat.getColor(requireContext(), R.color.drac_orange))
+                            ContextCompat.getColor(requireContext(), R.color.drac_orange)
+                        )
                     }
                     2 -> {
                         circle2?.setColorFilter(
-                            ContextCompat.getColor(requireContext(), R.color.drac_orange))
+                            ContextCompat.getColor(requireContext(), R.color.drac_orange)
+                        )
                     }
                     3 -> {
                         circle3?.setColorFilter(
-                            ContextCompat.getColor(requireContext(), R.color.drac_orange))
+                            ContextCompat.getColor(requireContext(), R.color.drac_orange)
+                        )
                     }
                     4 -> {
                         circle4?.setColorFilter(
-                            ContextCompat.getColor(requireContext(), R.color.drac_orange))
+                            ContextCompat.getColor(requireContext(), R.color.drac_orange)
+                        )
                     }
                     else -> {
                         circle1?.setColorFilter(
-                            ContextCompat.getColor(requireContext(), R.color.white))
+                            ContextCompat.getColor(requireContext(), R.color.white)
+                        )
                         circle2?.setColorFilter(
-                            ContextCompat.getColor(requireContext(), R.color.white))
+                            ContextCompat.getColor(requireContext(), R.color.white)
+                        )
                         circle3?.setColorFilter(
-                            ContextCompat.getColor(requireContext(), R.color.white))
+                            ContextCompat.getColor(requireContext(), R.color.white)
+                        )
                         circle4?.setColorFilter(
-                            ContextCompat.getColor(requireContext(), R.color.white))
+                            ContextCompat.getColor(requireContext(), R.color.white)
+                        )
                     }
                 }
             }
@@ -171,29 +180,37 @@ class KeypadFragment : Fragment(), View.OnClickListener {
                 when (valueString.length) {
                     1 -> {
                         circle1?.setColorFilter(
-                            ContextCompat.getColor(requireContext(), R.color.n_l_main))
+                            ContextCompat.getColor(requireContext(), R.color.n_l_main)
+                        )
                     }
                     2 -> {
                         circle2?.setColorFilter(
-                            ContextCompat.getColor(requireContext(), R.color.n_l_main))
+                            ContextCompat.getColor(requireContext(), R.color.n_l_main)
+                        )
                     }
                     3 -> {
                         circle3?.setColorFilter(
-                            ContextCompat.getColor(requireContext(), R.color.n_l_main))
+                            ContextCompat.getColor(requireContext(), R.color.n_l_main)
+                        )
                     }
                     4 -> {
                         circle4?.setColorFilter(
-                            ContextCompat.getColor(requireContext(), R.color.n_l_main))
+                            ContextCompat.getColor(requireContext(), R.color.n_l_main)
+                        )
                     }
                     else -> {
                         circle1?.setColorFilter(
-                            ContextCompat.getColor(requireContext(), R.color.black))
+                            ContextCompat.getColor(requireContext(), R.color.black)
+                        )
                         circle2?.setColorFilter(
-                            ContextCompat.getColor(requireContext(), R.color.black))
+                            ContextCompat.getColor(requireContext(), R.color.black)
+                        )
                         circle3?.setColorFilter(
-                            ContextCompat.getColor(requireContext(), R.color.black))
+                            ContextCompat.getColor(requireContext(), R.color.black)
+                        )
                         circle4?.setColorFilter(
-                            ContextCompat.getColor(requireContext(), R.color.black))
+                            ContextCompat.getColor(requireContext(), R.color.black)
+                        )
                     }
                 }
             }
