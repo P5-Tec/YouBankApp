@@ -14,7 +14,7 @@ class KeypadViewModel : ViewModel() {
 
     private val service: CustomerService = ApiService.buildService(CustomerService::class.java)
     private val req: Call<Customer> = service.getCustomerById(14)
-    private val c: Customer = Customer()
+//    private val c: Customer = Customer()
 
     private val cName = MutableLiveData<String>()
 
@@ -22,8 +22,8 @@ class KeypadViewModel : ViewModel() {
         req.enqueue(object : Callback<Customer> {
             override fun onResponse(call: Call<Customer>, response: Response<Customer>) {
                 if (response.isSuccessful) {
-                    c.fullName = response.body()!!.fullName
-                    setName(c.fullName)
+//                    c.fullName = response.body()!!.fullName
+//                    setName(c.fullName)
                 }
             }
 

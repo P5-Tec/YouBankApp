@@ -16,7 +16,7 @@ import com.example.youbank.R
 import com.example.youbank.databinding.FragmentKeypadBinding
 import com.example.youbank.viewModels.KeypadViewModel
 
-class KeypadFragment : Fragment(), View.OnClickListener {
+class KeypadFragment: Fragment(), View.OnClickListener {
 
     private lateinit var viewModel: KeypadViewModel
     private var _binding: FragmentKeypadBinding? = null
@@ -34,8 +34,7 @@ class KeypadFragment : Fragment(), View.OnClickListener {
 
         _binding = FragmentKeypadBinding.inflate(inflater, container, false)
         viewModel = ViewModelProvider(this).get(KeypadViewModel::class.java)
-        viewModel.getName()
-            .observe(viewLifecycleOwner, { x -> binding?.txtNameOfUser?.text = x.toString() })
+        viewModel.getName().observe(viewLifecycleOwner, { x -> binding?.txtNameOfUser?.text = x.toString() })
 
         // Inflate the layout for this fragment
         return binding?.root

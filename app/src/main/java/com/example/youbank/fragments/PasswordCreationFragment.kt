@@ -1,19 +1,32 @@
 package com.example.youbank.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import androidx.core.widget.doOnTextChanged
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.youbank.R
-import com.google.android.material.button.MaterialButton
+import com.example.youbank.databinding.FragmentPasswordCreationBinding
+import com.example.youbank.helpers.PasswordCreationTextWatcher
+import com.example.youbank.models.Customer
+import com.example.youbank.retrofit.ApiService
+import com.example.youbank.retrofit.CustomerService
+import com.example.youbank.viewModels.SharedViewModel
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
-class PasswordCreationFragment : Fragment() {
+class PasswordCreationFragment: Fragment() {
+
+    private var _binding: FragmentPasswordCreationBinding? = null
+    private val binding get() = _binding!!
+    private lateinit var newCustomer: Customer
+    private val model: SharedViewModel by activityViewModels() // NEW WAY
+    //private lateinit var sharedViewModel: AccountCreationViewModel // OLD WAY
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,58 +35,69 @@ class PasswordCreationFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
+        _binding = FragmentPasswordCreationBinding.inflate(inflater, container, false)
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_password_creation, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        view.findViewById<Button>(R.id.backbtn).setOnClickListener {
+        val textWatcher =
+            PasswordCreationTextWatcher(
+                binding.passwordInput, binding.passwordConfirmInput, binding.btnCreateAccount, binding.warningLabel)
+
+        binding.passwordInput.addTextChangedListener(textWatcher)
+        binding.passwordConfirmInput.addTextChangedListener(textWatcher)
+
+        model.getCustomer().observe(viewLifecycleOwner, { c ->
+
+            newCustomer = Customer()
+            newCustomer.cpr = c.cpr
+            newCustomer.fullName = c.fullName
+            newCustomer.email = c.email
+            newCustomer.phone = c.phone
+            newCustomer.address = c.address
+
+            val txt: String = c.cpr + "\n" + c.fullName + "\n" + c.email + "\n" + c.phone + "\n" + c.address
+
+            binding.description.text = txt
+        })
+
+        binding.backbtn.setOnClickListener {
             findNavController().navigate(R.id.action_passwordCreationFragmentBackBtn)
         }
 
-        val passwordInput: EditText = view.findViewById(R.id.passwordInput)
-        val passwordConfirmInput: EditText = view.findViewById(R.id.passwordConfirmInput)
-        val btnCreateAccount: MaterialButton = view.findViewById(R.id.btnCreateAccount)
-        val warningLabel: TextView = view.findViewById(R.id.warningLabel)
+        binding.btnCreateAccount.setOnClickListener {
 
-        passwordInput.doOnTextChanged { _, _, _, _ ->
-            if (passwordInput.length() == 4 && passwordConfirmInput.length() == 4) {
-                if (passwordInput.text.toString() == passwordConfirmInput.text.toString()) {
-                    warningLabel.visibility = View.INVISIBLE
-                    btnCreateAccount.isEnabled = true
-                }
-                else {
-                    warningLabel.visibility = View.VISIBLE
-                    btnCreateAccount.isEnabled = false
-                }
-            }
-            else{
-                warningLabel.visibility = View.VISIBLE
-                btnCreateAccount.isEnabled = false
-            }
-            passwordConfirmInput.doOnTextChanged { _, _, _, _ ->
-                if (passwordInput.length() == 4 && passwordConfirmInput.length() == 4) {
-                    if (passwordInput.text.toString() == passwordConfirmInput.text.toString()) {
-                        warningLabel.visibility = View.INVISIBLE
-                        btnCreateAccount.isEnabled = true
-                    }
-                    else {
-                        warningLabel.visibility = View.VISIBLE
-                        btnCreateAccount.isEnabled = false
-                    }
-                }
-                else{
-                    warningLabel.visibility = View.VISIBLE
-                    btnCreateAccount.isEnabled = false
-                }
+            newCustomer.password = binding.passwordInput.text.toString()
 
+            val service: CustomerService = ApiService.buildService(CustomerService::class.java)
+            val req: Call<Void> = service.addNewCustomer(newCustomer)
+
+            try {
+                req.enqueue(object: Callback<Void> {
+                    override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                        if (response.isSuccessful) {
+                            Toast.makeText(context, "Successfully Created - Congratulations!!   " + response.message(), Toast.LENGTH_LONG).show()
+                            findNavController().navigate(R.id.action_passwordCreationFragment_to_greeterFragment)
+                        }
+                        else {
+                            Toast.makeText(context, "Uh ohh, something went wrong - Not good!", Toast.LENGTH_LONG).show()
+                        }
+                    }
+
+                    override fun onFailure(call: Call<Void>, t: Throwable) {
+                        Log.d("Post Failed: ", t.message.toString())
+                    }
+
+                })
+            } catch (e: Exception) {
+                Log.d("Catch: ", e.message.toString())
             }
         }
-
-
 
 
     }
