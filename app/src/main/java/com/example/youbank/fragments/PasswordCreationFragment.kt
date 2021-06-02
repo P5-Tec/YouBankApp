@@ -72,36 +72,44 @@ class PasswordCreationFragment: Fragment() {
 
         binding.btnCreateAccount.setOnClickListener {
 
-            newCustomer.password = binding.passwordInput.text.toString()
+            // Hashing password
+            model.hashPassword(binding.passwordInput.text.toString())
+
+            // Fetching hash from viewmodel and passing it to newCustomer password field
+            newCustomer.password = model.getPasswordHash()
+
+            // Passing newCustomer object to viewmodel
             model.setCustomer(newCustomer)
 
+            model.getCustomer().observe(viewLifecycleOwner, { c ->
+                val service: CustomerService = ApiService.buildService(CustomerService::class.java)
+                val req: Call<Void> = service.addNewCustomer(c)
 
-            val service: CustomerService = ApiService.buildService(CustomerService::class.java)
-            val req: Call<Void> = service.addNewCustomer(newCustomer)
-
-            try {
-                req.enqueue(object: Callback<Void> {
-                    override fun onResponse(call: Call<Void>, response: Response<Void>) {
-                        if (response.isSuccessful) {
-                            Toast.makeText(
-                                context, "Successfully Created - Congratulations!!   " + response.message(),
-                                Toast.LENGTH_LONG).show()
-                            findNavController().navigate(R.id.action_passwordCreationFragment_to_greeterFragment)
+                try {
+                    req.enqueue(object: Callback<Void> {
+                        override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                            if (response.isSuccessful) {
+                                Toast.makeText(
+                                    context, "Successfully Created - Congratulations!!", Toast.LENGTH_LONG).show()
+                                findNavController().navigate(R.id.action_passwordCreationFragment_to_greeterFragment)
+                            }
+                            else {
+                                Toast.makeText(
+                                    context, "Uh ohh, something went wrong! \n Please try again", Toast.LENGTH_LONG)
+                                    .show()
+                            }
                         }
-                        else {
-                            Toast.makeText(context, "Uh ohh, something went wrong - Not good!", Toast.LENGTH_LONG).show()
+
+                        override fun onFailure(call: Call<Void>, t: Throwable) {
+                            Log.d("Post Failed: ", t.message.toString())
                         }
-                    }
-
-                    override fun onFailure(call: Call<Void>, t: Throwable) {
-                        Log.d("Post Failed: ", t.message.toString())
-                    }
-
-                })
-            } catch (e: Exception) {
-                Log.d("Catch: ", e.message.toString())
-            }
+                    })
+                } catch (e: Exception) {
+                    Log.d("Catch: ", e.message.toString())
+                }
+            })
         }
+
 
 
     }
