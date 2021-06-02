@@ -1,18 +1,17 @@
 package com.example.youbank.models
 
 import android.util.Log
-import kotlin.random.Random
 
-enum class AccountType {Basic, Premium}
+enum class AccountType { Basic, Premium }
 
-class Account() {
+class Account {
     var accountId: Int? = null
     var accountNumber: String? = generateAccNumber()
     var accountBalance: Int? = null
     lateinit var accountType: AccountType
 }
 
-fun generateAccNumber(): String{
+fun generateAccNumber(): String {
     val acclength = 16
     val chunksize = 4
     val numbSet = (0..9)

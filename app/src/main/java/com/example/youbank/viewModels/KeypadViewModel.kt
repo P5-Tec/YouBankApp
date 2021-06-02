@@ -10,20 +10,19 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class KeypadViewModel : ViewModel() {
+class KeypadViewModel: ViewModel() {
 
     private val service: CustomerService = ApiService.buildService(CustomerService::class.java)
     private val req: Call<Customer> = service.getCustomerById(14)
-//    private val c: Customer = Customer()
-
+    private val c: Customer = Customer()
     private val cName = MutableLiveData<String>()
 
     init {
-        req.enqueue(object : Callback<Customer> {
+        req.enqueue(object: Callback<Customer> {
             override fun onResponse(call: Call<Customer>, response: Response<Customer>) {
                 if (response.isSuccessful) {
-//                    c.fullName = response.body()!!.fullName
-//                    setName(c.fullName)
+                    c.fullName = response.body()!!.fullName
+                    setName(c.fullName)
                 }
             }
 

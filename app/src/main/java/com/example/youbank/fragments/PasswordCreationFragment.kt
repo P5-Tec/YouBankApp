@@ -73,6 +73,8 @@ class PasswordCreationFragment: Fragment() {
         binding.btnCreateAccount.setOnClickListener {
 
             newCustomer.password = binding.passwordInput.text.toString()
+            model.setCustomer(newCustomer)
+
 
             val service: CustomerService = ApiService.buildService(CustomerService::class.java)
             val req: Call<Void> = service.addNewCustomer(newCustomer)
@@ -81,7 +83,9 @@ class PasswordCreationFragment: Fragment() {
                 req.enqueue(object: Callback<Void> {
                     override fun onResponse(call: Call<Void>, response: Response<Void>) {
                         if (response.isSuccessful) {
-                            Toast.makeText(context, "Successfully Created - Congratulations!!   " + response.message(), Toast.LENGTH_LONG).show()
+                            Toast.makeText(
+                                context, "Successfully Created - Congratulations!!   " + response.message(),
+                                Toast.LENGTH_LONG).show()
                             findNavController().navigate(R.id.action_passwordCreationFragment_to_greeterFragment)
                         }
                         else {

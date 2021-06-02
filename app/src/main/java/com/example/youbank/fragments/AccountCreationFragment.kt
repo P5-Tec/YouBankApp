@@ -8,9 +8,9 @@ import android.widget.EditText
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
-import com.example.youbank.helpers.AccountCreationTextWatcher
 import com.example.youbank.R
 import com.example.youbank.databinding.FragmentAccountCreationBinding
+import com.example.youbank.helpers.AccountCreationTextWatcher
 import com.example.youbank.models.Customer
 import com.example.youbank.viewModels.SharedViewModel
 import java.util.*
