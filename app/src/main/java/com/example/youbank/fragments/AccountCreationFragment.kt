@@ -46,13 +46,15 @@ class AccountCreationFragment: Fragment() {
 
             c = Customer()
 
-            c.cpr = binding.cprInput.text.toString()
+            c.cpr = binding.cprInput.text.toString().dropLast(4)
             c.fullName = binding.fullnameInput.text.toString().capitalizeWords()
-            c.email = binding.emailInput.text.toString()
+            c.email = binding.emailInput.text.toString().decapitalize()
             c.phone = binding.phoneInput.text.toString()
 
             concatetenatedString =
-                binding.addressInput.text.toString() + ", " + binding.postcodeInput.text.toString() + " " + binding.cityInput.text.toString()
+                binding.addressInput.text.toString().capitalizeWords() +
+                ", " + binding.postcodeInput.text.toString() +
+                " " + binding.cityInput.text.toString().capitalizeWords()
 
             c.address = concatetenatedString
 
