@@ -89,14 +89,12 @@ class PasswordCreationFragment: Fragment() {
                     req.enqueue(object: Callback<Void> {
                         override fun onResponse(call: Call<Void>, response: Response<Void>) {
                             if (response.isSuccessful) {
-                                Toast.makeText(
-                                    context, "Successfully Created - Congratulations!!", Toast.LENGTH_LONG).show()
+                                Toast.makeText(context, "Successfully Created - Congratulations!!", Toast.LENGTH_LONG).show()
                                 findNavController().navigate(R.id.action_passwordCreationFragment_to_greeterFragment)
                             }
                             else {
                                 Toast.makeText(
-                                    context, "Uh ohh, something went wrong! \n Please try again", Toast.LENGTH_LONG)
-                                    .show()
+                                    context, "Uh ohh, something went wrong! \n Please try again", Toast.LENGTH_LONG).show()
                             }
                         }
 
@@ -109,8 +107,6 @@ class PasswordCreationFragment: Fragment() {
                 }
             })
         }
-
-
 
     }
 }

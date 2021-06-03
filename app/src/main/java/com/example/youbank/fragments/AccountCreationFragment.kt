@@ -13,7 +13,6 @@ import com.example.youbank.databinding.FragmentAccountCreationBinding
 import com.example.youbank.helpers.AccountCreationTextWatcher
 import com.example.youbank.models.Customer
 import com.example.youbank.viewModels.SharedViewModel
-import java.util.*
 
 class AccountCreationFragment: Fragment() {
 
@@ -46,9 +45,9 @@ class AccountCreationFragment: Fragment() {
 
             c = Customer()
 
-            c.cpr = binding.cprInput.text.toString().dropLast(4)
+            c.cpr = binding.cprInput.text.toString().dropLast(5)
             c.fullName = binding.fullnameInput.text.toString().capitalizeWords()
-            c.email = binding.emailInput.text.toString().decapitalize()
+            c.email = binding.emailInput.text.toString().replaceFirstChar { it.lowercase() }
             c.phone = binding.phoneInput.text.toString()
 
             concatetenatedString =
@@ -70,11 +69,17 @@ class AccountCreationFragment: Fragment() {
 
         val textWatcher = AccountCreationTextWatcher(edList, binding.btnCreatePassword)
 
-        // All EditTexts will listen for the onTextChanged in MyTextWatcher
+        // All EditTexts will listen for the functions in AccountCreationTextWatcher
         for (editText: EditText in edList) {
             editText.addTextChangedListener(textWatcher)
         }
     }
 
-    private fun String.capitalizeWords(): String = split(" ").joinToString(" ") { it.capitalize(Locale.ROOT) }
+    // Method to capitalize the first character of every word in a string
+    private fun String.capitalizeWords(): String =
+        split(" ").joinToString(" ") { fc ->
+            fc.replaceFirstChar { uc ->
+                uc.uppercaseChar()
+            }
+        }
 }
