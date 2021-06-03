@@ -55,13 +55,13 @@ class PasswordCreationFragment: Fragment() {
         model.getCustomer().observe(viewLifecycleOwner, { c ->
 
             newCustomer = Customer()
-            newCustomer.cpr = c.cpr
+            newCustomer.birthday = c.birthday
             newCustomer.fullName = c.fullName
             newCustomer.email = c.email
             newCustomer.phone = c.phone
             newCustomer.address = c.address
 
-            val txt: String = c.cpr + "\n" + c.fullName + "\n" + c.email + "\n" + c.phone + "\n" + c.address
+            val txt: String = c.birthday + "\n" + c.fullName + "\n" + c.email + "\n" + c.phone + "\n" + c.address
 
             binding.description.text = txt
         })
@@ -93,8 +93,10 @@ class PasswordCreationFragment: Fragment() {
                                 findNavController().navigate(R.id.action_passwordCreationFragment_to_greeterFragment)
                             }
                             else {
+                                //Toast.makeText(
+                                //    context, "Uh ohh, something went wrong! \n Please try again", Toast.LENGTH_SHORT).show()
                                 Toast.makeText(
-                                    context, "Uh ohh, something went wrong! \n Please try again", Toast.LENGTH_LONG).show()
+                                    context, response.code().toString(), Toast.LENGTH_SHORT).show()
                             }
                         }
 
