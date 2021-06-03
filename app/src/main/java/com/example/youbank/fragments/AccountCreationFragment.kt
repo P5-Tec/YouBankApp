@@ -45,7 +45,7 @@ class AccountCreationFragment: Fragment() {
 
             c = Customer()
 
-            c.cpr = binding.cprInput.text.toString().dropLast(5)
+            c.birthday = binding.cprInput.text.toString().dropLast(5)
             c.fullName = binding.fullnameInput.text.toString().capitalizeWords()
             c.email = binding.emailInput.text.toString().replaceFirstChar { it.lowercase() }
             c.phone = binding.phoneInput.text.toString()
