@@ -25,7 +25,7 @@
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/transfer_text"
+        android:id="@+id/header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -36,88 +36,86 @@
         app:layout_constraintStart_toStartOf="@+id/guideline6"
         app:layout_constraintTop_toBottomOf="@+id/backbtn" />
 
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/profileImg"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_marginTop="40dp"
-        android:background="@color/white"
+    <EditText
+        android:id="@+id/cprInput"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:hint="CPR"
+        android:inputType="number"
+        android:maxLength="13"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.50"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline4"
-        app:shapeAppearanceOverlay="@style/circularImgView"
-        app:srcCompat="@drawable/fake_pro_img"
+        app:layout_constraintTop_toBottomOf="@+id/header"
         tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/phoneInput"
         android:layout_width="360dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
         android:hint="Phone"
         android:inputType="phone"
+        android:maxLength="8"
         android:singleLine="true"
-        app:layout_constraintBottom_toTopOf="@+id/addressInput"
-        app:layout_constraintEnd_toStartOf="@+id/guideline8"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/guideline6"
-        app:layout_constraintTop_toBottomOf="@+id/fullnameInput"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.473"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailInput"
         tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/addressInput"
         android:layout_width="360dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
         android:hint="Address"
         android:inputType="textPostalAddress"
         android:singleLine="true"
-        app:layout_constraintBottom_toTopOf="@+id/postcodeInout"
-        app:layout_constraintEnd_toStartOf="@+id/guideline8"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/guideline6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/phoneInput"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/emailInput"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:singleLine="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fullnameInput"
         tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/fullnameInput"
         android:layout_width="360dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
         android:hint="Full Name"
+        android:inputType="textPersonName"
         android:singleLine="true"
-        app:layout_constraintBottom_toTopOf="@+id/phoneInput"
-        app:layout_constraintEnd_toStartOf="@+id/guideline8"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/guideline6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cprInput"
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/cprInput"
-        android:layout_width="360dp"
-        android:layout_height="wrap_content"
-        android:hint="CPR"
-        android:singleLine="true"
-        app:layout_constraintBottom_toTopOf="@+id/fullnameInput"
-        app:layout_constraintEnd_toStartOf="@+id/guideline8"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/guideline6"
-        app:layout_constraintTop_toBottomOf="@+id/profileImg"
-        app:layout_constraintVertical_bias="0.40"
-        tools:ignore="MissingConstraints" />
-
-    <EditText
-        android:id="@+id/postcodeInout"
+        android:id="@+id/postcodeInput"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="32dp"
         android:hint="Postcode"
-        android:inputType="phone"
+        android:inputType="number"
+        android:maxLength="4"
         android:singleLine="true"
-        app:layout_constraintBottom_toTopOf="@+id/materialButton"
         app:layout_constraintEnd_toStartOf="@+id/guideline8"
-        app:layout_constraintHorizontal_bias="0.956"
         app:layout_constraintStart_toEndOf="@+id/cityInput"
+        app:layout_constraintTop_toBottomOf="@+id/addressInput"
         tools:ignore="MissingConstraints" />
 
     <EditText
@@ -125,23 +123,24 @@
         android:layout_width="190dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginTop="32dp"
         android:hint="City"
+        android:inputType="textPostalAddress"
         android:singleLine="true"
-        app:layout_constraintBottom_toTopOf="@+id/materialButton"
         app:layout_constraintStart_toStartOf="@+id/guideline6"
+        app:layout_constraintTop_toBottomOf="@+id/addressInput"
         tools:ignore="MissingConstraints" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/materialButton"
+        android:id="@+id/btnCreatePassword"
         android:layout_width="360dp"
         android:layout_height="60dp"
-        android:layout_marginBottom="16dp"
-        android:backgroundTint="?attr/materialButtonTint"
-        android:text="@string/account_create_btn"
+        android:enabled="false"
+        android:text="@string/account_create_password_btn"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline8"
+        app:layout_constraintStart_toStartOf="@+id/guideline6"
+        app:layout_constraintTop_toBottomOf="@+id/cityInput"
         tools:ignore="MissingConstraints" />
 
     <androidx.constraintlayout.widget.Guideline

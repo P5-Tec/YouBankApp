@@ -5,18 +5,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.*
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.PagerSnapHelper
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.SnapHelper
 import com.example.youbank.R
-import com.example.youbank.fragments.recyclerViewAdapters.MyCardRecyclerViewAdapter
 import com.example.youbank.fragments.dummy.DummyContent
+import com.example.youbank.fragments.recyclerViewAdapters.MyCardRecyclerViewAdapter
 
-class CardListFragment : Fragment() {
+class CardListFragment: Fragment() {
 
     private var columnCount = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
     }
 
     override fun onCreateView(

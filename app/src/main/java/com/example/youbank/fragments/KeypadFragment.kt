@@ -16,7 +16,7 @@ import com.example.youbank.R
 import com.example.youbank.databinding.FragmentKeypadBinding
 import com.example.youbank.viewModels.KeypadViewModel
 
-class KeypadFragment : Fragment(), View.OnClickListener {
+class KeypadFragment: Fragment(), View.OnClickListener {
 
     private lateinit var viewModel: KeypadViewModel
     private var _binding: FragmentKeypadBinding? = null
@@ -26,15 +26,15 @@ class KeypadFragment : Fragment(), View.OnClickListener {
         super.onCreate(savedInstanceState)
     }
 
-    override fun onCreateView(inflater: LayoutInflater,
-                              container: ViewGroup?,
-                              savedInstanceState: Bundle?
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
 
         _binding = FragmentKeypadBinding.inflate(inflater, container, false)
         viewModel = ViewModelProvider(this).get(KeypadViewModel::class.java)
-        viewModel.getName()
-            .observe(viewLifecycleOwner, { x -> binding?.txtNameOfUser?.text = x.toString() })
+        viewModel.getName().observe(viewLifecycleOwner, { x -> binding?.txtNameOfUser?.text = x.toString() })
 
         // Inflate the layout for this fragment
         return binding?.root
@@ -157,13 +157,17 @@ class KeypadFragment : Fragment(), View.OnClickListener {
                     }
                     else -> {
                         circle1?.setColorFilter(
-                            ContextCompat.getColor(requireContext(), R.color.white))
+                            ContextCompat.getColor(requireContext(), R.color.white)
+                        )
                         circle2?.setColorFilter(
-                            ContextCompat.getColor(requireContext(), R.color.white))
+                            ContextCompat.getColor(requireContext(), R.color.white)
+                        )
                         circle3?.setColorFilter(
-                            ContextCompat.getColor(requireContext(), R.color.white))
+                            ContextCompat.getColor(requireContext(), R.color.white)
+                        )
                         circle4?.setColorFilter(
-                            ContextCompat.getColor(requireContext(), R.color.white))
+                            ContextCompat.getColor(requireContext(), R.color.white)
+                        )
                     }
                 }
             }
@@ -187,13 +191,17 @@ class KeypadFragment : Fragment(), View.OnClickListener {
                     }
                     else -> {
                         circle1?.setColorFilter(
-                            ContextCompat.getColor(requireContext(), R.color.black))
+                            ContextCompat.getColor(requireContext(), R.color.black)
+                        )
                         circle2?.setColorFilter(
-                            ContextCompat.getColor(requireContext(), R.color.black))
+                            ContextCompat.getColor(requireContext(), R.color.black)
+                        )
                         circle3?.setColorFilter(
-                            ContextCompat.getColor(requireContext(), R.color.black))
+                            ContextCompat.getColor(requireContext(), R.color.black)
+                        )
                         circle4?.setColorFilter(
-                            ContextCompat.getColor(requireContext(), R.color.black))
+                            ContextCompat.getColor(requireContext(), R.color.black)
+                        )
                     }
                 }
             }

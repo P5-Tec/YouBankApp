@@ -12,6 +12,7 @@
 
     <!-- Account creation -->
     <string name="account_create_btn">Create Account</string>
+    <string name="account_create_password_btn">Create Password</string>
     <string name="account_create_cpr">CPR</string>
     <string name="account_create_full_name">Full name</string>
     <string name="account_create_address">Address</string>
@@ -45,4 +46,11 @@
     <!-- Forgot Password -->
     <string name="forgot_password_text">Have you forgotten your password? Oh no! Do not worry, we got your back covered. Please enter your email below, and we\'ll reset it for you.
         </string>
+
+    <!-- Create Passowrd notice -->
+    <string name="create_password_notice">Type in a 4 digit password combination. You will need this to login once you have been created in our system. Please refrain from using easy combinations like 0000 or 1111.
+        </string>
+
+    <!-- Warning Label -->
+    <string name="warningLabelNoMatch">Passwords doesn\'t match each other!</string>
 </resources>

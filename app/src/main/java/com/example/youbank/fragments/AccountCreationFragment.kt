@@ -4,30 +4,82 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
+import android.widget.EditText
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.youbank.R
+import com.example.youbank.databinding.FragmentAccountCreationBinding
+import com.example.youbank.helpers.AccountCreationTextWatcher
+import com.example.youbank.models.Customer
+import com.example.youbank.viewModels.SharedViewModel
 
-class AccountCreationFragment : Fragment() {
+class AccountCreationFragment: Fragment() {
+
+    private var _binding: FragmentAccountCreationBinding? = null
+    private val binding get() = _binding!!
+    private lateinit var concatetenatedString: String
+    private lateinit var c: Customer
+    private val model: SharedViewModel by activityViewModels() // NEW WAY
+    // private lateinit var sharedViewModel: AccountCreationViewModel // OLD WAY
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?):
-            View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_account_creation, container, false)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+    ): View { // Inflate the layout for this fragment
+        _binding = FragmentAccountCreationBinding.inflate(inflater, container, false)
+
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        view.findViewById<Button>(R.id.backbtn).setOnClickListener {
+        binding.backbtn.setOnClickListener {
             findNavController().navigate(R.id.action_accountCreationBackBtn)
         }
+
+        binding.btnCreatePassword.setOnClickListener {
+
+            c = Customer()
+
+            c.cpr = binding.cprInput.text.toString().dropLast(5)
+            c.fullName = binding.fullnameInput.text.toString().capitalizeWords()
+            c.email = binding.emailInput.text.toString().replaceFirstChar { it.lowercase() }
+            c.phone = binding.phoneInput.text.toString()
+
+            concatetenatedString =
+                binding.addressInput.text.toString().capitalizeWords() +
+                ", " + binding.postcodeInput.text.toString() +
+                " " + binding.cityInput.text.toString().capitalizeWords()
+
+            c.address = concatetenatedString
+
+            model.setCustomer(c)
+
+            findNavController().navigate(
+                R.id.action_accountCreationFragment_to_passwordCreationFragment)
+        }
+
+        val edList = listOf(
+            binding.cprInput, binding.fullnameInput, binding.emailInput, binding.phoneInput, binding.addressInput,
+            binding.cityInput, binding.postcodeInput)
+
+        val textWatcher = AccountCreationTextWatcher(edList, binding.btnCreatePassword)
+
+        // All EditTexts will listen for the functions in AccountCreationTextWatcher
+        for (editText: EditText in edList) {
+            editText.addTextChangedListener(textWatcher)
+        }
     }
+
+    // Method to capitalize the first character of every word in a string
+    private fun String.capitalizeWords(): String =
+        split(" ").joinToString(" ") { fc ->
+            fc.replaceFirstChar { uc ->
+                uc.uppercaseChar()
+            }
+        }
 }
