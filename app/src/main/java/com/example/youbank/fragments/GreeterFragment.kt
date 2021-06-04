@@ -19,14 +19,15 @@ class GreeterFragment: Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        _binding = FragmentGreeterBinding.inflate(inflater, container, false)
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_greeter, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.createAccBtn.setOnClickListener {
+        binding.signUpBtn.setOnClickListener {
             findNavController().navigate(R.id.action_greeterFragment_to_accountCreationFragment)
         }
 
