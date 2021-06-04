@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="?attr/backgroundColor"
+    android:orientation="vertical"
     tools:context=".fragments.CardOverviewFragment">
 
     <com.google.android.material.button.MaterialButton
@@ -22,11 +22,11 @@
 
     <fragment
         android:id="@+id/nav_host_card_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="250dp"
         android:layout_height="400dp"
         android:layout_gravity="center_horizontal"
         android:layout_margin="70dp"
-        android:name="androidx.navigation.fragment.NavHostFragment"
         app:navGraph="@navigation/nav_graph_card" />
 
     <LinearLayout
@@ -51,10 +51,10 @@
             android:gravity="start|center_vertical"
             android:lineSpacingExtra="2dp"
             android:padding="15dp"
-            app:backgroundTint="?attr/materialButtonTint"
-            app:rippleColor="?attr/materialRippleColor"
             android:text="@string/btn_showinformation"
-            android:textColor="?attr/colorOnSecondary" />
+            android:textColor="?attr/colorOnSecondary"
+            app:backgroundTint="?attr/materialButtonTint"
+            app:rippleColor="?attr/materialRippleColor" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnShowPIN"
@@ -63,9 +63,9 @@
             android:gravity="start|center_vertical"
             android:padding="15dp"
             android:text="Show PIN"
+            android:textColor="?attr/colorOnSecondary"
             app:backgroundTint="?attr/materialButtonTint"
-            app:rippleColor="?attr/materialRippleColor"
-            android:textColor="?attr/colorOnSecondary" />
+            app:rippleColor="?attr/materialRippleColor" />
     </LinearLayout>
 
 </LinearLayout>

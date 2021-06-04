@@ -20,7 +20,7 @@ class KeypadFragment: Fragment(), View.OnClickListener {
 
     private lateinit var viewModel: KeypadViewModel
     private var _binding: FragmentKeypadBinding? = null
-    private val binding get() = _binding
+    private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,14 +30,14 @@ class KeypadFragment: Fragment(), View.OnClickListener {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         _binding = FragmentKeypadBinding.inflate(inflater, container, false)
         viewModel = ViewModelProvider(this).get(KeypadViewModel::class.java)
-        viewModel.getName().observe(viewLifecycleOwner, { x -> binding?.txtNameOfUser?.text = x.toString() })
+        viewModel.getName().observe(viewLifecycleOwner, { x -> binding.txtNameOfUser.text = x.toString() })
 
         // Inflate the layout for this fragment
-        return binding?.root
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -65,7 +65,7 @@ class KeypadFragment: Fragment(), View.OnClickListener {
         btn9.setOnClickListener(this)
         btn0.setOnClickListener(this)
 
-        view.findViewById<Button>(R.id.btnForgotPassword).setOnClickListener {
+        binding.btnForgotPassword.setOnClickListener {
             findNavController().navigate(R.id.action_keypadFragment_to_forgotPasswordFragment)
         }
     }
@@ -130,42 +130,42 @@ class KeypadFragment: Fragment(), View.OnClickListener {
 
     private fun highlightCircles() {
 
-        val circle1: ImageView? = view?.findViewById(R.id.circl1)
-        val circle2: ImageView? = view?.findViewById(R.id.circl2)
-        val circle3: ImageView? = view?.findViewById(R.id.circl3)
-        val circle4: ImageView? = view?.findViewById(R.id.circl4)
+        val circle1: ImageView = binding.circl1
+        val circle2: ImageView = binding.circl2
+        val circle3: ImageView = binding.circl3
+        val circle4: ImageView = binding.circl4
 
         when (context?.resources?.configuration?.uiMode?.and(Configuration.UI_MODE_NIGHT_MASK)) {
 
             Configuration.UI_MODE_NIGHT_YES -> {
                 when (valueString.length) {
                     1 -> {
-                        circle1?.setColorFilter(
+                        circle1.setColorFilter(
                             ContextCompat.getColor(requireContext(), R.color.drac_orange))
                     }
                     2 -> {
-                        circle2?.setColorFilter(
+                        circle2.setColorFilter(
                             ContextCompat.getColor(requireContext(), R.color.drac_orange))
                     }
                     3 -> {
-                        circle3?.setColorFilter(
+                        circle3.setColorFilter(
                             ContextCompat.getColor(requireContext(), R.color.drac_orange))
                     }
                     4 -> {
-                        circle4?.setColorFilter(
+                        circle4.setColorFilter(
                             ContextCompat.getColor(requireContext(), R.color.drac_orange))
                     }
                     else -> {
-                        circle1?.setColorFilter(
+                        circle1.setColorFilter(
                             ContextCompat.getColor(requireContext(), R.color.white)
                         )
-                        circle2?.setColorFilter(
+                        circle2.setColorFilter(
                             ContextCompat.getColor(requireContext(), R.color.white)
                         )
-                        circle3?.setColorFilter(
+                        circle3.setColorFilter(
                             ContextCompat.getColor(requireContext(), R.color.white)
                         )
-                        circle4?.setColorFilter(
+                        circle4.setColorFilter(
                             ContextCompat.getColor(requireContext(), R.color.white)
                         )
                     }
@@ -174,32 +174,32 @@ class KeypadFragment: Fragment(), View.OnClickListener {
             Configuration.UI_MODE_NIGHT_NO -> {
                 when (valueString.length) {
                     1 -> {
-                        circle1?.setColorFilter(
+                        circle1.setColorFilter(
                             ContextCompat.getColor(requireContext(), R.color.n_l_main))
                     }
                     2 -> {
-                        circle2?.setColorFilter(
+                        circle2.setColorFilter(
                             ContextCompat.getColor(requireContext(), R.color.n_l_main))
                     }
                     3 -> {
-                        circle3?.setColorFilter(
+                        circle3.setColorFilter(
                             ContextCompat.getColor(requireContext(), R.color.n_l_main))
                     }
                     4 -> {
-                        circle4?.setColorFilter(
+                        circle4.setColorFilter(
                             ContextCompat.getColor(requireContext(), R.color.n_l_main))
                     }
                     else -> {
-                        circle1?.setColorFilter(
+                        circle1.setColorFilter(
                             ContextCompat.getColor(requireContext(), R.color.black)
                         )
-                        circle2?.setColorFilter(
+                        circle2.setColorFilter(
                             ContextCompat.getColor(requireContext(), R.color.black)
                         )
-                        circle3?.setColorFilter(
+                        circle3.setColorFilter(
                             ContextCompat.getColor(requireContext(), R.color.black)
                         )
-                        circle4?.setColorFilter(
+                        circle4.setColorFilter(
                             ContextCompat.getColor(requireContext(), R.color.black)
                         )
                     }

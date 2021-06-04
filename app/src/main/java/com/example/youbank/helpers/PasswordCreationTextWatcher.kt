@@ -18,7 +18,6 @@ class PasswordCreationTextWatcher(var passwordInput: EditText,
 
         // Enabling button if passwords are both 4 long and they match
         // Showing warninglabel if passwords don't match
-
         if (passwordInput.length() == 4 && passwordConfirmInput.length() == 4) {
             if (passwordInput.text.toString() == passwordConfirmInput.text.toString()) {
                 warningLabel.visibility = View.INVISIBLE
