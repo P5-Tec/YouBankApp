@@ -21,8 +21,8 @@ class AccountCreationTextWatcher(var edList: List<EditText>, var btnCreatePasswo
 
     override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
         if (s.toString() == editTextCpr.text.toString()) { // Are we in the CPR input field
-            originalString = s.toString()
-            isLastCharHyphen = originalString.lastOrNull() == '-'
+            originalString = s.toString() // Save the string before change
+            isLastCharHyphen = originalString.lastOrNull() == '-' // setting isLastCharHyphen
         }
     }
 

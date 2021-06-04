@@ -7,16 +7,20 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.youbank.R
-import com.google.android.material.button.MaterialButton
+import com.example.youbank.databinding.FragmentForgotPasswordBinding
 
-class ForgotPasswordFragment : Fragment() {
+class ForgotPasswordFragment: Fragment() {
+
+    private var _binding: FragmentForgotPasswordBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+                              savedInstanceState: Bundle?
+    ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_forgot_password, container, false)
     }
@@ -24,8 +28,12 @@ class ForgotPasswordFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        view.findViewById<MaterialButton>(R.id.backbtn).setOnClickListener {
+        binding.backbtn.setOnClickListener {
             findNavController().navigate(R.id.action_forgotPasswordFragmentBackBtn)
         }
+
+        binding.resetPasswordBtn.setOnClickListener {
+        }
+
     }
 }

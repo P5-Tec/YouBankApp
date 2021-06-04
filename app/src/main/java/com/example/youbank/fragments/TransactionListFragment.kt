@@ -12,7 +12,7 @@ import com.example.youbank.R
 import com.example.youbank.fragments.dummy.DummyContent
 import com.example.youbank.fragments.recyclerViewAdapters.MyTransactionListRecyclerViewAdapter
 
-class TransactionListFragment : Fragment() {
+class TransactionListFragment: Fragment() {
 
     private var columnCount = 1
 
@@ -20,10 +20,7 @@ class TransactionListFragment : Fragment() {
         super.onCreate(savedInstanceState)
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.transaction_item_list, container, false)
 
         // Set the adapter

@@ -9,10 +9,12 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import com.example.youbank.R
-import com.google.android.material.button.MaterialButton
+import com.example.youbank.databinding.FragmentCardOverviewBinding
 
-class CardOverviewFragment : Fragment() {
+class CardOverviewFragment: Fragment() {
 
+    private var _binding: FragmentCardOverviewBinding? = null
+    private val binding get() = _binding!!
     private lateinit var localController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,7 +24,7 @@ class CardOverviewFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_card_overview, container, false)
     }
@@ -30,14 +32,11 @@ class CardOverviewFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val btnShowInformation: MaterialButton = view.findViewById(R.id.btnShowInformation)
-        val btnShowPIN: MaterialButton = view.findViewById(R.id.btnShowPIN)
-
-        view.findViewById<MaterialButton>(R.id.backbtn).setOnClickListener {
+        binding.backbtn.setOnClickListener {
             findNavController().navigate(R.id.action_cardOverviewFragmentBackBtn)
         }
 
-        btnShowInformation.setOnClickListener {
+        binding.btnShowInformation.setOnClickListener {
             val localNavHostFragment =
                 childFragmentManager.findFragmentById(R.id.nav_host_card_fragment) as NavHostFragment
             localController = localNavHostFragment.navController
@@ -55,7 +54,7 @@ class CardOverviewFragment : Fragment() {
             }
         }
 
-        btnShowPIN.setOnClickListener {
+        binding.btnShowPIN.setOnClickListener {
             val localNavHostFragment =
                 childFragmentManager.findFragmentById(R.id.nav_host_card_fragment) as NavHostFragment
             localController = localNavHostFragment.navController
