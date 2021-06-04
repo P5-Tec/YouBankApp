@@ -27,8 +27,7 @@ class AccountCreationFragment: Fragment() {
         super.onCreate(savedInstanceState)
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentAccountCreationBinding.inflate(inflater, container, false)
         // Inflate the layout for this fragment
         return binding.root
