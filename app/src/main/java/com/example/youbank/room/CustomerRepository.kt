@@ -1,10 +1,12 @@
 package com.example.youbank.room
 
+import androidx.lifecycle.LiveData
+
 class CustomerRepository(private val customerDao: CustomerDao) {
 
-    val readAllData: Customer = customerDao.getCustomer()
+    val readCustomer: LiveData<RoomCustomer> = customerDao.getCustomer()
 
-    fun addCustomer(c: Customer) {
+    fun addCustomer(c: RoomCustomer) {
         customerDao.addCustomer(c)
     }
 

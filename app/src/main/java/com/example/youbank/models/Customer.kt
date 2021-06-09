@@ -1,7 +1,7 @@
 package com.example.youbank.models
 
 class Customer {
-    var customerId: Int? = null
+    var customerId: Int = -1
     lateinit var fullName: String
     lateinit var birthday: String
     lateinit var email: String
@@ -10,9 +10,3 @@ class Customer {
     lateinit var password: String
     lateinit var accounts: ArrayList<Account>
 }
-
-
-
-
-
-
