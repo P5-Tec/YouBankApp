@@ -27,15 +27,14 @@ class HomeScreenMotionFragment: Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        getCustomerDataWithApi(14)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
 
         _binding = FragmentHomeScreenMotionBinding.inflate(inflater, container, false)
-
-        getCustomerDataWithApi(14)
-
-
+        
         // Inflate the layout for this fragment
         return binding.root
     }
@@ -51,7 +50,9 @@ class HomeScreenMotionFragment: Fragment() {
         req.enqueue(object: Callback<Customer> {
             override fun onResponse(call: Call<Customer>, response: Response<Customer>) {
                 c = response.body()!!
-                //binding.header.text = c.fullName
+                binding.header.text = c.fullName
+                binding.accountBoxHeader.text = c.address
+                binding.transactionBoxHeader.text = c.email
                 Log.d("Customer name", c.fullName)
             }
 
