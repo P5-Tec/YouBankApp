@@ -31,7 +31,6 @@ class KeypadFragment: Fragment(), View.OnClickListener {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
         _binding = FragmentKeypadBinding.inflate(inflater, container, false)
         viewModel = ViewModelProvider(this).get(KeypadViewModel::class.java)
         viewModel.getName().observe(viewLifecycleOwner, { x -> binding.txtNameOfUser.text = x.toString() })
