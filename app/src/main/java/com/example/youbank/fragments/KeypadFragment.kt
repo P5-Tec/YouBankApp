@@ -26,11 +26,7 @@ class KeypadFragment: Fragment(), View.OnClickListener {
         super.onCreate(savedInstanceState)
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
 
         _binding = FragmentKeypadBinding.inflate(inflater, container, false)
         viewModel = ViewModelProvider(this).get(KeypadViewModel::class.java)
@@ -117,7 +113,7 @@ class KeypadFragment: Fragment(), View.OnClickListener {
             if (valueString == correctString) {
                 Toast.makeText(this.context, "Correct", Toast.LENGTH_SHORT).show()
                 valueString = ""
-                findNavController().navigate(R.id.action_keypadFragment_to_homeScreenFragment)
+                findNavController().navigate(R.id.action_keypadFragment_to_homeScreenMotionFragment)
             }
             else {
                 Toast.makeText(this.context, "Incorrect", Toast.LENGTH_SHORT).show()

@@ -27,7 +27,7 @@
             android:visibility="visible"
             motion:layout_constraintEnd_toEndOf="parent"
             motion:layout_constraintStart_toStartOf="parent"
-            motion:layout_constraintTop_toBottomOf="@id/header_box" />
+            motion:layout_constraintTop_toBottomOf="@id/header" />
     </ConstraintSet>
 
     <ConstraintSet android:id="@+id/end">
@@ -38,7 +38,7 @@
             android:visibility="visible"
             motion:layout_constraintEnd_toEndOf="parent"
             motion:layout_constraintStart_toStartOf="parent"
-            motion:layout_constraintTop_toBottomOf="@id/header_box" />
+            motion:layout_constraintTop_toBottomOf="@id/header" />
         <Constraint
             android:id="@+id/account_box"
             android:layout_width="match_parent"

@@ -23,7 +23,7 @@ class MyCardRecyclerViewAdapter(private val values: List<DummyItem>): RecyclerVi
         holder.idView.text = item.id
 
         holder.itemView.setOnClickListener {
-            holder.itemView.findNavController().navigate(R.id.action_homeScreenFragment_to_cardOverviewFragment)
+            holder.itemView.findNavController().navigate(R.id.action_homeScreenMotionFragment_to_cardOverviewFragment)
         }
     }
 
