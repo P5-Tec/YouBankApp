@@ -9,6 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.example.youbank.databinding.FragmentHomeScreenMotionBinding
 import com.example.youbank.fragments.buttomModals.AccountSupportDialogFragment
+import com.example.youbank.models.Account
+import com.example.youbank.models.Card
 import com.example.youbank.models.Customer
 import com.example.youbank.retrofit.ApiService
 import com.example.youbank.retrofit.CustomerService
@@ -24,12 +26,14 @@ class HomeScreenMotionFragment: Fragment() {
     private val binding get() = _binding!!
 
     private val vm: CustomerViewModel by activityViewModels() // NEW WAY
-    lateinit var c: Customer
+    lateinit var cus: Customer
+    lateinit var a: ArrayList<Account>
+    lateinit var cards: ArrayList<Card>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        c = Customer()
+        cus = Customer()
         getCustomerDataWithApi(14)
     }
 
@@ -43,14 +47,14 @@ class HomeScreenMotionFragment: Fragment() {
     }
 
     private fun insertDataToDatabase() {
-        val roomCustomer = RoomCustomer(0, c.customerId, c.fullName, c.birthday, c.email, c.phone, c.address)
+        val roomCustomer = RoomCustomer(0, cus.customerId, cus.fullName, cus.birthday, cus.email, cus.phone, cus.address)
         // Adding customer to roomdatabase
         vm.addCustomer(roomCustomer)
 
         vm.readCustomer.observe(viewLifecycleOwner, { c ->
-            binding.header.text = c.phone
-            binding.accountBoxHeader.text = c.customerId.toString()
-            binding.transactionBoxHeader.text = c.fullName
+            binding.header.text = cards[0].expirationDate.toString()
+            binding.accountBoxHeader.text = cards[0].ccv.toString()
+            binding.transactionBoxHeader.text = a[0].accountId.toString()
         })
     }
 
@@ -60,17 +64,19 @@ class HomeScreenMotionFragment: Fragment() {
 
         req.enqueue(object: Callback<Customer> {
             override fun onResponse(call: Call<Customer>, response: Response<Customer>) {
-                c = response.body()!!
-                //binding.header.text = c.fullName
-                //binding.accountBoxHeader.text = c.address
-                //binding.transactionBoxHeader.text = c.email
-                Log.d("Customer name", c.fullName)
+                cus = response.body()!!
+                a = response.body()!!.accounts
+                cards = response.body()!!.accounts[0].cards
+
+                Log.d("code", response.code().toString())
+
+                Log.d("Customer name", cards.toString())
 
                 insertDataToDatabase()
             }
 
             override fun onFailure(call: Call<Customer>, t: Throwable) {
-                Log.d("get customer failed", t.message.toString())
+                Log.d("get customer failed", t.cause.toString())
             }
         })
 
