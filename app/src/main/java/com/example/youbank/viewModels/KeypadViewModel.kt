@@ -14,7 +14,7 @@ class KeypadViewModel: ViewModel() {
 
     private val service: CustomerService = ApiService.buildService(CustomerService::class.java)
     private val req: Call<Customer> = service.getCustomerById(14)
-    private val c: Customer = Customer()
+    private lateinit var c: Customer
     private val cName = MutableLiveData<String>()
 
     init {

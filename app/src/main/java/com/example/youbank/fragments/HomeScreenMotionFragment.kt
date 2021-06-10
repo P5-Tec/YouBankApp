@@ -18,6 +18,7 @@ class HomeScreenMotionFragment: Fragment() {
 
     private val vm: CustomerViewModel by activityViewModels()
     private val vma: AccountViewModel by activityViewModels()
+
     //private val vmc: CardViewModel by activityViewModels()
 
     //lateinit var cus: Customer
@@ -27,22 +28,23 @@ class HomeScreenMotionFragment: Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+
         //cus = Customer()
         //getCustomerDataWithApi(14)
-        vm.addCustomer(14)
+        //vm.addCustomer(14)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
 
         _binding = FragmentHomeScreenMotionBinding.inflate(inflater, container, false)
 
-        vm.readCustomer.observe(viewLifecycleOwner, { rc ->
-            binding.header.text = rc.fullName
-        })
-        vma.readAccounts.observe(viewLifecycleOwner, { ra ->
-            binding.accountBoxHeader.text = ra[0].accountNumber
-            binding.transactionBoxHeader.text = ra[0].accountId.toString()
-        })
+        //vm.readCustomer.observe(viewLifecycleOwner, { rc ->
+        //    binding.header.text = rc.fullName
+        //})
+        //vma.readAccounts.observe(viewLifecycleOwner, { ra ->
+        //    binding.accountBoxHeader.text = ra[0].accountNumber
+        //    binding.transactionBoxHeader.text = ra[0].accountId.toString()
+        //})
 
         // Inflate the layout for this fragment
         return binding.root

@@ -33,7 +33,7 @@ class GreeterFragment: Fragment() {
         }
 
         binding.loginBtn.setOnClickListener {
-            findNavController().navigate(R.id.action_greeterFragment_to_keypadFragment)
+            findNavController().navigate(R.id.action_greeterFragment_to_loginFragment)
         }
     }
 }

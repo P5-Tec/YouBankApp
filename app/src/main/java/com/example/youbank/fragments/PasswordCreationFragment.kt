@@ -50,19 +50,19 @@ class PasswordCreationFragment: Fragment() {
         binding.passwordInput.addTextChangedListener(textWatcher)
         binding.passwordConfirmInput.addTextChangedListener(textWatcher)
 
-        model.getCustomer().observe(viewLifecycleOwner, { c ->
-
-            newCustomer = Customer()
-            newCustomer.birthday = c.birthday
-            newCustomer.fullName = c.fullName
-            newCustomer.email = c.email
-            newCustomer.phone = c.phone
-            newCustomer.address = c.address
-
-            val txt: String = c.birthday + "\n" + c.fullName + "\n" + c.email + "\n" + c.phone + "\n" + c.address
-
-            binding.description.text = txt
-        })
+        //model.getCustomer().observe(viewLifecycleOwner, { c ->
+        //
+        //    newCustomer = Customer()
+        //    newCustomer.birthday = c.birthday
+        //    newCustomer.fullName = c.fullName
+        //    newCustomer.email = c.email
+        //    newCustomer.phone = c.phone
+        //    newCustomer.address = c.address
+        //
+        //    val txt: String = c.birthday + "\n" + c.fullName + "\n" + c.email + "\n" + c.phone + "\n" + c.address
+        //
+        //    binding.description.text = txt
+        //})
 
         binding.backbtn.setOnClickListener {
             findNavController().navigate(R.id.action_passwordCreationFragmentBackBtn)
@@ -76,8 +76,10 @@ class PasswordCreationFragment: Fragment() {
             // Fetching hash from viewmodel and passing it to newCustomer password field
             newCustomer.password = model.getPasswordHash()
 
+            model.setPassword()
+
             // Passing newCustomer object to viewmodel
-            model.setCustomer(newCustomer)
+            //model.setCustomer(newCustomer)
 
             model.getCustomer().observe(viewLifecycleOwner, { c ->
                 val service: CustomerService = ApiService.buildService(CustomerService::class.java)

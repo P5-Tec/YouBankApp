@@ -7,6 +7,6 @@ class Customer {
     var email: String? = null
     lateinit var phone: String
     lateinit var address: String
-    lateinit var password: String
-    lateinit var accounts: ArrayList<Account>
+    var password: String? = null
+    var accounts: ArrayList<Account>? = null
 }
