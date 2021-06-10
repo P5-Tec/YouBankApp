@@ -19,6 +19,8 @@ class LoginViewModel : ViewModel() {
         emit(response)
     }
 
+
+
     fun setEmail(emval: String){
         user.email = emval.toString()
     }
