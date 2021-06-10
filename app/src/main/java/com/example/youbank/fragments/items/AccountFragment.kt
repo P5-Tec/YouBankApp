@@ -19,18 +19,19 @@ class AccountFragment: Fragment() {
         super.onCreate(savedInstanceState)
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        // Inflate the layout for this fragment
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+
         _binding = FragmentAccountBinding.inflate(inflater, container, false)
+
+        // Inflate the layout for this fragment
         return binding.root
-        //return inflater.inflate(R.layout.fragment_account, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         binding.clayout.setOnClickListener {
-            findNavController().navigate(R.id.action_homeScreenFragment_to_accountOverviewFragment)
+            findNavController().navigate(R.id.action_homeScreenMotionFragment_to_accountOverviewFragment)
         }
     }
 }

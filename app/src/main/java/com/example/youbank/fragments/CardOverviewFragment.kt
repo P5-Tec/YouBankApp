@@ -21,19 +21,18 @@ class CardOverviewFragment: Fragment() {
         super.onCreate(savedInstanceState)
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+        _binding = FragmentCardOverviewBinding.inflate(inflater, container, false)
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_card_overview, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         binding.backbtn.setOnClickListener {
-            findNavController().navigate(R.id.action_cardOverviewFragmentBackBtn)
+            findNavController().navigate(R.id.action_cardOverviewBackBtn)
         }
 
         binding.btnShowInformation.setOnClickListener {

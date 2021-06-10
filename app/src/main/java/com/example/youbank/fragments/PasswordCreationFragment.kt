@@ -32,10 +32,8 @@ class PasswordCreationFragment: Fragment() {
         super.onCreate(savedInstanceState)
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+
         _binding = FragmentPasswordCreationBinding.inflate(inflater, container, false)
 
         // Inflate the layout for this fragment

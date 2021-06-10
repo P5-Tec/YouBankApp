@@ -21,11 +21,7 @@ class AccountOverviewFragment: Fragment() {
         super.onCreate(savedInstanceState)
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentAccountOverviewBinding.inflate(inflater, container, false)
         viewModel = ViewModelProvider(this).get(AccountOverviewViewModel::class.java)
         viewModel.getAccountBalance()

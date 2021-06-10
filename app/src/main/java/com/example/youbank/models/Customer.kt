@@ -10,9 +10,3 @@ class Customer {
     lateinit var password: String
     lateinit var accounts: ArrayList<Account>
 }
-
-
-
-
-
-

@@ -18,8 +18,9 @@ class GreeterFragment: Fragment() {
         super.onCreate(savedInstanceState)
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentGreeterBinding.inflate(inflater, container, false)
+
         // Inflate the layout for this fragment
         return binding.root
     }

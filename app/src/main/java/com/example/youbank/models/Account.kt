@@ -5,10 +5,11 @@ import android.util.Log
 enum class AccountType { Basic, Premium }
 
 class Account {
-    var accountId: Int? = null
-    var accountNumber: String? = generateAccNumber()
-    var accountBalance: Int? = null
+    var accountId: Int = -1
+    var accountNumber: String = generateAccNumber()
     lateinit var accountType: AccountType
+    var balance: Double = 0.0
+    lateinit var cards: ArrayList<Card>
 }
 
 fun generateAccNumber(): String {
