@@ -7,8 +7,8 @@ enum class AccountType { Basic, Premium }
 class Account {
     var accountId: Int = -1
     var accountNumber: String = generateAccNumber()
-    var accountBalance: Int = -1
     lateinit var accountType: AccountType
+    var balance: Double = 0.0
     lateinit var cards: ArrayList<Card>
 }
 

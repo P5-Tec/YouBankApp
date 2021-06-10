@@ -1,18 +1,18 @@
-package com.example.youbank.room
+package com.example.youbank.room.daos
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
+import com.example.youbank.room.models.RoomCustomer
 
 @Dao
 interface CustomerDao {
 
-    @Query("SELECT * FROM RoomCustomer")
+    @Query("SELECT * FROM customer_table")
     fun getCustomer(): LiveData<RoomCustomer>
 
-    //@Insert(onConflict = OnConflictStrategy.IGNORE)
     @Insert
     fun addCustomer(c: RoomCustomer)
 

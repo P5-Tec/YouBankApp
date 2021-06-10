@@ -1,9 +1,9 @@
-package com.example.youbank.room
+package com.example.youbank.room.models
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity
+@Entity(tableName = "customer_table")
 data class RoomCustomer(
     @PrimaryKey(autoGenerate = true)
     val CID: Int,
