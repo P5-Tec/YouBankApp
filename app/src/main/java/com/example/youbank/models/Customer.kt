@@ -4,7 +4,7 @@ class Customer {
     var customerId: Int? = null
     lateinit var fullName: String
     lateinit var birthday: String
-    lateinit var email: String
+    var email: String? = null
     lateinit var phone: String
     lateinit var address: String
     lateinit var password: String
