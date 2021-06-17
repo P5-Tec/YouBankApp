@@ -19,7 +19,6 @@ class AccountSupportDialogFragment: BottomSheetDialogFragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-
         _binding = FragmentAccountSupportDialogBinding.inflate(inflater, container, false)
 
         // Inflate the layout for this fragment
@@ -31,6 +30,10 @@ class AccountSupportDialogFragment: BottomSheetDialogFragment() {
 
         binding.LogoutHeader.setOnClickListener {
             findNavController().navigate(R.id.action_homeScreenMotionLogOut)
+        }
+
+        binding.SettingsHeader.setOnClickListener {
+            findNavController().navigate(R.id.action_homeScreenMotionFragment_to_settingsFragment)
         }
     }
 

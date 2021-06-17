@@ -4,18 +4,23 @@ import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
+import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.example.youbank.room.models.RoomCustomer
+import androidx.room.Update
+import com.example.youbank.models.Customer
 
 @Dao
 interface CustomerDao {
 
     @Query("SELECT * FROM customer_table")
-    fun getCustomer(): LiveData<RoomCustomer>
+    fun getCustomer(): LiveData<Customer>
 
-    @Insert
-    fun addCustomer(c: RoomCustomer)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    fun insertCustomer(c: Customer)
+
+    @Update
+    suspend fun updateCustomer(c: Customer)
 
     @Delete
-    fun deleteCustomer(c: RoomCustomer)
+    fun deleteCustomer(c: Customer)
 }

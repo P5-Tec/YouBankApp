@@ -29,6 +29,7 @@ class AccountCreationFragment: Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentAccountCreationBinding.inflate(inflater, container, false)
+
         // Inflate the layout for this fragment
         return binding.root
     }
@@ -45,15 +46,14 @@ class AccountCreationFragment: Fragment() {
             concatetenatedString =
                 binding.addressInput.text.toString().capitalizeWords() +
                 ", " + binding.postcodeInput.text.toString() +
-                " " + binding.cityInput.text.toString().capitalizeWords()
+                ", " + binding.cityInput.text.toString().capitalizeWords()
 
-            //c = Customer(
-            //    null, binding.fullnameInput.text.toString(),
-            //    binding.cprInput.text.toString().dropLast(5),
-            //    binding.emailInput.text.toString().replaceFirstChar { it.lowercase() },
-            //    binding.phoneInput.text.toString(),
-            //    concatetenatedString
-            //)
+            c = Customer()
+            c.fullName = binding.fullnameInput.text.toString().capitalizeWords()
+            c.phone = binding.phoneInput.text.toString()
+            c.address = concatetenatedString
+            c.birthday = binding.cprInput.text.toString().dropLast(5)
+            c.email = binding.emailInput.text.toString().replaceFirstChar { it.lowercase() }
 
             model.setCustomer(c)
 

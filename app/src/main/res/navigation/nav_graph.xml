@@ -176,12 +176,18 @@
             app:destination="@id/greeterFragment"
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/slide_out_right"
-            app:popUpTo="@id/greeterFragment"
-            app:popUpToInclusive="true" />
+            app:popUpTo="@id/greeterFragment" />
+        <action
+            android:id="@+id/action_homeScreenMotionFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.example.youbank.LoginFragment"
+        android:name="com.example.youbank.fragments.LoginFragment"
         android:label="login_fragment"
         tools:layout="@layout/login_fragment" >
         <action
@@ -189,6 +195,19 @@
             app:destination="@id/homeScreenMotionFragment"
             app:enterAnim="@android:anim/fade_in"
             app:exitAnim="@android:anim/fade_out"
+            app:popUpTo="@id/homeScreenMotionFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.youbank.fragments.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" >
+        <action
+            android:id="@+id/action_settingsFragmentBackBtn"
+            app:destination="@id/homeScreenMotionFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
             app:popUpTo="@id/homeScreenMotionFragment"
             app:popUpToInclusive="true" />
     </fragment>

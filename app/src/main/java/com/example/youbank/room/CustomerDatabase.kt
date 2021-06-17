@@ -4,14 +4,18 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
+import com.example.youbank.helpers.Converters
+import com.example.youbank.models.Account
+import com.example.youbank.models.Card
+import com.example.youbank.models.Customer
 import com.example.youbank.room.daos.AccountDao
 import com.example.youbank.room.daos.CardDao
 import com.example.youbank.room.daos.CustomerDao
-import com.example.youbank.room.models.RoomAccount
-import com.example.youbank.room.models.RoomCard
-import com.example.youbank.room.models.RoomCustomer
 
-@Database(entities = [RoomCustomer::class, RoomAccount::class, RoomCard::class], version = 1, exportSchema = false)
+
+@Database(entities = [Customer::class, Account::class, Card::class], version = 1, exportSchema = false)
+//@TypeConverters(Converters::class)
 abstract class CustomerDatabase: RoomDatabase() {
 
     abstract fun customerDao(): CustomerDao
@@ -37,5 +41,6 @@ abstract class CustomerDatabase: RoomDatabase() {
                 return instance
             }
         }
+
     }
 }

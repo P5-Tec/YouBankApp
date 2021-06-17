@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="?attr/backgroundColor"
     android:focusableInTouchMode="true"
-    tools:context=".fragments.AccountCreationFragment">
+    tools:context=".fragments.SettingsFragment">
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/backbtn"
@@ -27,25 +27,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Create Account"
+        android:text="Settings"
         android:textColor="?attr/colorOnSecondary"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/guideline6"
         app:layout_constraintTop_toBottomOf="@+id/backbtn" />
-
-    <EditText
-        android:id="@+id/cprInput"
-        android:layout_width="360dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:hint="CPR"
-        android:inputType="number"
-        android:maxLength="13"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/header"
-        tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/phoneInput"
@@ -98,7 +85,7 @@
         android:singleLine="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cprInput"
+        app:layout_constraintTop_toTopOf="@+id/guideline4"
         tools:ignore="MissingConstraints" />
 
     <EditText
@@ -127,19 +114,6 @@
         android:singleLine="true"
         app:layout_constraintStart_toStartOf="@+id/guideline6"
         app:layout_constraintTop_toBottomOf="@+id/addressInput"
-        tools:ignore="MissingConstraints" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnCreatePassword"
-        android:layout_width="360dp"
-        android:layout_height="60dp"
-        android:focusable="false"
-        android:enabled="false"
-        android:text="@string/account_create_password_btn"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/guideline8"
-        app:layout_constraintStart_toStartOf="@+id/guideline6"
-        app:layout_constraintTop_toBottomOf="@+id/cityInput"
         tools:ignore="MissingConstraints" />
 
     <androidx.constraintlayout.widget.Guideline

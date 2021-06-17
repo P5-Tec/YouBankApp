@@ -29,10 +29,4 @@ class SharedViewModel: ViewModel() {
     fun getPasswordHash(): String {
         return password
     }
-
-    // Function for login
-    fun validatePassword(plainText: String, hash: String): Boolean {
-        return BCrypt.checkpw(plainText, hash)
-    }
-
 }

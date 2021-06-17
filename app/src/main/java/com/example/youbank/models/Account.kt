@@ -1,15 +1,19 @@
 package com.example.youbank.models
 
 import android.util.Log
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
 enum class AccountType { Basic, Premium }
 
+@Entity(tableName = "accounts_table")
 class Account {
+    @PrimaryKey(autoGenerate = false)
     var accountId: Int = -1
     var accountNumber: String = generateAccNumber()
     lateinit var accountType: AccountType
     var balance: Double = 0.0
-    lateinit var cards: ArrayList<Card>
+    //lateinit var cards: List<Card>
 }
 
 fun generateAccNumber(): String {

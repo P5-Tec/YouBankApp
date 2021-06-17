@@ -8,8 +8,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.example.youbank.databinding.FragmentHomeScreenMotionBinding
 import com.example.youbank.fragments.buttomModals.AccountSupportDialogFragment
-import com.example.youbank.room.AccountViewModel
-import com.example.youbank.room.CustomerViewModel
+import com.example.youbank.room.viewmodels.AccountViewModel
+import com.example.youbank.room.viewmodels.CardViewModel
+import com.example.youbank.room.viewmodels.CustomerViewModel
 
 class HomeScreenMotionFragment: Fragment() {
 
@@ -18,33 +19,16 @@ class HomeScreenMotionFragment: Fragment() {
 
     private val vm: CustomerViewModel by activityViewModels()
     private val vma: AccountViewModel by activityViewModels()
-
-    //private val vmc: CardViewModel by activityViewModels()
-
-    //lateinit var cus: Customer
-    //lateinit var a: ArrayList<Account>
-    //lateinit var cards: ArrayList<Card>
+    private val vmc: CardViewModel by activityViewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-
-        //cus = Customer()
-        //getCustomerDataWithApi(14)
-        //vm.addCustomer(14)
+        vm.addCustomerToRoomDB(36)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-
         _binding = FragmentHomeScreenMotionBinding.inflate(inflater, container, false)
-
-        //vm.readCustomer.observe(viewLifecycleOwner, { rc ->
-        //    binding.header.text = rc.fullName
-        //})
-        //vma.readAccounts.observe(viewLifecycleOwner, { ra ->
-        //    binding.accountBoxHeader.text = ra[0].accountNumber
-        //    binding.transactionBoxHeader.text = ra[0].accountId.toString()
-        //})
 
         // Inflate the layout for this fragment
         return binding.root
@@ -56,6 +40,22 @@ class HomeScreenMotionFragment: Fragment() {
         binding.profileImg.setOnClickListener {
             AccountSupportDialogFragment.newInstance().show(childFragmentManager, "dialog")
         }
+
+        vm.readCustomer.observe(viewLifecycleOwner, { room ->
+
+            if (room.fullName.isNotBlank()) {
+                binding.header.text = room.fullName
+                binding.accountBoxHeader.text = room.birthday
+                binding.transactionBoxHeader.text = room.address
+            }
+            else {
+                binding.header.text = "room was empty"
+                binding.accountBoxHeader.text = "room was empty"
+                binding.transactionBoxHeader.text = "room was empty"
+            }
+
+        })
+
     }
 
 

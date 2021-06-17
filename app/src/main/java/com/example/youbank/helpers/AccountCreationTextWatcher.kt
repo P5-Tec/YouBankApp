@@ -32,6 +32,9 @@ class AccountCreationTextWatcher(var edList: List<EditText>, var btnCreatePasswo
         editTextCpr.length() == 13 // Length must be 13 long
         && editTextFullname.text.isNotBlank() // Must not be empty and must contain some characters other than just whitespaces
         && editTextEmail.text.toString().isValidEmail() // Checking for valid email input
+        && editTextPhone.text.toString().isNotBlank() // This returns true if its not empty and doesnt contain whitespaces ONLY
+        && editTextPhone.length() == 8 // Phonenumber must be 8 long
+        && !editTextPhone.text.contains(" ") // This returns true if it doesnt contain whitespaces AT ALL
         && editTextAddress.text.isNotBlank()
         && editTextCity.text.isNotBlank()
         && editTextPostcode.length() == 4)

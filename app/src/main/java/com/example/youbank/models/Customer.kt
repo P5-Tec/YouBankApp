@@ -1,12 +1,16 @@
 package com.example.youbank.models
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(tableName = "customer_table")
 class Customer {
-    var customerId: Int? = null
-    lateinit var fullName: String
-    lateinit var birthday: String
-    var email: String? = null
-    lateinit var phone: String
-    lateinit var address: String
-    var password: String? = null
-    var accounts: ArrayList<Account>? = null
+    @PrimaryKey(autoGenerate = false)
+    var customerId: Int = 0
+    var fullName: String = ""
+    var phone: String = ""
+    var address: String = ""
+    var birthday: String? = null
+    var email: String = ""
+    var password: String = ""
 }

@@ -6,17 +6,16 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import com.example.youbank.models.Card
-import com.example.youbank.room.models.RoomCard
 
 @Dao
 interface CardDao {
 
     @Query("SELECT * FROM cards_table")
-    fun getCards(): LiveData<List<RoomCard>>
+    fun getCards(): LiveData<List<Card>>
 
     @Insert
-    fun addCards(c: RoomCard)
+    fun addCards(c: Card)
 
     @Delete
-    fun deleteCard(c: RoomCard)
+    fun deleteCard(c: Card)
 }
