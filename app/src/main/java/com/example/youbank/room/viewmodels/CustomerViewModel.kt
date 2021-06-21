@@ -29,10 +29,6 @@ class CustomerViewModel(application: Application): AndroidViewModel(application)
 
     var isSettingsValid: Boolean = false
 
-    //private var cus: Customer = Customer()
-    //var a = listOf<Account>()
-    //var cards = listOf<Card>()
-
     init {
 
         val customerDao = CustomerDatabase.getDatabase(application).customerDao()
@@ -48,7 +44,7 @@ class CustomerViewModel(application: Application): AndroidViewModel(application)
         readCard = cardRepo.readCards
     }
 
-    fun setIsSettingsValid(b: Boolean){
+    fun setIsSettingsValid(b: Boolean) {
         isSettingsValid = b
     }
 
@@ -73,5 +69,10 @@ class CustomerViewModel(application: Application): AndroidViewModel(application)
         }
     }
 
+    fun deleteCustomer(c: Customer) {
+        viewModelScope.launch(Dispatchers.IO) {
+            customerRepo.deleteCustomer(c)
+        }
+    }
 
 }

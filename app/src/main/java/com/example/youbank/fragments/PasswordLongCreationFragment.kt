@@ -10,27 +10,32 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.youbank.R
-import com.example.youbank.databinding.FragmentLongPasswordCreationBinding
+import com.example.youbank.databinding.FragmentPasswordLongCreationBinding
+import com.example.youbank.helpers.PasswordLongCreationTextWatcher
+import com.example.youbank.models.Customer
 import com.example.youbank.retrofit.ApiService
 import com.example.youbank.retrofit.CustomerService
+import com.example.youbank.viewModels.SharedPreferenceViewModel
 import com.example.youbank.viewModels.SharedViewModel
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class LongPasswordCreationFragment: Fragment() {
+class PasswordLongCreationFragment: Fragment() {
 
-    private var _binding: FragmentLongPasswordCreationBinding? = null
+    private var _binding: FragmentPasswordLongCreationBinding? = null
     private val binding get() = _binding!!
 
     private val vm: SharedViewModel by activityViewModels()
+    private val spvm: SharedPreferenceViewModel by activityViewModels()
+    private lateinit var newCustomer: Customer
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        _binding = FragmentLongPasswordCreationBinding.inflate(inflater, container, false)
+        _binding = FragmentPasswordLongCreationBinding.inflate(inflater, container, false)
 
         // Inflate the layout for this fragment
         return binding.root
@@ -38,6 +43,32 @@ class LongPasswordCreationFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        vm.getCustomer().observe(viewLifecycleOwner, { c ->
+
+            newCustomer = Customer()
+            newCustomer.birthday = c.birthday
+            newCustomer.fullName = c.fullName
+            newCustomer.email = c.email
+            newCustomer.phone = c.phone
+            newCustomer.address = c.address
+
+            val txt: String = c.birthday + "\n" + c.fullName + "\n" + c.email + "\n" + c.phone + "\n" + c.address
+
+            binding.description.text = txt
+        })
+
+        val textWatcher =
+            PasswordLongCreationTextWatcher(
+                binding.passwordInput, binding.passwordConfirmInput, binding.btnNext, binding.warningLabel)
+
+        binding.passwordInput.addTextChangedListener(textWatcher)
+        binding.passwordConfirmInput.addTextChangedListener(textWatcher)
+
+        binding.backbtn.setOnClickListener {
+            findNavController().navigate(R.id.action_passwordLongCreationFragmentBackBtn)
+        }
+
 
 
         binding.btnNext.setOnClickListener {
@@ -64,8 +95,16 @@ class LongPasswordCreationFragment: Fragment() {
                     req.enqueue(object: Callback<Void> {
                         override fun onResponse(call: Call<Void>, response: Response<Void>) {
                             if (response.isSuccessful) {
+
+                                Log.d("new customer id", it.id.toString())
+                                spvm.saveCustomerIdInSp(it.id)
+                                newCustomer.customerId = it.id
+
+                                vm.setCustomer(newCustomer)
+
                                 Toast.makeText(context, "Successfully Created - Congratulations!!", Toast.LENGTH_LONG).show()
-                                findNavController().navigate(R.id.action_passwordCreationFragment_to_greeterFragment)
+                                findNavController().navigate(
+                                    R.id.action_passwordLongCreationFragment_to_password4DigitCreationFragment)
                             }
                             else {
                                 Toast.makeText(

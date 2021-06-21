@@ -15,4 +15,9 @@ class CustomerRepository(private val customerDao: CustomerDao) {
     suspend fun updateCustomer(c: Customer) {
         customerDao.updateCustomer(c)
     }
+
+    suspend fun deleteCustomer(c: Customer){
+        customerDao.deleteCustomer(c)
+    }
+
 }

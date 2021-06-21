@@ -12,6 +12,8 @@ import com.example.youbank.models.Customer
 @Dao
 interface CustomerDao {
 
+    //fun checkPin()
+
     @Query("SELECT * FROM customer_table")
     fun getCustomer(): LiveData<Customer>
 
@@ -22,5 +24,5 @@ interface CustomerDao {
     suspend fun updateCustomer(c: Customer)
 
     @Delete
-    fun deleteCustomer(c: Customer)
+    suspend fun deleteCustomer(c: Customer)
 }
