@@ -68,37 +68,4 @@ class HomeScreenMotionFragment: Fragment() {
 
     }
 
-
-    //private fun getCustomerDataWithApi(id: Int) {
-    //    val service: CustomerService = ApiService.buildService(CustomerService::class.java)
-    //    val req: Call<Customer> = service.getCustomerById(id)
-    //
-    //    req.enqueue(object: Callback<Customer> {
-    //        override fun onResponse(call: Call<Customer>, response: Response<Customer>) {
-    //            cus = response.body()!! // Getting all the customer data
-    //            a = response.body()!!.accounts // Getting all the account data
-    //            cards = response.body()!!.accounts[0].cards // Getting all the card data
-    //
-    //            insertDataToDatabase()
-    //        }
-    //
-    //        override fun onFailure(call: Call<Customer>, t: Throwable) {
-    //            Log.d("get customer failed", t.cause.toString())
-    //        }
-    //    })
-    //
-    //}
-
-    //private fun insertDataToDatabase() {
-    //    val roomCustomer = RoomCustomer(0, cus.customerId, cus.fullName, cus.birthday, cus.email, cus.phone, cus.address)
-    //    // Adding customer to roomdatabase
-    //    vm.addCustomer(roomCustomer)
-    //
-    //    vm.readCustomer.observe(viewLifecycleOwner, { c ->
-    //        binding.header.text = cards[0].expirationDate
-    //        binding.accountBoxHeader.text = cards[0].ccv.toString()
-    //        binding.transactionBoxHeader.text = a[0].accountId.toString()
-    //    })
-    //}
-
 }
