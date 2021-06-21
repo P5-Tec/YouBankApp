@@ -12,8 +12,6 @@ import com.example.youbank.models.Customer
 @Dao
 interface CustomerDao {
 
-    //fun checkPin()
-
     @Query("SELECT * FROM customer_table")
     fun getCustomer(): LiveData<Customer>
 

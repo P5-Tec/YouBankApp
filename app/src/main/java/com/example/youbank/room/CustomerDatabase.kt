@@ -4,8 +4,6 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import androidx.room.TypeConverters
-import com.example.youbank.helpers.Converters
 import com.example.youbank.models.Account
 import com.example.youbank.models.Card
 import com.example.youbank.models.Customer

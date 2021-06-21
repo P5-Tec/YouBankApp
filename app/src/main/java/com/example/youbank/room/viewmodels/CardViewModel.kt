@@ -11,6 +11,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class CardViewModel(application: Application): AndroidViewModel(application) {
+
     val readCards: LiveData<List<Card>>
     private val repository: CardRepository
 

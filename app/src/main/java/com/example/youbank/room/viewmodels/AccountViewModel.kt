@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
+import com.example.youbank.models.Account
 import com.example.youbank.room.CustomerDatabase
 import com.example.youbank.room.repos.AccountRepository
 import kotlinx.coroutines.Dispatchers
@@ -11,7 +12,7 @@ import kotlinx.coroutines.launch
 
 class AccountViewModel(application: Application): AndroidViewModel(application) {
 
-    val readAccounts: LiveData<com.example.youbank.models.Account>
+    val readAccounts: LiveData<Account>
     private val repository: AccountRepository
 
     init {
@@ -20,7 +21,7 @@ class AccountViewModel(application: Application): AndroidViewModel(application) 
         readAccounts = repository.readAccounts
     }
 
-    fun addAccount(a: com.example.youbank.models.Account) {
+    fun addAccount(a: Account) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.addAccounts(a)
         }
