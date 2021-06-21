@@ -20,8 +20,7 @@ class AccountCreationFragment: Fragment() {
     private val binding get() = _binding!!
     private lateinit var concatetenatedString: String
     private lateinit var c: Customer
-    private val model: SharedViewModel by activityViewModels() // NEW WAY
-    // private lateinit var sharedViewModel: AccountCreationViewModel // OLD WAY
+    private val model: SharedViewModel by activityViewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,7 +57,7 @@ class AccountCreationFragment: Fragment() {
             model.setCustomer(c)
 
             findNavController().navigate(
-                R.id.action_accountCreationFragment_to_passwordCreationFragment)
+                R.id.action_accountCreationFragment_to_passwordLongCreationFragment)
         }
 
         val edList = listOf(

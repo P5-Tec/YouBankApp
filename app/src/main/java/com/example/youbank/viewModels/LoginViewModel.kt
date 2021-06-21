@@ -11,7 +11,7 @@ class LoginViewModel: ViewModel() {
     private var emailinput: String = "test"
     private var passwordinput: String = ""
 
-    val repository: LoginRepo = LoginRepo()
+    private val repository: LoginRepo = LoginRepo()
 
     val loggedin = liveData(Dispatchers.IO) {
         val response = repository.getLogin(user)

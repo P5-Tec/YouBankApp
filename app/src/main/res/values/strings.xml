@@ -49,8 +49,9 @@
         </string>
 
     <!-- Create Passowrd notice -->
-    <string name="create_password_notice">Type in a 4 digit password combination. You will need this to login once you have been created in our system. Please refrain from using easy combinations like 0000 or 1111.
+    <string name="create_4_digit_password_notice">Type in a 4 digit password combination. You will need this to login once you have been created in our system. Please refrain from using easy combinations like 0000 or 1111.
         </string>
+    <string name="create_password_notice">This password will be used to log you in the first time and if you logout you will have to use this password again. After this screen you have to create a 4 digit password to log you in for everyday use.</string>
 
     <!-- Warning Label -->
     <string name="warningLabelNoMatch">Passwords doesn\'t match each other!</string>

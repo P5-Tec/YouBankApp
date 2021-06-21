@@ -7,10 +7,10 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 
-class PasswordCreationTextWatcher(var passwordInput: EditText,
-                                  var passwordConfirmInput: EditText,
-                                  var btnCreateAccount: Button,
-                                  var warningLabel: TextView
+class Password4DigitCreationTextWatcher(var passwordInput: EditText,
+                                        var passwordConfirmInput: EditText,
+                                        var btn: Button,
+                                        var warningLabel: TextView
 ): TextWatcher {
     override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
@@ -21,16 +21,16 @@ class PasswordCreationTextWatcher(var passwordInput: EditText,
         if (passwordInput.length() == 4 && passwordConfirmInput.length() == 4) {
             if (passwordInput.text.toString() == passwordConfirmInput.text.toString()) {
                 warningLabel.visibility = View.INVISIBLE
-                btnCreateAccount.isEnabled = true
+                btn.isEnabled = true
             }
             else {
                 warningLabel.visibility = View.VISIBLE
-                btnCreateAccount.isEnabled = false
+                btn.isEnabled = false
             }
         }
         else {
             warningLabel.visibility = View.VISIBLE
-            btnCreateAccount.isEnabled = false
+            btn.isEnabled = false
         }
 
     }

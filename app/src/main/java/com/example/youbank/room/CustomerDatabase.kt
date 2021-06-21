@@ -13,7 +13,6 @@ import com.example.youbank.room.daos.AccountDao
 import com.example.youbank.room.daos.CardDao
 import com.example.youbank.room.daos.CustomerDao
 
-
 @Database(entities = [Customer::class, Account::class, Card::class], version = 1, exportSchema = false)
 //@TypeConverters(Converters::class)
 abstract class CustomerDatabase: RoomDatabase() {
