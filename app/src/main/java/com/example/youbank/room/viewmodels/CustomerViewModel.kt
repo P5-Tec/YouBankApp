@@ -60,6 +60,12 @@ class CustomerViewModel(application: Application): AndroidViewModel(application)
         }
     }
 
+    fun insertCustomerToRoomDB(c: Customer) {
+        viewModelScope.launch(Dispatchers.IO) {
+            customerRepo.insertCustomer(c)
+        }
+    }
+
     fun addCustomerToRoomDB(id: Int) {
         val service: CustomerService = ApiService.buildService(CustomerService::class.java)
 

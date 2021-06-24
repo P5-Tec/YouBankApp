@@ -48,7 +48,6 @@ class AccountCreationFragment: Fragment() {
                 ", " + binding.cityInput.text.toString().capitalizeWords()
 
             c = Customer()
-
             c.fullName = binding.fullnameInput.text.toString().capitalizeWords()
             c.phone = binding.phoneInput.text.toString()
             c.email = binding.emailInput.text.toString().replaceFirstChar { it.lowercase() }

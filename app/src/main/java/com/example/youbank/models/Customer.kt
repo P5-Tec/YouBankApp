@@ -17,14 +17,32 @@ class Customer {
 }
 */
 
+/*
 @Entity(tableName = "customer_table")
 data class Customer(
     @PrimaryKey
-    var customerId: Int = 0,
-    var fullName: String = "",
-    var phone: String = "",
-    var address: String = "",
-    var birthday: String? = null,
-    var email: String = "",
+    var customerId: Int = 0
+){
+    var fullName: String = ""
+    var phone: String = ""
+    var address: String = ""
+    var email: String = ""
+    var birthday: String? = null
     var password: String = ""
-)
+}
+*/
+
+@Entity(tableName = "customer_table")
+data class Customer(
+    @PrimaryKey
+    var customerId: Int = 0)
+{
+    var fullName: String =""
+    var phone: String =""
+    var address: String=""
+    var email: String=""
+    var birthday: String? = null
+    var password: String = ""
+}
+
+

@@ -1,6 +1,7 @@
 package com.example.youbank.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +12,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.youbank.R
 import com.example.youbank.databinding.LoginFragmentBinding
+import com.example.youbank.models.Customer
+import com.example.youbank.room.viewmodels.CustomerViewModel
 import com.example.youbank.viewModels.LoginViewModel
 import com.example.youbank.viewModels.SharedPreferenceViewModel
 
@@ -20,6 +23,7 @@ class LoginFragment: Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var vm: LoginViewModel
+    private val cvm: CustomerViewModel by activityViewModels()
     private val spvm: SharedPreferenceViewModel by activityViewModels()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -36,6 +40,8 @@ class LoginFragment: Fragment() {
                     Toast.makeText(this.context, "Successful login", Toast.LENGTH_SHORT).show()
                     spvm.saveCustomerIdInSp(x.customerId)
                     spvm.saveNameInSp(x.fullName)
+                    Log.i("customerdata", x.toString())
+                    cvm.insertCustomerToRoomDB(x)
                     findNavController().navigate(R.id.action_loginFragment_to_homeScreenMotionFragment)
                 }
                 else {
