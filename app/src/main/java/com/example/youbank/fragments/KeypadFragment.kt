@@ -122,7 +122,6 @@ class KeypadFragment: Fragment(), View.OnClickListener {
                 Toast.makeText(this.context, "Successful login", Toast.LENGTH_SHORT).show()
                 inputPassword = ""
                 findNavController().navigate(R.id.action_keypadFragment_to_homeScreenMotionFragment)
-
             }
             else { // No match
                 stopAnimation()

@@ -1,6 +1,7 @@
 package com.example.youbank.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,6 +28,9 @@ class HomeScreenMotionFragment: Fragment() {
         _binding = FragmentHomeScreenMotionBinding.inflate(inflater, container, false)
 
         vm.readCustomer.observe(viewLifecycleOwner, { c ->
+            Log.d("Customer", c.customerId.toString())
+            Log.d("sp", spvm.getCustomerIdInSp().toString())
+
             if (c.customerId == spvm.getCustomerIdInSp()) { // User in room and user that logged in are the same
                 // Do nothing
             }
