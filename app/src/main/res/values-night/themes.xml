@@ -20,7 +20,6 @@
 
         <!-- Makes checkboxes green when checked -->
         <item name="buttonTint">@color/brand_main</item>
-
     </style>
 
     <style name="Theme.YouBank.New">
