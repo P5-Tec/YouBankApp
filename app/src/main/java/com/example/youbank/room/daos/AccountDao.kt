@@ -1,20 +1,27 @@
 package com.example.youbank.room.daos
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
+import com.example.youbank.models.Account
+import com.example.youbank.models.AccountWithTransactions
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface AccountDao {
 
-    @Query("SELECT * FROM accounts_table")
-    fun getAccounts(): LiveData<com.example.youbank.models.Account>
+    @Query("SELECT * FROM account_table")
+    fun getAccounts(): LiveData<Account>
 
     @Insert
-    fun addAccount(a: com.example.youbank.models.Account)
+    fun addAccount(a: Account)
 
     @Delete
-    fun deleteAccount(a: com.example.youbank.models.Account)
+    fun deleteAccount(a: Account)
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insertMultiple(accounts: List<Account>)
+
+    @Transaction
+    @Query("SELECT * FROM account_table WHERE accountId = :id")
+    fun getAccountWithTransactionsById(id: Int): Flow<List<AccountWithTransactions>>
 }

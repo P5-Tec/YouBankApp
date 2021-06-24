@@ -31,15 +31,15 @@ class CustomerViewModel(application: Application): AndroidViewModel(application)
 
     init {
 
-        val customerDao = CustomerDatabase.getDatabase(application).customerDao()
+        val customerDao = CustomerDatabase.getDatabase(application, viewModelScope).customerDao()
         customerRepo = CustomerRepository(customerDao)
         readCustomer = customerRepo.readCustomer
 
-        val accountDao = CustomerDatabase.getDatabase(application).accountDao()
+        val accountDao = CustomerDatabase.getDatabase(application, viewModelScope).accountDao()
         accountRepo = AccountRepository(accountDao)
         readAccount = accountRepo.readAccounts
 
-        val cardDao = CustomerDatabase.getDatabase(application).cardDao()
+        val cardDao = CustomerDatabase.getDatabase(application, viewModelScope).cardDao()
         cardRepo = CardRepository(cardDao)
         readCard = cardRepo.readCards
     }

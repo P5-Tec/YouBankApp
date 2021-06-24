@@ -45,15 +45,9 @@ class PasswordLongCreationFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         vm.getCustomer().observe(viewLifecycleOwner, { c ->
-
-            newCustomer = Customer()
-            newCustomer.birthday = c.birthday
-            newCustomer.fullName = c.fullName
-            newCustomer.email = c.email
-            newCustomer.phone = c.phone
-            newCustomer.address = c.address
-
-            val txt: String = c.birthday + "\n" + c.fullName + "\n" + c.email + "\n" + c.phone + "\n" + c.address
+            //newCustomer = Customer()
+            newCustomer = c
+            val txt: String = newCustomer.birthday + "\n" + newCustomer.fullName + "\n" + newCustomer.email + "\n" + newCustomer.phone + "\n" + newCustomer.address
 
             binding.description.text = txt
         })
@@ -76,12 +70,12 @@ class PasswordLongCreationFragment: Fragment() {
 
             // Hashing password and saving it in viewmodel
             vm.hashPassword(binding.passwordInput.text.toString())
+            // Assigning the hash to the customer object
+            vm.setPassword()
 
             // Fetching hash from viewmodel and passing it to newCustomer password field
             //newCustomer.password = model.getPasswordHash()
 
-            // Assigning the hash to the customer object
-            vm.setPassword()
 
             // Passing newCustomer object to viewmodel
             //model.setCustomer(newCustomer)
@@ -97,6 +91,7 @@ class PasswordLongCreationFragment: Fragment() {
                             if (response.isSuccessful) {
 
                                 Log.d("new customer id", it.id.toString())
+
                                 spvm.saveCustomerIdInSp(it.id)
                                 newCustomer.customerId = it.id
 

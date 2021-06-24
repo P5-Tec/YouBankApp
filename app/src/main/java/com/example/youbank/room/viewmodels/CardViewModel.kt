@@ -16,7 +16,7 @@ class CardViewModel(application: Application): AndroidViewModel(application) {
     private val repository: CardRepository
 
     init {
-        val cardDao = CustomerDatabase.getDatabase(application).cardDao()
+        val cardDao = CustomerDatabase.getDatabase(application, viewModelScope).cardDao()
         repository = CardRepository(cardDao)
         readCards = repository.readCards
     }

@@ -48,11 +48,12 @@ class AccountCreationFragment: Fragment() {
                 ", " + binding.cityInput.text.toString().capitalizeWords()
 
             c = Customer()
+
             c.fullName = binding.fullnameInput.text.toString().capitalizeWords()
             c.phone = binding.phoneInput.text.toString()
+            c.email = binding.emailInput.text.toString().replaceFirstChar { it.lowercase() }
             c.address = concatetenatedString
             c.birthday = binding.cprInput.text.toString().dropLast(5)
-            c.email = binding.emailInput.text.toString().replaceFirstChar { it.lowercase() }
 
             model.setCustomer(c)
 

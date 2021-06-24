@@ -22,7 +22,7 @@ class SettingsFragment: Fragment() {
     private val binding get() = _binding!!
 
     private val vm: CustomerViewModel by activityViewModels()
-    private var updatedCustomer: Customer = Customer()
+    private lateinit var updatedCustomer: Customer
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,19 +33,29 @@ class SettingsFragment: Fragment() {
 
         // Reading data from room and putting it into the view
         vm.readCustomer.observe(viewLifecycleOwner, { room ->
-            binding.fullnameInput.setText(room.fullName)
-            binding.emailInput.setText(room.email)
-            binding.phoneInput.setText(room.phone)
+
+            //binding.fullnameInput.setText(room.fullName)
+            //binding.emailInput.setText(room.email)
+            //binding.phoneInput.setText(room.phone)
+
+
+            updatedCustomer = Customer()
+
+            updatedCustomer.fullName = room.fullName
+            updatedCustomer.phone = room.phone
+            updatedCustomer.address = room.address
+            updatedCustomer.email = room.email
 
             // Splitting the address into 3 seperate strings
-            val substrings = room.address.split(", ")
+            val substrings = updatedCustomer.address.split(", ")
 
-            Log.d("strings", substrings.toString())
+            //Log.d("strings", substrings.toString())
 
             // Putting the strings into the inputfields in the view
             binding.addressInput.setText(substrings[0])
             binding.cityInput.setText(substrings[2])
             binding.postcodeInput.setText(substrings[1])
+
         })
 
         return binding.root

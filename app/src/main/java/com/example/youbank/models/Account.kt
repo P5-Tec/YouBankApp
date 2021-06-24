@@ -6,6 +6,7 @@ import androidx.room.PrimaryKey
 
 enum class AccountType { Basic, Premium }
 
+/*
 @Entity(tableName = "accounts_table")
 class Account {
     @PrimaryKey(autoGenerate = false)
@@ -15,6 +16,19 @@ class Account {
     var balance: Double = 0.0
     //lateinit var cards: List<Card>
 }
+*/
+
+@Entity(tableName = "account_table")
+data class Account(
+    @PrimaryKey
+    var accountId: Int = -1
+){
+    var accountNumber: Long? = 0
+    var accountType: AccountType? = null
+    var balance: Double = 0.0
+    var customerId: Int = 0
+}
+
 
 fun generateAccNumber(): String {
     val acclength = 16

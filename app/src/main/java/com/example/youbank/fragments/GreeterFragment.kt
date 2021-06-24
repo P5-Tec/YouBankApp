@@ -22,7 +22,7 @@ class GreeterFragment: Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        //spvm.savePasswordInSp("1111")
         if (vm.getCustomerIdInSp() != 0) {
             Toast.makeText(
                 context, "id: ${spvm.getCustomerIdInSp()} + password: ${spvm.getPasswordInSp().toString()}",

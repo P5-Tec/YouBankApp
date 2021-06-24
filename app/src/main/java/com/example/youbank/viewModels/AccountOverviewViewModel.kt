@@ -13,9 +13,9 @@ class AccountOverviewViewModel: ViewModel() {
 
     init {
         setAccountNumber()
-        Log.i("test", ac.accountNumber.toString())
+        //Log.i("test", ac.accountNumber.toString())
         //accNumber.value = "7540 2645 2637 2374"
-        Log.i("Account Viewmodel", "Account Viewmodel Created")
+        //Log.i("Account Viewmodel", "Account Viewmodel Created")
     }
 
     override fun onCleared() {
@@ -47,7 +47,7 @@ class AccountOverviewViewModel: ViewModel() {
             accNumber.value = "0000 0000 0000 0000"
         }
         else {
-            accNumber.value = ac.accountNumber
+            accNumber.value = ac.accountNumber.toString()
         }
     }
 }

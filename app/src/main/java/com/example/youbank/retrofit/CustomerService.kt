@@ -15,7 +15,7 @@ import retrofit2.http.Path
 interface CustomerService {
 
     @GET("Customers")
-    fun getAllCustomers(): Call<List<Customer>>
+    suspend fun listCustomers(): List<Customer>
 
     @GET("Customers/{id}")
     suspend fun getCustomerById(@Path("id") id: Int): Customer

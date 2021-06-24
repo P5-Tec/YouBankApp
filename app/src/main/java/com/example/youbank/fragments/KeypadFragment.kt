@@ -28,6 +28,11 @@ class KeypadFragment: Fragment(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+//        spvm.clearSharedPreferences()
+//        spvm.saveCustomerIdInSp(21)
+//        spvm.saveNameInSp("Fuldtest")
+//        spvm.savePasswordInSp("1111")
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
