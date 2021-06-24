@@ -13,6 +13,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="center"
         app:lottie_autoPlay="true"
-        app:lottie_rawRes="@raw/piggyz" />
+        app:lottie_rawRes="@raw/piggyz"
+        app:lottie_speed="2" />
 
 </FrameLayout>
