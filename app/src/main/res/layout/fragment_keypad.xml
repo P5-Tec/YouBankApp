@@ -28,7 +28,7 @@
         android:visibility="gone"
         app:lottie_autoPlay="false"
         app:lottie_loop="true"
-        app:lottie_rawRes="@raw/loading"
+        app:lottie_rawRes="@raw/loading_circle"
         app:lottie_speed="2" />
 
     <TextView
