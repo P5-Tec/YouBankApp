@@ -131,7 +131,9 @@
             android:id="@+id/action_forgotPasswordFragmentBackBtn"
             app:destination="@id/keypadFragment"
             app:enterAnim="@android:anim/slide_in_left"
-            app:exitAnim="@android:anim/slide_out_right" />
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popUpTo="@id/keypadFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/passwordCreation4DigitFragment"
