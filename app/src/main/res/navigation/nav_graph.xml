@@ -203,7 +203,7 @@
             app:destination="@id/greeterFragment"
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/slide_out_right"
-            app:popUpTo="@id/loginFragment"
+            app:popUpTo="@id/greeterFragment"
             app:popUpToInclusive="true" />
     </fragment>
     <fragment
