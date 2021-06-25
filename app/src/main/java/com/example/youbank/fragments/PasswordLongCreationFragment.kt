@@ -97,7 +97,7 @@ class PasswordLongCreationFragment: Fragment() {
                             if (response.isSuccessful) {
 
                                 Log.d("new customer id", it.id.toString())
-                                spvm.saveCustomerIdInSp(it.id)
+                                spvm.clearSharedPreferences()
                                 newCustomer.customerId = it.id
 
                                 vm.setCustomer(newCustomer)
