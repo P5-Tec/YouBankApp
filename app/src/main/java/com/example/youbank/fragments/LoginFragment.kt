@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.youbank.R
 import com.example.youbank.databinding.LoginFragmentBinding
@@ -20,14 +19,13 @@ class LoginFragment: Fragment() {
     private var _binding: LoginFragmentBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var vm: LoginViewModel
+    private val vm: LoginViewModel by activityViewModels()
     private val cvm: CustomerViewModel by activityViewModels()
     private val spvm: SharedPreferenceViewModel by activityViewModels()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
 
         _binding = LoginFragmentBinding.inflate(inflater, container, false)
-        vm = ViewModelProvider(this).get(LoginViewModel::class.java)
 
         binding.loginBtn.setOnClickListener {
             vm.setEmail(binding.emailInput.text.toString())
@@ -54,11 +52,6 @@ class LoginFragment: Fragment() {
         }
 
         return binding.root
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        vm = ViewModelProvider(this).get(LoginViewModel::class.java)
     }
 
 }
