@@ -29,8 +29,6 @@ data class Account(
     var accountType: AccountType? = null
     var balance: Double = 0.0
     var customerId: Int = 0
-    @Embedded
-    var transactions: List<AccountWithTransactions> = listOf()
 }
 
 
