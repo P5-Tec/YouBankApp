@@ -19,6 +19,18 @@
         app:shapeAppearanceOverlay="@style/circularImgView"
         app:srcCompat="@drawable/fake_pro_img" />
 
+    <!-- Lottie animation view -->
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lonnieAnimationView"
+        android:layout_width="500dp"
+        android:layout_height="500dp"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        app:lottie_autoPlay="false"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/loading_circle"
+        app:lottie_speed="2" />
+
     <TextView
         android:id="@+id/txtNameOfUser"
         android:layout_width="wrap_content"
@@ -30,6 +42,7 @@
         android:textSize="20sp" />
 
     <LinearLayout
+        android:id="@+id/pinLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -61,6 +74,7 @@
     </LinearLayout>
 
     <GridLayout
+        android:id="@+id/keypadLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center"

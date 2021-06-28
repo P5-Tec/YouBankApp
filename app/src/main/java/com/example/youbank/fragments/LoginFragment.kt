@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.youbank.R
 import com.example.youbank.databinding.LoginFragmentBinding
@@ -29,7 +28,6 @@ class LoginFragment: Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
 
         _binding = LoginFragmentBinding.inflate(inflater, container, false)
-        vm = ViewModelProvider(this).get(LoginViewModel::class.java)
 
         binding.loginBtn.setOnClickListener {
             vm.setData(
@@ -46,7 +44,6 @@ class LoginFragment: Fragment() {
                     //get data from api and save to room
                     vm.getAccounts()
                     //vm.getTransactions()
-                    vm.getTransactions2(it.customerId)
 
 
 
@@ -58,12 +55,11 @@ class LoginFragment: Fragment() {
             })
         }
 
-        return binding.root
-    }
+        binding.backbtn.setOnClickListener {
+            findNavController().navigate(R.id.action_loginFragmentBackBtn)
+        }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        //vm = ViewModelProvider(this).get(LoginViewModel::class.java)
+        return binding.root
     }
 
 }

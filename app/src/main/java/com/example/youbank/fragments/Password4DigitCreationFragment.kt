@@ -45,8 +45,7 @@ class Password4DigitCreationFragment: Fragment() {
         }
 
         binding.btnCreateAccount.setOnClickListener {
-            spvm.clearSharedPreferences()
-            spvm.savePasswordInSp(binding.passwordInput.toString())
+            spvm.savePasswordInSp(binding.passwordConfirmInput.text.toString())
 
             Toast.makeText(context, "Password saved", Toast.LENGTH_SHORT).show()
             findNavController().navigate(R.id.action_password4DigitCreationFragment_to_greeterFragment)

@@ -17,7 +17,6 @@
         <item name="shapeAppearanceLargeComponent">@style/dialog_round</item>
 
         <item name="strokeColor">@color/black</item>
-
     </style>
 
     <style name="Theme.YouBank.New">
@@ -48,4 +47,8 @@
     <style name="Theme.YouBank.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.YouBank.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="splashScreen" parent="Theme.YouBank.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash_image</item>
+    </style>
 </resources>

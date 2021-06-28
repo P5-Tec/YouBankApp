@@ -118,6 +118,8 @@ class KeypadFragment: Fragment(), View.OnClickListener {
         highlightCircles()
 
         if (inputPassword.length == 4) {
+            // Playing animation
+            playAnimation()
 
             val spPassword: String? = spvm.getPasswordInSp()
 
@@ -127,11 +129,31 @@ class KeypadFragment: Fragment(), View.OnClickListener {
                 findNavController().navigate(R.id.action_keypadFragment_to_homeScreenMotionFragment)
             }
             else { // No match
+                stopAnimation()
+
                 Toast.makeText(this.context, "Incorrect", Toast.LENGTH_SHORT).show()
                 inputPassword = ""
             }
             highlightCircles()
         }
+    }
+
+    private fun playAnimation(){
+        binding.profileImg.visibility = View.GONE
+        binding.txtNameOfUser.visibility = View.GONE
+        binding.pinLayout.visibility = View.GONE
+        binding.keypadLayout.visibility = View.GONE
+        binding.lonnieAnimationView.visibility = View.VISIBLE
+        binding.lonnieAnimationView.playAnimation()
+    }
+
+    private fun stopAnimation(){
+        binding.profileImg.visibility = View.VISIBLE
+        binding.txtNameOfUser.visibility = View.VISIBLE
+        binding.pinLayout.visibility = View.VISIBLE
+        binding.keypadLayout.visibility = View.VISIBLE
+        binding.lonnieAnimationView.visibility = View.GONE
+        binding.lonnieAnimationView.pauseAnimation()
     }
 
     private fun highlightCircles() {

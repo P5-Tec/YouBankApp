@@ -1,7 +1,6 @@
 package com.example.youbank.room.viewmodels
 
 import android.app.Application
-import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
@@ -47,8 +46,6 @@ class CustomerViewModel(application: Application): AndroidViewModel(application)
 
     fun updateCustomerInRoom(c: Customer) {
         viewModelScope.launch(Dispatchers.IO) {
-
-            Log.d("cus viewmodel", c.address)
             customerRepo.updateCustomer(c)
         }
     }
