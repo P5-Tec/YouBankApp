@@ -1,7 +1,6 @@
 package com.example.youbank.fragments
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -28,9 +27,10 @@ class HomeScreenMotionFragment: Fragment() {
         _binding = FragmentHomeScreenMotionBinding.inflate(inflater, container, false)
 
         vm.readCustomer.observe(viewLifecycleOwner, {
-            it -> if (spvm.getCustomerIdInSp() == it.customerId){
+            if (spvm.getCustomerIdInSp() == it.customerId) {
                 //nothing changes
-            }else{
+            }
+            else {
                 vm.deleteCustomer(it)
                 vm.addCustomerToRoomDB(spvm.getCustomerIdInSp()) //maybe change to logout ?
             }
@@ -49,7 +49,7 @@ class HomeScreenMotionFragment: Fragment() {
 
         vm.readCustomer.observe(viewLifecycleOwner, { room ->
 
-            if (room.fullName?.isNotBlank()) {
+            if (room.fullName.isNotBlank()) {
                 binding.header.text = room.fullName
             }
             else {
