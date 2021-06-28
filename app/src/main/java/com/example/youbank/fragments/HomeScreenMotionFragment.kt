@@ -28,8 +28,6 @@ class HomeScreenMotionFragment: Fragment() {
         _binding = FragmentHomeScreenMotionBinding.inflate(inflater, container, false)
 
         vm.readCustomer.observe(viewLifecycleOwner, { c ->
-            Log.d("Customer", c.customerId.toString())
-            Log.d("sp", spvm.getCustomerIdInSp().toString())
 
             if (c.customerId == spvm.getCustomerIdInSp()) { // User in room and user that logged in are the same
                 // Do nothing
