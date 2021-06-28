@@ -1,8 +1,10 @@
 package com.example.youbank.models
 
 import android.util.Log
+import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import androidx.room.TypeConverter
 
 enum class AccountType { Basic, Premium }
 
@@ -27,6 +29,8 @@ data class Account(
     var accountType: AccountType? = null
     var balance: Double = 0.0
     var customerId: Int = 0
+    @Embedded
+    var transactions: List<AccountWithTransactions> = listOf()
 }
 
 

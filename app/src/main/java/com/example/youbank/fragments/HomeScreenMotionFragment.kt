@@ -27,21 +27,12 @@ class HomeScreenMotionFragment: Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentHomeScreenMotionBinding.inflate(inflater, container, false)
 
-        vm.readCustomer.observe(viewLifecycleOwner, { c ->
-
-            Log.d("c", c.toString())
-            Log.d("sp", spvm.getCustomerIdInSp().toString())
-
-            if (c.customerId == spvm.getCustomerIdInSp()) { // User in room and user that logged in are the same
-                // Do nothing
-            }
-            else { // User in room and user that logged in ARE NOT THE SAME
-
-                // Clearing room of old user
-                vm.deleteCustomer(c)
-
-                // Adding new user to room
-                vm.addCustomerToRoomDB(spvm.getCustomerIdInSp())
+        vm.readCustomer.observe(viewLifecycleOwner, {
+            it -> if (spvm.getCustomerIdInSp() == it.customerId){
+                //nothing changes
+            }else{
+                vm.deleteCustomer(it)
+                vm.addCustomerToRoomDB(spvm.getCustomerIdInSp()) //maybe change to logout ?
             }
         })
 
@@ -58,10 +49,8 @@ class HomeScreenMotionFragment: Fragment() {
 
         vm.readCustomer.observe(viewLifecycleOwner, { room ->
 
-            if (room.fullName?.isNotBlank() == true) {
+            if (room.fullName?.isNotBlank()) {
                 binding.header.text = room.fullName
-                binding.accountBoxHeader.text = room.birthday
-                binding.transactionBoxHeader.text = room.address
             }
             else {
                 binding.header.text = "room was empty"
@@ -70,7 +59,6 @@ class HomeScreenMotionFragment: Fragment() {
             }
 
         })
-
     }
 
 }

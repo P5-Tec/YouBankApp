@@ -8,6 +8,12 @@ class SharedPreferenceViewModel(application: Application): AndroidViewModel(appl
 
     val sp: SharedPreference = SharedPreference(application)
 
+    fun saveCustomerInSp(id:Int, password: String, name: String){
+        sp.saveInt("customerId", id)
+        sp.saveString("password", password)
+        sp.saveString("name", name)
+    }
+
     fun saveCustomerIdInSp(id: Int) {
         sp.saveInt("customerId", id)
     }

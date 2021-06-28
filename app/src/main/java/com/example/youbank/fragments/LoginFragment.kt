@@ -32,21 +32,28 @@ class LoginFragment: Fragment() {
         vm = ViewModelProvider(this).get(LoginViewModel::class.java)
 
         binding.loginBtn.setOnClickListener {
-            vm.setEmail(binding.emailInput.text.toString())
-            vm.setPass(binding.passwordInput.text.toString())
+            vm.setData(
+                binding.emailInput.text.toString(),
+                binding.passwordInput.text.toString()
+            )
 
-            vm.loggedin.observe(viewLifecycleOwner, { x ->
-                if (x.customerId != 0) {
-                    Toast.makeText(this.context, "Successful login", Toast.LENGTH_SHORT).show()
-                    spvm.saveCustomerIdInSp(x.customerId)
-                    spvm.saveNameInSp(x.fullName)
-                    Log.i("customerdata", x.toString())
-                    cvm.insertCustomerToRoomDB(x)
+            //navigate on bool, instead of observeing forever
+            vm.loggedin.observe(viewLifecycleOwner, {
+                if (it.customerId != 0){
+                    spvm.saveCustomerInSp(it.customerId, it.pincode.toString(), it.fullName)
+                    cvm.addCustomerToRoomDB(it.customerId)
+
+                    //get data from api and save to room
+                    vm.getAccounts()
+                    //vm.getTransactions()
+                    vm.getTransactions2(it.customerId)
+
+
+
                     findNavController().navigate(R.id.action_loginFragment_to_homeScreenMotionFragment)
-                }
-                else {
-                    Toast.makeText(this.context, "Incorrect", Toast.LENGTH_SHORT).show()
-                    binding.passwordInput.setText("")
+                }else{
+                    Toast.makeText(this.context, "Try again", Toast.LENGTH_SHORT).show()
+                    binding.passwordInput.text.clear()
                 }
             })
         }
@@ -56,7 +63,7 @@ class LoginFragment: Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        vm = ViewModelProvider(this).get(LoginViewModel::class.java)
+        //vm = ViewModelProvider(this).get(LoginViewModel::class.java)
     }
 
 }

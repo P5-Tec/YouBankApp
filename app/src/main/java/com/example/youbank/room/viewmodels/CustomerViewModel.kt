@@ -20,12 +20,12 @@ import kotlinx.coroutines.launch
 class CustomerViewModel(application: Application): AndroidViewModel(application) {
 
     val readCustomer: LiveData<Customer>
-    val readAccount: LiveData<Account>
-    val readCard: LiveData<List<Card>>
+    //val readAccount: LiveData<Account>
+    //val readCard: LiveData<List<Card>>
 
     private val customerRepo: CustomerRepository
-    private val accountRepo: AccountRepository
-    private val cardRepo: CardRepository
+    //private val accountRepo: AccountRepository
+    //private val cardRepo: CardRepository
 
     var isSettingsValid: Boolean = false
 
@@ -33,15 +33,8 @@ class CustomerViewModel(application: Application): AndroidViewModel(application)
 
         val customerDao = CustomerDatabase.getDatabase(application, viewModelScope).customerDao()
         customerRepo = CustomerRepository(customerDao)
+
         readCustomer = customerRepo.readCustomer
-
-        val accountDao = CustomerDatabase.getDatabase(application, viewModelScope).accountDao()
-        accountRepo = AccountRepository(accountDao)
-        readAccount = accountRepo.readAccounts
-
-        val cardDao = CustomerDatabase.getDatabase(application, viewModelScope).cardDao()
-        cardRepo = CardRepository(cardDao)
-        readCard = cardRepo.readCards
     }
 
     fun setIsSettingsValid(b: Boolean) {

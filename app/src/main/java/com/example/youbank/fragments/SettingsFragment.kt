@@ -32,32 +32,25 @@ class SettingsFragment: Fragment() {
         _binding = FragmentSettingsBinding.inflate(inflater, container, false)
 
         // Reading data from room and putting it into the view
-        vm.readCustomer.observe(viewLifecycleOwner, { room ->
+        vm.readCustomer.observe(viewLifecycleOwner, { roomdata ->
 
-            //binding.fullnameInput.setText(room.fullName)
-            //binding.emailInput.setText(room.email)
-            //binding.phoneInput.setText(room.phone)
+            updatedCustomer = roomdata
 
+            binding.fullnameInput.setText(updatedCustomer.fullName)
+            binding.emailInput.setText(updatedCustomer.email)
+            binding.phoneInput.setText(updatedCustomer.phone)
 
-            updatedCustomer = Customer()
-
-            updatedCustomer.fullName = room.fullName
-            updatedCustomer.phone = room.phone
-            updatedCustomer.address = room.address
-            updatedCustomer.email = room.email
 
             // Splitting the address into 3 seperate strings
             val substrings = updatedCustomer.address.split(", ")
 
-            //Log.d("strings", substrings.toString())
+            Log.d("strings", substrings.toString())
 
             // Putting the strings into the inputfields in the view
             binding.addressInput.setText(substrings[0])
-            binding.cityInput.setText(substrings[2])
             binding.postcodeInput.setText(substrings[1])
-
+            binding.cityInput.setText(substrings[2])
         })
-
         return binding.root
     }
 
@@ -120,31 +113,4 @@ class SettingsFragment: Fragment() {
                 uc.uppercaseChar()
             }
         }
-
-    //private class NestedClassTextWatcher(vm: CustomerViewModel): TextWatcher {
-    //
-    //    private val vm = vm
-    //
-    //    override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-    //    }
-    //
-    //    override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-    //
-    //
-    //
-    //        if (binding..text.toString().isValidEmail()) {
-    //            // GOOD
-    //                val v = rootView.findViewById<EditText>(R.id.emailInput)
-    //            b.addressInput.text.toString().capitalizeWords() +
-    //        }
-    //        else {
-    //            // BAD
-    //
-    //        }
-    //    }
-    //
-    //    override fun afterTextChanged(s: Editable?) {
-    //    }
-    //
-    //}
 }

@@ -22,6 +22,12 @@ class AccountRepository(private val accountDao: AccountDao) {
             accountDao.insertMultiple(it) }
     }
 
+    @Suppress
+    @WorkerThread
+    suspend fun insert(account: Account){
+        accountDao.addAccount(account)
+    }
+
 
     @WorkerThread
     fun getAllInfo(id: Int) : Flow<List<AccountWithTransactions>> {

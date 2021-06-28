@@ -5,14 +5,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.youbank.Adapters.AccountAdapter
+import com.example.youbank.Adapters.TransactionAdapter
 import com.example.youbank.R
 import com.example.youbank.fragments.dummy.DummyContent
 import com.example.youbank.fragments.recyclerViewAdapters.MyTransactionListRecyclerViewAdapter
+import com.example.youbank.room.viewmodels.TransactionListViewModel
 
 class TransactionListFragment: Fragment() {
+
+    private val model: TransactionListViewModel  by activityViewModels()
+    private lateinit var transactionAdapter: TransactionAdapter
 
     private var columnCount = 1
 
@@ -31,7 +39,10 @@ class TransactionListFragment: Fragment() {
                     else -> GridLayoutManager(context, columnCount)
                 }
 
-                adapter = MyTransactionListRecyclerViewAdapter(DummyContent.ITEMS)
+                //adapter = MyTransactionListRecyclerViewAdapter(DummyContent.ITEMS)
+                transactionAdapter = TransactionAdapter()
+                adapter = transactionAdapter
+                model.allTransactions.observe(viewLifecycleOwner, {it?.let { transactionAdapter.submitList(it) }} )
             }
         }
         return view

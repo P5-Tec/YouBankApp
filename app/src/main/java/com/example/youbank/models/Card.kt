@@ -12,7 +12,9 @@ class Card {
     var cardId: Int = -1
     var cardNumber: Int = -1
     var ccv: Int = -1
+    var accountId: Int = -1
     lateinit var expirationDate: String
     lateinit var cardType: CardType
     lateinit var cardStatus: CardStatus
 }
+

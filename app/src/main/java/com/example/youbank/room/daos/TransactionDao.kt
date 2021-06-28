@@ -8,11 +8,17 @@ import kotlinx.coroutines.flow.Flow
 interface TransactionDao {
 
     @Query("SELECT * FROM transaction_table WHERE transactionId = :id ORDER BY transactionId DESC")
-    fun getCustomerById(id: Int) : Flow <Transaction>
+    fun getTransactionById(id: Int) : Flow <Transaction>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(transaction: Transaction)
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertMultiple(accounts: List<Transaction>)
+
+    @Query("SELECT * FROM transaction_table ORDER BY transactionId DESC")
+    fun getAllTransactions() : Flow <List<Transaction>>
+
+    @Query("SELECT * FROM transaction_table WHERE accountId = :id ORDER BY transactionId DESC")
+    fun getTransactionsByAccountId(id: Int) : Flow <Transaction>
 }

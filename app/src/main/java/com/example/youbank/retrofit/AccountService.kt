@@ -10,4 +10,6 @@ interface AccountService {
 
     @GET("accounts/{id}")
     suspend fun getAccountById(@Path("id") id: Int): Account
+
+
 }
