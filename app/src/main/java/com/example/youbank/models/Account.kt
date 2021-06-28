@@ -1,26 +1,14 @@
 package com.example.youbank.models
 
 import android.util.Log
-import androidx.room.Embedded
-import androidx.room.Entity
-import androidx.room.PrimaryKey
-import androidx.room.TypeConverter
+import androidx.room.*
 
 enum class AccountType { Basic, Premium }
 
-/*
-@Entity(tableName = "accounts_table")
-class Account {
-    @PrimaryKey(autoGenerate = false)
-    var accountId: Int = -1
-    var accountNumber: String = generateAccNumber()
-    lateinit var accountType: AccountType
-    var balance: Double = 0.0
-    //lateinit var cards: List<Card>
-}
-*/
-
-@Entity(tableName = "account_table")
+@Entity(
+    tableName = "account_table"
+    //,foreignKeys = [ForeignKey(entity  = Transaction::class, parentColumns = ["accountId"], childColumns = ["accountId"])], indices = [Index("accountId")]
+)
 data class Account(
     @PrimaryKey
     var accountId: Int = -1
@@ -29,10 +17,8 @@ data class Account(
     var accountType: AccountType? = null
     var balance: Double = 0.0
     var customerId: Int = 0
-    @Embedded
-    var transactions: List<AccountWithTransactions> = listOf()
-}
 
+}
 
 fun generateAccNumber(): String {
     val acclength = 16

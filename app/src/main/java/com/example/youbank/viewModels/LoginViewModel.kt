@@ -6,13 +6,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
 import androidx.lifecycle.viewModelScope
 import com.example.youbank.models.Customer
-import com.example.youbank.retrofit.TransactionService
 import com.example.youbank.retrofit.repo.LoginRepo
 import com.example.youbank.retrofit.repo.RetroAccountRepository
 import com.example.youbank.retrofit.repo.RetroTransactionRepository
 import com.example.youbank.room.CustomerDatabase
 import com.example.youbank.room.daos.AccountDao
-import com.example.youbank.room.daos.AccountDao_Impl
 import com.example.youbank.room.daos.CardDao
 import com.example.youbank.room.daos.TransactionDao
 import com.example.youbank.room.repos.AccountRepository
@@ -41,8 +39,6 @@ class LoginViewModel(application: Application): AndroidViewModel(application) {
 
     //Api calls / Room saving
 
-
-
     public fun getAccounts(){
         viewModelScope.launch(Dispatchers.IO) {
             val req = retroAccountRepository.getAccountById(user.customerId)
@@ -63,7 +59,6 @@ class LoginViewModel(application: Application): AndroidViewModel(application) {
             //transactionRepository.insertMultiple(req.transactions)
         }
     }
-
 
     //fix this to make 1 api call
     val loggedin = liveData(Dispatchers.IO) {

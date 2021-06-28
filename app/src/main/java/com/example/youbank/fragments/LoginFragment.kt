@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.youbank.R
 import com.example.youbank.databinding.LoginFragmentBinding
@@ -28,6 +29,7 @@ class LoginFragment: Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
 
         _binding = LoginFragmentBinding.inflate(inflater, container, false)
+        vm = ViewModelProvider(this).get(LoginViewModel::class.java)
 
         binding.loginBtn.setOnClickListener {
             vm.setData(
