@@ -45,7 +45,8 @@ class LoginFragment: Fragment() {
 
                     //get data from api and save to room
                     vm.getAccounts()
-                    //vm.getTransactions()
+                    vm.getTransactions()
+                    //vm.getTransactions2(it.customerId)
 
 
 
