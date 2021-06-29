@@ -49,9 +49,9 @@
         android:layout_height="50dp"
         android:src="@drawable/ic_keypad_password_circle"
         app:layout_constraintBottom_toTopOf="@+id/LogoutImg"
+        app:layout_constraintStart_toStartOf="@+id/leftGutter"
         app:layout_constraintTop_toBottomOf="@+id/SupportImg"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="28dp" />
+        tools:ignore="MissingConstraints" />
 
     <ImageView
         android:id="@+id/SupportImg"
@@ -59,9 +59,9 @@
         android:layout_height="50dp"
         android:src="@drawable/ic_keypad_password_circle"
         app:layout_constraintBottom_toTopOf="@+id/settings_img"
+        app:layout_constraintStart_toStartOf="@+id/leftGutter"
         app:layout_constraintTop_toTopOf="@+id/header_gutter"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="28dp" />
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/SettingsHeader"
@@ -80,9 +80,9 @@
         android:layout_height="50dp"
         android:src="@drawable/ic_keypad_password_circle"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/leftGutter"
         app:layout_constraintTop_toBottomOf="@+id/settings_img"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="28dp" />
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/LogoutHeader"
