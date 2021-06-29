@@ -26,7 +26,10 @@
         android:layout_width="250dp"
         android:layout_height="400dp"
         android:layout_gravity="center_horizontal"
-        android:layout_margin="70dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginBottom="30dp"
         app:navGraph="@navigation/nav_graph_card" />
 
     <LinearLayout
