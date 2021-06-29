@@ -24,7 +24,8 @@ class AccountRepository(private val accountDao: AccountDao) {
     }
 
     @Suppress
-    @WorkerThread fun insert(account: Account) {
+    @WorkerThread
+    fun insert(account: Account) {
         accountDao.addAccount(account)
     }
 

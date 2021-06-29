@@ -5,20 +5,16 @@ import androidx.room.Entity
 import androidx.room.Ignore
 import androidx.room.PrimaryKey
 
-enum class AccountType { Basic, Premium }
-
-@Entity(
-    tableName = "account_table"
-    //,foreignKeys = [ForeignKey(entity  = Transaction::class, parentColumns = ["accountId"], childColumns = ["accountId"])], indices = [Index("accountId")]
-)
+@Entity(tableName = "account_table")
 data class Account(
     @PrimaryKey
     var accountId: Int = -1
 ) {
     var accountNumber: Long? = 0
-    var accountType: AccountType = AccountType.Basic
+    var accountType: AccountType? = AccountType.Basic
     var balance: Double = 0.0
     var customerId: Int = 0
+
     @Ignore
     var transactions: List<Transaction> = listOf()
 

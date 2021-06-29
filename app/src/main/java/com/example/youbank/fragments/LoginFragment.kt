@@ -44,9 +44,9 @@ class LoginFragment: Fragment() {
                     cvm.addCustomerToRoomDB(it.customerId)
 
                     //get data from api and save to room
-                    vm.getAccounts()
+                    vm.getAccounts(it.customerId)
                     //vm.getTransactions()
-                    vm.getTransactions2(it.customerId)
+                    vm.getTransactions(it.customerId)
 
 
 

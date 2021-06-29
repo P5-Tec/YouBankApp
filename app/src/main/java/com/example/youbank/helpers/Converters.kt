@@ -1,6 +1,7 @@
 package com.example.youbank.helpers
 
 import androidx.room.TypeConverter
+import com.example.youbank.models.Account
 import com.example.youbank.models.AccountType
 
 class Converters {
@@ -16,8 +17,8 @@ class Converters {
     }
 
     //@TypeConverter
-    //fun fromAccountType(value: AccountType) = value.ordinal
+    //fun fromAccountType(at: AccountType) = at.ordinal
     //
     //@TypeConverter
-    //fun toAccountType(value: Int) = enumValues<AccountType>()[value]
+    //fun toAccountType(at: Int) = enumValues<AccountType>()[at]
 }

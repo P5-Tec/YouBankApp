@@ -1,17 +1,16 @@
 package com.example.youbank.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.youbank.R
 import com.example.youbank.databinding.FragmentAccountOverviewBinding
 import com.example.youbank.viewModels.AccountOverviewViewModel
-import com.example.youbank.viewModels.KeypadViewModel
 import com.google.android.material.button.MaterialButton
 
 class AccountOverviewFragment: Fragment() {
@@ -27,13 +26,18 @@ class AccountOverviewFragment: Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentAccountOverviewBinding.inflate(inflater, container, false)
 
-        //vm.readAccount.observe(viewLifecycleOwner, { balance ->
-        //    binding.accountBalance.text = balance.toString()
-        //})
-        //
-        //vm.readAccount.observe(viewLifecycleOwner, { number ->
-        //    binding.accountNumber.text = number.toString()
-        //})
+        vm.readAccount.observe(viewLifecycleOwner, {
+            Log.d("account details", it.balance.toString())
+            Log.d("account details", it.accountNumber.toString())
+            Log.d("account details", it.accountType.toString())
+            Log.d("account details", it.customerId.toString())
+
+            binding.accountBalance.text = it.balance.toString()
+        })
+
+        vm.readAccount.observe(viewLifecycleOwner, {
+            binding.accountNumber.text = it.accountNumber.toString()
+        })
 
         // Inflate the layout for this fragment
         return binding.root

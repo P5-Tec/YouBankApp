@@ -51,7 +51,6 @@ class CustomerViewModel(application: Application): AndroidViewModel(application)
 
         viewModelScope.launch(Dispatchers.IO) {
             val req = service.getCustomerById(id)
-            Log.d("req", req.a)
             customerRepo.insertCustomer(req)
         }
     }
