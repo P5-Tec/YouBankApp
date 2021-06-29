@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/list"
-    android:name="com.example.youbank.fragments.CardFragment"
+    android:name="com.example.Youbank.fragments.CardFragment"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
     tools:context=".fragments.fragmentLists.CardListFragment"
     tools:listitem="@layout/card_item" />

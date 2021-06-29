@@ -1,6 +1,7 @@
 package com.example.youbank.viewModels
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
@@ -57,6 +58,14 @@ class LoginViewModel(application: Application): AndroidViewModel(application) {
         viewModelScope.launch(Dispatchers.IO) {
             val req = retroAccountRepository.getAccountById(cId)
             transactionRepository.insertMultiple(req.transactions)
+        }
+    }
+
+    fun getCards(cId: Int){
+        viewModelScope.launch(Dispatchers.IO) {
+            val req = retroAccountRepository.getAccountById(cId)
+            Log.i("card", req.cards.size.toString())
+            cardRepository.insertMultiple(req.cards)
         }
     }
 
