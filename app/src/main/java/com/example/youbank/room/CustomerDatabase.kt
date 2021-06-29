@@ -4,6 +4,8 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
+import com.example.youbank.helpers.Converters
 import com.example.youbank.models.Account
 import com.example.youbank.models.Card
 import com.example.youbank.models.Customer
@@ -15,6 +17,7 @@ import com.example.youbank.room.daos.TransactionDao
 import kotlinx.coroutines.CoroutineScope
 
 @Database(entities = [Customer::class, Account::class, Card::class, Transaction::class], version = 1, exportSchema = false)
+@TypeConverters(Converters::class)
 abstract class CustomerDatabase: RoomDatabase() {
 
     abstract fun customerDao(): CustomerDao
@@ -27,16 +30,17 @@ abstract class CustomerDatabase: RoomDatabase() {
         private var INSTANCE: CustomerDatabase? = null
 
         fun getDatabase(context: Context, scope: CoroutineScope): CustomerDatabase {
-            return INSTANCE ?: synchronized(this){
-                val instance = Room.databaseBuilder(
-                    context.applicationContext,
-                    CustomerDatabase::class.java,
-                    "customer_database")
-                    .fallbackToDestructiveMigration()
-                    .build()
-                INSTANCE = instance
-                return instance
-            }
+            return INSTANCE
+                ?: synchronized(this) {
+                    val instance = Room.databaseBuilder(
+                        context.applicationContext,
+                        CustomerDatabase::class.java,
+                        "customer_database")
+                        .fallbackToDestructiveMigration()
+                        .build()
+                    INSTANCE = instance
+                    return instance
+                }
         }
 
     }

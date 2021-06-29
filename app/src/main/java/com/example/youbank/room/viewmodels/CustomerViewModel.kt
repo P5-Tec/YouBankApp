@@ -4,14 +4,10 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
-import com.example.youbank.models.Account
-import com.example.youbank.models.Card
 import com.example.youbank.models.Customer
 import com.example.youbank.retrofit.ApiService
 import com.example.youbank.retrofit.CustomerService
 import com.example.youbank.room.CustomerDatabase
-import com.example.youbank.room.repos.AccountRepository
-import com.example.youbank.room.repos.CardRepository
 import com.example.youbank.room.repos.CustomerRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -19,17 +15,11 @@ import kotlinx.coroutines.launch
 class CustomerViewModel(application: Application): AndroidViewModel(application) {
 
     val readCustomer: LiveData<Customer>
-    //val readAccount: LiveData<Account>
-    //val readCard: LiveData<List<Card>>
-
     private val customerRepo: CustomerRepository
-    //private val accountRepo: AccountRepository
-    //private val cardRepo: CardRepository
 
     var isSettingsValid: Boolean = false
 
     init {
-
         val customerDao = CustomerDatabase.getDatabase(application, viewModelScope).customerDao()
         customerRepo = CustomerRepository(customerDao)
 
@@ -61,6 +51,7 @@ class CustomerViewModel(application: Application): AndroidViewModel(application)
 
         viewModelScope.launch(Dispatchers.IO) {
             val req = service.getCustomerById(id)
+            Log.d("req", req.a)
             customerRepo.insertCustomer(req)
         }
     }

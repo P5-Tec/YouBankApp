@@ -18,19 +18,18 @@ class AccountRepository(private val accountDao: AccountDao) {
     @Suppress("RedundantSuspendModifier")
     @WorkerThread
     suspend fun insertMultiple(accounts: List<Account>) {
-        accounts?.let {
-            accountDao.insertMultiple(it) }
+        accounts.let {
+            accountDao.insertMultiple(it)
+        }
     }
 
     @Suppress
-    @WorkerThread
-    suspend fun insert(account: Account){
+    @WorkerThread fun insert(account: Account) {
         accountDao.addAccount(account)
     }
 
-
     @WorkerThread
-    fun getAllInfo(id: Int) : Flow<List<AccountWithTransactions>> {
+    fun getAllInfo(id: Int): Flow<List<AccountWithTransactions>> {
         return accountDao.getAccountWithTransactionsById(id)
     }
 }

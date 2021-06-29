@@ -2,7 +2,6 @@ package com.example.youbank.viewModels
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
 import androidx.lifecycle.viewModelScope
 import com.example.youbank.models.Customer
@@ -39,21 +38,21 @@ class LoginViewModel(application: Application): AndroidViewModel(application) {
 
     //Api calls / Room saving
 
-    public fun getAccounts(){
+    fun getAccounts() {
         viewModelScope.launch(Dispatchers.IO) {
             val req = retroAccountRepository.getAccountById(user.customerId)
             accountRepository.insert(req)
         }
     }
 
-    public fun getTransactions(){
-        viewModelScope.launch(Dispatchers.IO){
+    public fun getTransactions() {
+        viewModelScope.launch(Dispatchers.IO) {
             val req = retroTransactionRepository.getTransactions()
             transactionRepository.insertMultiple(req)
         }
     }
 
-    public fun getTransactions2(cId: Int){
+    public fun getTransactions2(cId: Int) {
         viewModelScope.launch(Dispatchers.IO) {
             val req = retroAccountRepository.getAccountById(cId)
             transactionRepository.insertMultiple(req.transactions)
@@ -67,12 +66,12 @@ class LoginViewModel(application: Application): AndroidViewModel(application) {
         emit(response)
     }
 
-    fun setData(emval: String,psval: String){
+    fun setData(emval: String, psval: String) {
         user.email = emval
         user.password = psval
     }
 
-    fun getInfo(): String{
+    fun getInfo(): String {
         return user.email + ":" + user.password
     }
 

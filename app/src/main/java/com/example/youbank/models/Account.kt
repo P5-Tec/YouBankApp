@@ -1,7 +1,9 @@
 package com.example.youbank.models
 
 import android.util.Log
-import androidx.room.*
+import androidx.room.Entity
+import androidx.room.Ignore
+import androidx.room.PrimaryKey
 
 enum class AccountType { Basic, Premium }
 
@@ -12,9 +14,9 @@ enum class AccountType { Basic, Premium }
 data class Account(
     @PrimaryKey
     var accountId: Int = -1
-){
+) {
     var accountNumber: Long? = 0
-    var accountType: AccountType? = null
+    var accountType: AccountType = AccountType.Basic
     var balance: Double = 0.0
     var customerId: Int = 0
     @Ignore
