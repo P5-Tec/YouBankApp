@@ -56,7 +56,7 @@ class LoginViewModel(application: Application): AndroidViewModel(application) {
     public fun getTransactions2(cId: Int){
         viewModelScope.launch(Dispatchers.IO) {
             val req = retroAccountRepository.getAccountById(cId)
-            //transactionRepository.insertMultiple(req.transactions)
+            transactionRepository.insertMultiple(req.transactions)
         }
     }
 

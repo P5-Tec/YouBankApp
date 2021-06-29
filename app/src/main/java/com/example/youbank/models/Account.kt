@@ -17,6 +17,8 @@ data class Account(
     var accountType: AccountType? = null
     var balance: Double = 0.0
     var customerId: Int = 0
+    @Ignore
+    var transactions: List<Transaction> = listOf()
 
 }
 
