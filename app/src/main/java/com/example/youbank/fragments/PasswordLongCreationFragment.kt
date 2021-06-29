@@ -47,7 +47,8 @@ class PasswordLongCreationFragment: Fragment() {
         vm.getCustomer().observe(viewLifecycleOwner, { c ->
             //newCustomer = Customer()
             newCustomer = c
-            val txt: String = newCustomer.birthday + "\n" + newCustomer.fullName + "\n" + newCustomer.email + "\n" + newCustomer.phone + "\n" + newCustomer.address
+            val txt: String =
+                newCustomer.birthday + "\n" + newCustomer.fullName + "\n" + newCustomer.email + "\n" + newCustomer.phone + "\n" + newCustomer.address
 
             binding.description.text = txt
         })

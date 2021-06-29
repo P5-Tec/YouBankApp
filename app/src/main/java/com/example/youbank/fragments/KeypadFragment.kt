@@ -20,19 +20,15 @@ import com.example.youbank.viewModels.SharedPreferenceViewModel
 
 class KeypadFragment: Fragment(), View.OnClickListener {
 
-    private val vm: KeypadViewModel by activityViewModels()
-    private val cvm: CustomerViewModel by activityViewModels()
     private var _binding: FragmentKeypadBinding? = null
     private val binding get() = _binding!!
+
+    private val vm: KeypadViewModel by activityViewModels()
+    private val cvm: CustomerViewModel by activityViewModels()
     private val spvm: SharedPreferenceViewModel by activityViewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-//        spvm.clearSharedPreferences()
-//        spvm.saveCustomerIdInSp(21)
-//        spvm.saveNameInSp("Fuldtest")
-//        spvm.savePasswordInSp("1111")
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -138,16 +134,18 @@ class KeypadFragment: Fragment(), View.OnClickListener {
         }
     }
 
-    private fun playAnimation(){
+    private fun playAnimation() {
+        // Hides all views
         binding.profileImg.visibility = View.GONE
         binding.txtNameOfUser.visibility = View.GONE
         binding.pinLayout.visibility = View.GONE
         binding.keypadLayout.visibility = View.GONE
+        // Shows lottieanimationview and plays it
         binding.lonnieAnimationView.visibility = View.VISIBLE
         binding.lonnieAnimationView.playAnimation()
     }
 
-    private fun stopAnimation(){
+    private fun stopAnimation() { // Opposite of what playAnimation does
         binding.profileImg.visibility = View.VISIBLE
         binding.txtNameOfUser.visibility = View.VISIBLE
         binding.pinLayout.visibility = View.VISIBLE
