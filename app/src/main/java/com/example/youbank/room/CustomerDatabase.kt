@@ -15,7 +15,6 @@ import com.example.youbank.room.daos.TransactionDao
 import kotlinx.coroutines.CoroutineScope
 
 @Database(entities = [Customer::class, Account::class, Card::class, Transaction::class], version = 1, exportSchema = false)
-//@TypeConverters(Converters::class)
 abstract class CustomerDatabase: RoomDatabase() {
 
     abstract fun customerDao(): CustomerDao
