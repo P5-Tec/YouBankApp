@@ -27,15 +27,7 @@ class AccountOverviewFragment: Fragment() {
         _binding = FragmentAccountOverviewBinding.inflate(inflater, container, false)
 
         vm.readAccount.observe(viewLifecycleOwner, {
-            Log.d("account details", it.balance.toString())
-            Log.d("account details", it.accountNumber.toString())
-            Log.d("account details", it.accountType.toString())
-            Log.d("account details", it.customerId.toString())
-
             binding.accountBalance.text = it.balance.toString()
-        })
-
-        vm.readAccount.observe(viewLifecycleOwner, {
             binding.accountNumber.text = it.accountNumber.toString()
         })
 

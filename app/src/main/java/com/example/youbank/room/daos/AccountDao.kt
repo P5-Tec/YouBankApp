@@ -12,14 +12,14 @@ interface AccountDao {
     @Query("SELECT * FROM account_table")
     fun getAccounts(): LiveData<Account>
 
-    @Insert
-    fun addAccount(a: Account)
-
-    @Delete
-    fun deleteAccount(a: Account)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    fun insertAccount(a: Account)
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertMultiple(accounts: List<Account>)
+
+    @Delete
+    fun deleteAccount(a: Account)
 
     @Transaction
     @Query("SELECT * FROM account_table WHERE accountId = :id")

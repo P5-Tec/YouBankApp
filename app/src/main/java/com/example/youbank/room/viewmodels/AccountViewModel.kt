@@ -23,7 +23,7 @@ class AccountViewModel(application: Application): AndroidViewModel(application) 
 
     fun addAccount(a: Account) {
         viewModelScope.launch(Dispatchers.IO) {
-            repository.addAccounts(a)
+            repository.insertAccount(a)
         }
     }
 }

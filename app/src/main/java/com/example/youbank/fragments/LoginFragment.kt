@@ -1,7 +1,6 @@
 package com.example.youbank.fragments
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,7 +11,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.youbank.R
 import com.example.youbank.databinding.LoginFragmentBinding
-import com.example.youbank.models.Customer
 import com.example.youbank.room.viewmodels.CustomerViewModel
 import com.example.youbank.viewModels.LoginViewModel
 import com.example.youbank.viewModels.SharedPreferenceViewModel
@@ -39,19 +37,20 @@ class LoginFragment: Fragment() {
 
             //navigate on bool, instead of observeing forever
             vm.loggedin.observe(viewLifecycleOwner, {
-                if (it.customerId != 0){
+                if (it.customerId != 0) {
                     spvm.saveCustomerInSp(it.customerId, it.pincode.toString(), it.fullName)
                     cvm.addCustomerToRoomDB(it.customerId)
 
                     //get data from api and save to room
-                    vm.getAccounts(it.customerId)
+                    vm.addAccountToRoomDB(it.customerId)
                     //vm.getTransactions()
                     vm.getTransactions(it.customerId)
 
 
 
                     findNavController().navigate(R.id.action_loginFragment_to_homeScreenMotionFragment)
-                }else{
+                }
+                else {
                     Toast.makeText(this.context, "Try again", Toast.LENGTH_SHORT).show()
                     binding.passwordInput.text.clear()
                 }

@@ -4,8 +4,8 @@ import com.example.youbank.retrofit.AccountService
 import com.example.youbank.retrofit.ApiService
 
 class RetroAccountRepository {
-    var client: AccountService = ApiService.buildService(AccountService::class.java)
+    var service: AccountService = ApiService.buildService(AccountService::class.java)
 
-    suspend fun getAccounts() = client.listAccounts()
-    suspend fun getAccountById(aId: Int) = client.getAccountById(aId)
+    suspend fun getAccounts() = service.listAccounts()
+    suspend fun getAccountById(aId: Int) = service.getAccountById(aId)
 }

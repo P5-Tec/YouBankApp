@@ -11,8 +11,8 @@ class AccountRepository(private val accountDao: AccountDao) {
 
     val readAccounts: LiveData<Account> = accountDao.getAccounts()
 
-    fun addAccounts(a: Account) {
-        accountDao.addAccount(a)
+    fun insertAccount(a: Account) {
+        accountDao.insertAccount(a)
     }
 
     @Suppress("RedundantSuspendModifier")
@@ -21,12 +21,6 @@ class AccountRepository(private val accountDao: AccountDao) {
         accounts.let {
             accountDao.insertMultiple(it)
         }
-    }
-
-    @Suppress
-    @WorkerThread
-    fun insert(account: Account) {
-        accountDao.addAccount(account)
     }
 
     @WorkerThread

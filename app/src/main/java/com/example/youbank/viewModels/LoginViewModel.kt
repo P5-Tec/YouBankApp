@@ -6,6 +6,8 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.liveData
 import androidx.lifecycle.viewModelScope
 import com.example.youbank.models.Customer
+import com.example.youbank.retrofit.AccountService
+import com.example.youbank.retrofit.ApiService
 import com.example.youbank.retrofit.repo.LoginRepo
 import com.example.youbank.retrofit.repo.RetroAccountRepository
 import com.example.youbank.retrofit.repo.RetroTransactionRepository
@@ -39,10 +41,15 @@ class LoginViewModel(application: Application): AndroidViewModel(application) {
 
     //Api calls / Room saving
 
-    fun getAccounts(cId: Int) {
+    fun addAccountToRoomDB(id: Int) {
+        val service: AccountService = ApiService.buildService(AccountService::class.java)
+
         viewModelScope.launch(Dispatchers.IO) {
-            val req = retroAccountRepository.getAccountById(cId)
-            accountRepository.insert(req)
+            val req = service.getAccountById(id)
+
+            Log.d("req", req.balance.toString())
+            Log.d("req type", req.accountType.toString())
+            accountRepository.insertAccount(req)
         }
     }
 
