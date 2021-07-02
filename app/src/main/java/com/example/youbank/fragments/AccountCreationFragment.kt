@@ -20,8 +20,7 @@ class AccountCreationFragment: Fragment() {
     private val binding get() = _binding!!
     private lateinit var concatetenatedString: String
     private lateinit var c: Customer
-    private val model: SharedViewModel by activityViewModels() // NEW WAY
-    // private lateinit var sharedViewModel: AccountCreationViewModel // OLD WAY
+    private val model: SharedViewModel by activityViewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,6 +28,7 @@ class AccountCreationFragment: Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentAccountCreationBinding.inflate(inflater, container, false)
+
         // Inflate the layout for this fragment
         return binding.root
     }
@@ -42,24 +42,22 @@ class AccountCreationFragment: Fragment() {
 
         binding.btnCreatePassword.setOnClickListener {
 
-            c = Customer()
-
-            c.birthday = binding.cprInput.text.toString().dropLast(5)
-            c.fullName = binding.fullnameInput.text.toString().capitalizeWords()
-            c.email = binding.emailInput.text.toString().replaceFirstChar { it.lowercase() }
-            c.phone = binding.phoneInput.text.toString()
-
             concatetenatedString =
                 binding.addressInput.text.toString().capitalizeWords() +
                 ", " + binding.postcodeInput.text.toString() +
-                " " + binding.cityInput.text.toString().capitalizeWords()
+                ", " + binding.cityInput.text.toString().capitalizeWords()
 
+            c = Customer()
+            c.fullName = binding.fullnameInput.text.toString().capitalizeWords()
+            c.phone = binding.phoneInput.text.toString()
+            c.email = binding.emailInput.text.toString().replaceFirstChar { it.lowercase() }
             c.address = concatetenatedString
+            c.birthday = binding.cprInput.text.toString().dropLast(5)
 
             model.setCustomer(c)
 
             findNavController().navigate(
-                R.id.action_accountCreationFragment_to_passwordCreationFragment)
+                R.id.action_accountCreationFragment_to_passwordLongCreationFragment)
         }
 
         val edList = listOf(

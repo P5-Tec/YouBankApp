@@ -10,31 +10,31 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.youbank.R
 import com.example.youbank.databinding.FragmentKeypadBinding
+import com.example.youbank.room.viewmodels.CustomerViewModel
 import com.example.youbank.viewModels.KeypadViewModel
+import com.example.youbank.viewModels.SharedPreferenceViewModel
 
 class KeypadFragment: Fragment(), View.OnClickListener {
 
-    private lateinit var viewModel: KeypadViewModel
     private var _binding: FragmentKeypadBinding? = null
     private val binding get() = _binding!!
+
+    private val vm: KeypadViewModel by activityViewModels()
+    private val cvm: CustomerViewModel by activityViewModels()
+    private val spvm: SharedPreferenceViewModel by activityViewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentKeypadBinding.inflate(inflater, container, false)
-        viewModel = ViewModelProvider(this).get(KeypadViewModel::class.java)
-        viewModel.getName().observe(viewLifecycleOwner, { x -> binding.txtNameOfUser.text = x.toString() })
+
+        binding.txtNameOfUser.text = "Welcome back, ${spvm.getNameInSp()}"
 
         // Inflate the layout for this fragment
         return binding.root
@@ -65,13 +65,11 @@ class KeypadFragment: Fragment(), View.OnClickListener {
         btn9.setOnClickListener(this)
         btn0.setOnClickListener(this)
 
+        // onClickListener for ForgotPassword button
         binding.btnForgotPassword.setOnClickListener {
             findNavController().navigate(R.id.action_keypadFragment_to_forgotPasswordFragment)
         }
     }
-
-    private val correctString: String = "5555"
-    private var valueString: String = ""
 
     override fun onClick(v: View) {
         when (v.id) {
@@ -108,24 +106,52 @@ class KeypadFragment: Fragment(), View.OnClickListener {
         }
     }
 
+    private var inputPassword: String = ""
+
     private fun password(value: Int) {
-        valueString += value
+        inputPassword += value
 
         highlightCircles()
 
-        if (valueString.length == 4) {
-            if (valueString == correctString) {
-                Toast.makeText(this.context, "Correct", Toast.LENGTH_SHORT).show()
-                valueString = ""
-                findNavController().navigate(R.id.action_keypadFragment_to_homeScreenFragment)
+        if (inputPassword.length == 4) {
+            // Playing animation
+            playAnimation()
+
+            val spPassword: String? = spvm.getPasswordInSp()
+
+            if (vm.validatePasswordPref(inputPassword, spPassword)) { // Passwords match
+                Toast.makeText(this.context, "Successful login", Toast.LENGTH_SHORT).show()
+                inputPassword = ""
+                findNavController().navigate(R.id.action_keypadFragment_to_homeScreenMotionFragment)
             }
-            else {
+            else { // No match
+                stopAnimation()
+
                 Toast.makeText(this.context, "Incorrect", Toast.LENGTH_SHORT).show()
-                valueString = ""
+                inputPassword = ""
             }
+            highlightCircles()
         }
+    }
 
-        highlightCircles()
+    private fun playAnimation() {
+        // Hides all views
+        binding.profileImg.visibility = View.GONE
+        binding.txtNameOfUser.visibility = View.GONE
+        binding.pinLayout.visibility = View.GONE
+        binding.keypadLayout.visibility = View.GONE
+        // Shows lottieanimationview and plays it
+        binding.lonnieAnimationView.visibility = View.VISIBLE
+        binding.lonnieAnimationView.playAnimation()
+    }
+
+    private fun stopAnimation() { // Opposite of what playAnimation does
+        binding.profileImg.visibility = View.VISIBLE
+        binding.txtNameOfUser.visibility = View.VISIBLE
+        binding.pinLayout.visibility = View.VISIBLE
+        binding.keypadLayout.visibility = View.VISIBLE
+        binding.lonnieAnimationView.visibility = View.GONE
+        binding.lonnieAnimationView.pauseAnimation()
     }
 
     private fun highlightCircles() {
@@ -138,7 +164,7 @@ class KeypadFragment: Fragment(), View.OnClickListener {
         when (context?.resources?.configuration?.uiMode?.and(Configuration.UI_MODE_NIGHT_MASK)) {
 
             Configuration.UI_MODE_NIGHT_YES -> {
-                when (valueString.length) {
+                when (inputPassword.length) {
                     1 -> {
                         circle1.setColorFilter(
                             ContextCompat.getColor(requireContext(), R.color.drac_orange))
@@ -172,7 +198,7 @@ class KeypadFragment: Fragment(), View.OnClickListener {
                 }
             }
             Configuration.UI_MODE_NIGHT_NO -> {
-                when (valueString.length) {
+                when (inputPassword.length) {
                     1 -> {
                         circle1.setColorFilter(
                             ContextCompat.getColor(requireContext(), R.color.n_l_main))

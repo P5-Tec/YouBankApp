@@ -52,7 +52,7 @@
 
     <fragment
         android:id="@+id/accounts_list"
-        android:name="com.example.youbank.fragments.AccountFragment"
+        android:name="com.example.youbank.fragments.items.AccountFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"

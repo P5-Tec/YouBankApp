@@ -1,0 +1,119 @@
+package com.example.youbank.viewModels
+
+import android.app.Application
+import android.util.Log
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.liveData
+import androidx.lifecycle.viewModelScope
+import com.example.youbank.models.Card
+import com.example.youbank.models.Customer
+import com.example.youbank.retrofit.AccountService
+import com.example.youbank.retrofit.ApiService
+import com.example.youbank.retrofit.repo.LoginRepo
+import com.example.youbank.retrofit.repo.RetroAccountRepository
+import com.example.youbank.retrofit.repo.RetroCustomerRepo
+import com.example.youbank.retrofit.repo.RetroTransactionRepository
+import com.example.youbank.room.CustomerDatabase
+import com.example.youbank.room.daos.AccountDao
+import com.example.youbank.room.daos.CardDao
+import com.example.youbank.room.daos.TransactionDao
+import com.example.youbank.room.repos.AccountRepository
+import com.example.youbank.room.repos.CardRepository
+import com.example.youbank.room.repos.TransactionRepository
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+
+class LoginViewModel(application: Application): AndroidViewModel(application) {
+    private var user = Customer()
+
+    private val repository: LoginRepo = LoginRepo()
+
+    //Api & Room stuff
+    private val retroCustomerRepo: RetroCustomerRepo = RetroCustomerRepo()
+
+    private val accountDao: AccountDao = CustomerDatabase.getDatabase(application, viewModelScope).accountDao()
+    private val accountRepository: AccountRepository = AccountRepository(accountDao)
+    private val retroAccountRepository: RetroAccountRepository = RetroAccountRepository()
+
+    private val cardDao: CardDao = CustomerDatabase.getDatabase(application, viewModelScope).cardDao()
+    private val cardRepository: CardRepository = CardRepository(cardDao)
+    private val retroCardRepository: RetroAccountRepository = RetroAccountRepository()
+
+    private val transactionDao: TransactionDao = CustomerDatabase.getDatabase(application, viewModelScope).transactionDao()
+    private val transactionRepository: TransactionRepository = TransactionRepository(transactionDao)
+    private val retroTransactionRepository: RetroTransactionRepository = RetroTransactionRepository()
+
+    //Api calls / Room saving
+
+    fun addAccountToRoomDB(id: Int) {
+        val service: AccountService = ApiService.buildService(AccountService::class.java)
+
+        viewModelScope.launch(Dispatchers.IO) {
+            val req2 = retroCustomerRepo.getCustomerById(user.customerId)
+            //val req = retroAccountRepository.getAccountById(user.customerId)
+            accountRepository.insertMultiple(req2.accounts)
+        }
+    }
+
+            Log.d("req", req.balance.toString())
+            Log.d("req type", req.accountType.toString())
+            accountRepository.insertAccount(req)
+        }
+    }
+
+    //public fun getTransactions() {
+    //    viewModelScope.launch(Dispatchers.IO) {
+    //        val req = retroTransactionRepository.getTransactions()
+    //        transactionRepository.insertMultiple(req)
+    //    }
+    //}
+
+    fun getTransactions(cId: Int) {
+        viewModelScope.launch(Dispatchers.IO) {
+            val req = retroAccountRepository.getAccountById(cId)
+            transactionRepository.insertMultiple(req.transactions)
+        }
+    }
+
+    fun getCards(cId: Int){
+        viewModelScope.launch(Dispatchers.IO) {
+            val req = retroAccountRepository.getAccountById(cId)
+            Log.i("cards", req.cards.size.toString())
+            cardRepository.insertMultiple(req.cards)
+        }
+    }
+
+     fun getCards2(){
+         viewModelScope.launch(Dispatchers.IO) {
+            val req2 = retroCustomerRepo.getCustomerById(user.customerId)
+            var cardsList : MutableList<Card> = mutableListOf()
+            req2.accounts.forEach { it ->
+                it.cards.forEach { cc ->
+                    Log.i("card", cc.cardNumber.toString())
+                    cardsList.add(cc)
+                }
+            }
+            cardRepository.insertMultiple2(cardsList)
+         }
+     }
+
+    //fix this to make 1 api call
+    val loggedin = liveData(Dispatchers.IO) {
+        val response = repository.getLogin(user)
+        user = response
+        emit(response)
+    }
+
+    fun setData(emval: String, psval: String) {
+        user.email = emval
+        user.password = psval
+    }
+
+    fun getInfo(): String {
+        return user.email + ":" + user.password
+    }
+
+    fun getPin(): String? {
+        return user.pincode
+    }
+}

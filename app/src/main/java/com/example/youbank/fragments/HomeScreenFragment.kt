@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.youbank.R
 import com.example.youbank.databinding.FragmentHomeScreenBinding
+import com.example.youbank.databinding.LoginFragmentBinding
 import com.example.youbank.fragments.buttomModals.AccountSupportDialogFragment
 
 class HomeScreenFragment: Fragment() {
@@ -20,7 +21,9 @@ class HomeScreenFragment: Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home_screen_motion, container, false)
+        _binding = FragmentHomeScreenBinding.inflate(inflater, container, false)
+        return binding.root
+    //return inflater.inflate(R.layout.fragment_home_screen_motion, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

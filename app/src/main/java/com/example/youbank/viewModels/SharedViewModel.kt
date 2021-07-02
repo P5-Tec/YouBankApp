@@ -22,13 +22,11 @@ class SharedViewModel: ViewModel() {
         password = BCrypt.hashpw(passwordHash, BCrypt.gensalt(7))
     }
 
+    fun setPassword(){
+        c.value?.password = password
+    }
+
     fun getPasswordHash(): String {
         return password
     }
-
-    // Function for login
-    fun validatePassword(plainText: String, hash: String): Boolean {
-        return BCrypt.checkpw(plainText, hash)
-    }
-
 }
