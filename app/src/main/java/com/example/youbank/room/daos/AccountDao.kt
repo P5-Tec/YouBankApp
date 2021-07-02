@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.youbank.models.Account
 import com.example.youbank.models.AccountWithTransactions
+import com.example.youbank.models.Card
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -25,4 +26,7 @@ interface AccountDao {
     @Transaction
     @Query("SELECT * FROM account_table WHERE customerId = :id")
     fun getAccountWithTransactionsById(id: Int): Flow<List<AccountWithTransactions>>
+
+    @Query("SELECT * FROM account_table")
+    fun getAllAccounts(): Flow<List<Account>>
 }

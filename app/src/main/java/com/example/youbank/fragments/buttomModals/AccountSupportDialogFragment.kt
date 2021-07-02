@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.youbank.R
 import com.example.youbank.databinding.FragmentAccountSupportDialogBinding
@@ -40,11 +41,9 @@ class AccountSupportDialogFragment: BottomSheetDialogFragment() {
                 context, "Removing id: ${spvm.getCustomerIdInSp()}", Toast.LENGTH_LONG)
                 .show()
             spvm.removeSpValue("customerId")
-            cvm.readCustomer.observe(viewLifecycleOwner, {
-                cvm.deleteCustomer(it)
 
-
-            })
+            //DEPLOY THE NUKE !
+            cvm.nukeDB()
             findNavController().navigate(R.id.action_homeScreenMotionLogOut)
         }
 

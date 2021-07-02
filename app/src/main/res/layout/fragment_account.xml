@@ -6,7 +6,6 @@
     android:id="@+id/clayout"
     android:layout_width="match_parent"
     android:layout_height="80dp"
-    android:background="@drawable/square_rounded_corners"
     android:paddingVertical="16dp"
     tools:context=".fragments.items.AccountFragment">
 

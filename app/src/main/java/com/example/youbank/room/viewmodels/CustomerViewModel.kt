@@ -16,11 +16,12 @@ class CustomerViewModel(application: Application): AndroidViewModel(application)
 
     val readCustomer: LiveData<Customer>
     private val customerRepo: CustomerRepository
+    val database: CustomerDatabase = CustomerDatabase.getDatabase(application,viewModelScope)
 
     var isSettingsValid: Boolean = false
 
     init {
-        val customerDao = CustomerDatabase.getDatabase(application, viewModelScope).customerDao()
+        val customerDao = database.customerDao()
         customerRepo = CustomerRepository(customerDao)
 
         readCustomer = customerRepo.readCustomer
@@ -46,8 +47,6 @@ class CustomerViewModel(application: Application): AndroidViewModel(application)
         }
     }
 
-
-
     fun addCustomerToRoomDB(id: Int) {
         val service: CustomerService = ApiService.buildService(CustomerService::class.java)
 
@@ -60,6 +59,12 @@ class CustomerViewModel(application: Application): AndroidViewModel(application)
     fun deleteCustomer(c: Customer) {
         viewModelScope.launch(Dispatchers.IO) {
             customerRepo.deleteCustomer(c)
+        }
+    }
+
+    fun nukeDB(){
+        viewModelScope.launch(Dispatchers.IO) {
+        database.clearAllTables()
         }
     }
 

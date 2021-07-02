@@ -5,7 +5,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Adapter
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.GridLayoutManager
@@ -14,13 +13,8 @@ import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SnapHelper
 import com.example.youbank.Adapters.CardAdapter
-import com.example.youbank.Adapters.TransactionAdapter
 import com.example.youbank.R
-import com.example.youbank.fragments.dummy.DummyContent
-import com.example.youbank.fragments.recyclerViewAdapters.MyCardRecyclerViewAdapter
-import com.example.youbank.room.viewmodels.TransactionListViewModel
 import com.example.youbank.viewModels.CardListViewModel
-import kotlin.math.log
 
 class CardListFragment: Fragment() {
 
@@ -55,11 +49,7 @@ class CardListFragment: Fragment() {
                 //adapter = CardAdapter(DummyContent.ITEMS)
                 cardAdapter = CardAdapter()
                 adapter = cardAdapter
-                model.allCards.observe(viewLifecycleOwner, {it?.let{ cardAdapter.submitList(it) }})
-
-                Log.i("items", adapter?.itemCount.toString())
-                with(adapter){
-                }
+                model.allCards.observe(viewLifecycleOwner, {it?.let{ cardAdapter.submitList(it)}})
             }
         }
         return view

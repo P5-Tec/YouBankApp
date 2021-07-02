@@ -33,4 +33,8 @@ class AccountRepository(private val accountDao: AccountDao) {
     fun getAllInfo(id: Int): Flow<List<AccountWithTransactions>> {
         return accountDao.getAccountWithTransactionsById(id)
     }
+
+    fun getallAccounts(): Flow<List<Account>> {
+        return accountDao.getAllAccounts()
+    }
 }
