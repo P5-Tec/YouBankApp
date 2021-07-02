@@ -1,10 +1,10 @@
-package com.example.youbank.util
+package com.example.youbank.adapters.util
 
 import androidx.recyclerview.widget.DiffUtil
 import com.example.youbank.models.Transaction
 
 class DiffUtilTransactionCallback: DiffUtil.ItemCallback<Transaction>() {
-    
+
     override fun areItemsTheSame(oldItem: Transaction, newItem: Transaction): Boolean {
         return oldItem.transactionId == newItem.transactionId
     }

@@ -1,4 +1,4 @@
-package com.example.youbank.fragments
+package com.example.youbank.fragments.listFragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.youbank.R
 import com.example.youbank.adapters.TransactionAdapter
-import com.example.youbank.room.viewmodels.TransactionListViewModel
+import com.example.youbank.viewModels.listViewModels.TransactionListViewModel
 
 class TransactionListFragment: Fragment() {
 

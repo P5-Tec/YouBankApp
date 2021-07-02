@@ -1,4 +1,4 @@
-package com.example.youbank.fragments.fragmentLists
+package com.example.youbank.fragments.listFragments
 
 import android.os.Bundle
 import android.util.Log
@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.youbank.R
 import com.example.youbank.adapters.AccountAdapter
-import com.example.youbank.viewModels.AccountListViewmodel
+import com.example.youbank.viewModels.listViewModels.AccountListViewmodel
 
 class AccountListFragment: Fragment() {
 

@@ -1,4 +1,4 @@
-package com.example.youbank.viewModels
+package com.example.youbank.viewModels.listViewModels
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
