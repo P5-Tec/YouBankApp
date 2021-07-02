@@ -37,7 +37,6 @@ class LoginViewModel(application: Application): AndroidViewModel(application) {
 
     private val cardDao: CardDao = CustomerDatabase.getDatabase(application, viewModelScope).cardDao()
     private val cardRepository: CardRepository = CardRepository(cardDao)
-    private val retroCardRepository: RetroAccountRepository = RetroAccountRepository()
 
     private val transactionDao: TransactionDao = CustomerDatabase.getDatabase(application, viewModelScope).transactionDao()
     private val transactionRepository: TransactionRepository = TransactionRepository(transactionDao)
@@ -45,9 +44,7 @@ class LoginViewModel(application: Application): AndroidViewModel(application) {
 
     //Api calls / Room saving
 
-    fun addAccountToRoomDB(id: Int) {
-        val service: AccountService = ApiService.buildService(AccountService::class.java)
-
+    public fun getAccounts(){
         viewModelScope.launch(Dispatchers.IO) {
             val req2 = retroCustomerRepo.getCustomerById(user.customerId)
             //val req = retroAccountRepository.getAccountById(user.customerId)
@@ -55,20 +52,14 @@ class LoginViewModel(application: Application): AndroidViewModel(application) {
         }
     }
 
-            Log.d("req", req.balance.toString())
-            Log.d("req type", req.accountType.toString())
-            accountRepository.insertAccount(req)
+    public fun getTransactions(){
+        viewModelScope.launch(Dispatchers.IO){
+            val req = retroTransactionRepository.getTransactions()
+            transactionRepository.insertMultiple(req)
         }
     }
 
-    //public fun getTransactions() {
-    //    viewModelScope.launch(Dispatchers.IO) {
-    //        val req = retroTransactionRepository.getTransactions()
-    //        transactionRepository.insertMultiple(req)
-    //    }
-    //}
-
-    fun getTransactions(cId: Int) {
+    public fun getTransactions2(cId: Int){
         viewModelScope.launch(Dispatchers.IO) {
             val req = retroAccountRepository.getAccountById(cId)
             transactionRepository.insertMultiple(req.transactions)
@@ -83,8 +74,8 @@ class LoginViewModel(application: Application): AndroidViewModel(application) {
         }
     }
 
-     fun getCards2(){
-         viewModelScope.launch(Dispatchers.IO) {
+    fun getCards2(){
+        viewModelScope.launch(Dispatchers.IO) {
             val req2 = retroCustomerRepo.getCustomerById(user.customerId)
             var cardsList : MutableList<Card> = mutableListOf()
             req2.accounts.forEach { it ->
@@ -94,8 +85,8 @@ class LoginViewModel(application: Application): AndroidViewModel(application) {
                 }
             }
             cardRepository.insertMultiple2(cardsList)
-         }
-     }
+        }
+    }
 
     //fix this to make 1 api call
     val loggedin = liveData(Dispatchers.IO) {
@@ -104,16 +95,8 @@ class LoginViewModel(application: Application): AndroidViewModel(application) {
         emit(response)
     }
 
-    fun setData(emval: String, psval: String) {
+    fun setData(emval: String,psval: String){
         user.email = emval
         user.password = psval
-    }
-
-    fun getInfo(): String {
-        return user.email + ":" + user.password
-    }
-
-    fun getPin(): String? {
-        return user.pincode
     }
 }

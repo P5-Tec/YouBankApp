@@ -37,6 +37,9 @@ class LoginFragment: Fragment() {
 
             //navigate on bool, instead of observeing forever
             vm.loggedin.observe(viewLifecycleOwner, {
+
+
+
                 if (it.customerId != 0) {
                     spvm.saveCustomerInSp(it.customerId, it.pincode.toString(), it.fullName)
                     cvm.addCustomerToRoomDB(it.customerId)
@@ -44,7 +47,6 @@ class LoginFragment: Fragment() {
                     //get data from api and save to room
                     vm.getAccounts()
                     vm.getTransactions2(it.customerId)
-                    //vm.getCards(it.customerId)
                     vm.getCards2()
 
                     findNavController().navigate(R.id.action_loginFragment_to_homeScreenMotionFragment)

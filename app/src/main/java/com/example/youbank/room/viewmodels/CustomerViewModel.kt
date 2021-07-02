@@ -46,6 +46,8 @@ class CustomerViewModel(application: Application): AndroidViewModel(application)
         }
     }
 
+
+
     fun addCustomerToRoomDB(id: Int) {
         val service: CustomerService = ApiService.buildService(CustomerService::class.java)
 

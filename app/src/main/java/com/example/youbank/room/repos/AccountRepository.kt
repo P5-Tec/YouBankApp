@@ -23,6 +23,12 @@ class AccountRepository(private val accountDao: AccountDao) {
         }
     }
 
+    @Suppress
+    @WorkerThread
+    suspend fun deleteAllTransactions(account: AccountWithTransactions){
+        //accountDao.deleteAllTransactions(acc)
+    }
+
     @WorkerThread
     fun getAllInfo(id: Int): Flow<List<AccountWithTransactions>> {
         return accountDao.getAccountWithTransactionsById(id)
