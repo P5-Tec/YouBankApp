@@ -6,11 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.youbank.R
 import com.example.youbank.databinding.FragmentAccountSupportDialogBinding
-import com.example.youbank.room.viewmodels.CustomerViewModel
+import com.example.youbank.viewModels.CustomerViewModel
 import com.example.youbank.viewModels.SharedPreferenceViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
@@ -40,9 +39,11 @@ class AccountSupportDialogFragment: BottomSheetDialogFragment() {
             Toast.makeText(
                 context, "Removing id: ${spvm.getCustomerIdInSp()}", Toast.LENGTH_LONG)
                 .show()
-            spvm.removeSpValue("customerId")
 
-            //DEPLOY THE NUKE !
+            // Clearing SharedPreferences
+            spvm.clearSharedPreferences()
+
+            // INCOMING TACTICAL NUKE
             cvm.nukeDB()
             findNavController().navigate(R.id.action_homeScreenMotionLogOut)
         }
@@ -53,7 +54,6 @@ class AccountSupportDialogFragment: BottomSheetDialogFragment() {
     }
 
     companion object {
-        // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance() =
             AccountSupportDialogFragment().apply { }

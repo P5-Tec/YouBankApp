@@ -14,7 +14,6 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.youbank.R
 import com.example.youbank.databinding.FragmentKeypadBinding
-import com.example.youbank.room.viewmodels.CustomerViewModel
 import com.example.youbank.viewModels.KeypadViewModel
 import com.example.youbank.viewModels.SharedPreferenceViewModel
 
@@ -24,7 +23,6 @@ class KeypadFragment: Fragment(), View.OnClickListener {
     private val binding get() = _binding!!
 
     private val vm: KeypadViewModel by activityViewModels()
-    private val cvm: CustomerViewModel by activityViewModels()
     private val spvm: SharedPreferenceViewModel by activityViewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,6 +41,7 @@ class KeypadFragment: Fragment(), View.OnClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // TODO - Refactor keypad
         val btn1: Button = view.findViewById(R.id.btn1)
         val btn2: Button = view.findViewById(R.id.btn2)
         val btn3: Button = view.findViewById(R.id.btn3)

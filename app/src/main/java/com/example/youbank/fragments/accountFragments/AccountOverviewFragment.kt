@@ -1,7 +1,6 @@
 package com.example.youbank.fragments
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,9 +10,9 @@ import androidx.navigation.fragment.findNavController
 import com.example.youbank.R
 import com.example.youbank.databinding.FragmentAccountOverviewBinding
 import com.example.youbank.viewModels.AccountOverviewViewModel
-import com.google.android.material.button.MaterialButton
 
 class AccountOverviewFragment: Fragment() {
+
     private var _binding: FragmentAccountOverviewBinding? = null
     private val binding get() = _binding!!
 
@@ -38,11 +37,11 @@ class AccountOverviewFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        view.findViewById<MaterialButton>(R.id.backbtn).setOnClickListener {
+        binding.backbtn.setOnClickListener {
             findNavController().navigate(R.id.action_accountOverviewBackBtn)
         }
 
-        view.findViewById<MaterialButton>(R.id.transaction_button).setOnClickListener {
+        binding.transactionButton.setOnClickListener {
             findNavController().navigate(R.id.action_accountOverviewFragment2_to_transferFragment)
         }
     }

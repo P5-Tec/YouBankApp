@@ -45,6 +45,11 @@ class Password4DigitCreationFragment: Fragment() {
         }
 
         binding.btnCreateAccount.setOnClickListener {
+
+            // TODO - Post customer here instead so we can post the 4 digit password too,
+            //  or be lazy and make a seperate post with just the 4 digit password
+            //  pest eller kolera
+
             spvm.savePasswordInSp(binding.passwordConfirmInput.text.toString())
 
             Toast.makeText(context, "Password saved", Toast.LENGTH_SHORT).show()

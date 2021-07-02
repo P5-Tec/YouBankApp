@@ -1,9 +1,7 @@
 package com.example.youbank.retrofit
 
 import com.example.youbank.models.Customer
-import retrofit2.Call
 import retrofit2.http.Body
-import retrofit2.http.Field
 import retrofit2.http.POST
 
 interface LoginService {

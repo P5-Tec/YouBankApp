@@ -1,7 +1,11 @@
 package com.example.youbank.room.daos
 
 import androidx.lifecycle.LiveData
-import androidx.room.*
+import androidx.room.Dao
+import androidx.room.Delete
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
 import com.example.youbank.models.Card
 import kotlinx.coroutines.flow.Flow
 
@@ -17,12 +21,10 @@ interface CardDao {
     @Insert
     fun addCards(c: Card)
 
-    @Insert
-    //@Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertMultiple(cards: List<Card>)
 
     @Delete
     fun deleteCard(c: Card)
-
 
 }

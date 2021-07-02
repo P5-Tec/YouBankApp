@@ -18,6 +18,7 @@ class AccountCreationFragment: Fragment() {
 
     private var _binding: FragmentAccountCreationBinding? = null
     private val binding get() = _binding!!
+
     private lateinit var concatetenatedString: String
     private lateinit var c: Customer
     private val model: SharedViewModel by activityViewModels()

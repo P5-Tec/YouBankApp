@@ -18,7 +18,7 @@ class TransferFragment: Fragment() {
         super.onCreate(savedInstanceState)
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentTransferBinding.inflate(inflater, container, false)
 
         // Inflate the layout for this fragment
@@ -32,6 +32,7 @@ class TransferFragment: Fragment() {
             findNavController().navigate(R.id.action_transferBackBtn)
         }
 
+        // TODO - Transfer between accounts functionality
         binding.paynow.setOnClickListener {
             //findNavController().navigate(R.id.action_transferFragment_to_accountOverviewFragment)
         }

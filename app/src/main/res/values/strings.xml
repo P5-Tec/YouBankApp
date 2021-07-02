@@ -26,7 +26,6 @@
     <string name="account_support_settings">Account Settings</string>
     <string name="account_support_logout">Log Out</string>
 
-
     <!--Transfer screen -->
     <string-array name="select_accounts">
         <item>Martin</item>

@@ -11,7 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.youbank.R
 import com.example.youbank.databinding.LoginFragmentBinding
-import com.example.youbank.room.viewmodels.CustomerViewModel
+import com.example.youbank.viewModels.CustomerViewModel
 import com.example.youbank.viewModels.LoginViewModel
 import com.example.youbank.viewModels.SharedPreferenceViewModel
 
@@ -37,8 +37,7 @@ class LoginFragment: Fragment() {
 
             //navigate on bool, instead of observeing forever
             vm.loggedin.observe(viewLifecycleOwner, {
-
-
+                // TODO - Handle failed login error so it doesn't just crash
 
                 if (it.customerId != 0) {
                     spvm.saveCustomerInSp(it.customerId, it.pincode.toString(), it.fullName)

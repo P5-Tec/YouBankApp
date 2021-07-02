@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -22,15 +21,14 @@ class GreeterFragment: Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //spvm.savePasswordInSp("1111")
+
         if (vm.getCustomerIdInSp() != 0) {
-            Toast.makeText(
-                context, "id: ${spvm.getCustomerIdInSp()} + password: ${spvm.getPasswordInSp().toString()}",
-                Toast.LENGTH_LONG).show()
+            //Toast.makeText(
+            //    context, "id: ${spvm.getCustomerIdInSp()} + password: ${spvm.getPasswordInSp().toString()}",
+            //    Toast.LENGTH_LONG).show()
             findNavController().navigate(R.id.action_greeterFragment_to_keypadFragment)
         }
         else {
-            Toast.makeText(context, "no id found in sp", Toast.LENGTH_LONG).show()
         }
     }
 

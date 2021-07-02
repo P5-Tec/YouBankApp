@@ -1,7 +1,6 @@
 package com.example.youbank.fragments
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,7 +14,7 @@ import com.example.youbank.R
 import com.example.youbank.databinding.FragmentSettingsBinding
 import com.example.youbank.helpers.SettingsTextWatcher
 import com.example.youbank.models.Customer
-import com.example.youbank.room.viewmodels.CustomerViewModel
+import com.example.youbank.viewModels.CustomerViewModel
 
 class SettingsFragment: Fragment() {
 
@@ -49,7 +48,6 @@ class SettingsFragment: Fragment() {
             binding.fullnameInput.setText(updatedCustomer.fullName)
             binding.emailInput.setText(updatedCustomer.email)
             binding.phoneInput.setText(updatedCustomer.phone)
-
 
             // Splitting the address into 3 seperate strings
             val substrings = updatedCustomer.address.split(", ")
@@ -91,6 +89,8 @@ class SettingsFragment: Fragment() {
 
     }
 
+    // Saving data in room
+    // TODO - Send data to api, maybe use livedata in room
     override fun onDestroy() {
         super.onDestroy()
 

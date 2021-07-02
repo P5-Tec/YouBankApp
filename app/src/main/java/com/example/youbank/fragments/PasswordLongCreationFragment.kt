@@ -45,7 +45,6 @@ class PasswordLongCreationFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         vm.getCustomer().observe(viewLifecycleOwner, { c ->
-            //newCustomer = Customer()
             newCustomer = c
             val txt: String =
                 newCustomer.birthday + "\n" + newCustomer.fullName + "\n" + newCustomer.email + "\n" + newCustomer.phone + "\n" + newCustomer.address
@@ -64,22 +63,13 @@ class PasswordLongCreationFragment: Fragment() {
             findNavController().navigate(R.id.action_passwordLongCreationFragmentBackBtn)
         }
 
-
-
         binding.btnNext.setOnClickListener {
-            //newCustomer = Customer()
+            // TODO - Refactor methods, maybe use https://github.com/NyCodeGHG/bcrypt/commits/main instead
 
             // Hashing password and saving it in viewmodel
             vm.hashPassword(binding.passwordInput.text.toString())
             // Assigning the hash to the customer object
             vm.setPassword()
-
-            // Fetching hash from viewmodel and passing it to newCustomer password field
-            //newCustomer.password = model.getPasswordHash()
-
-
-            // Passing newCustomer object to viewmodel
-            //model.setCustomer(newCustomer)
 
             // Get the customer from viewmodel then post it with api to database
             vm.getCustomer().observe(viewLifecycleOwner, { c ->
@@ -90,8 +80,6 @@ class PasswordLongCreationFragment: Fragment() {
                     req.enqueue(object: Callback<Void> {
                         override fun onResponse(call: Call<Void>, response: Response<Void>) {
                             if (response.isSuccessful) {
-
-                                Log.d("new customer id", it.id.toString())
 
                                 spvm.saveCustomerIdInSp(it.id)
                                 newCustomer.customerId = it.id

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/backgroundColor"
-    tools:context=".fragments.AccountOverviewFragment">
+    tools:context=".fragments.accountFragments.AccountOverviewFragment">
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
@@ -126,7 +126,7 @@
 
     <fragment
         android:id="@+id/transaction_fragment"
-        android:name="com.example.youbank.fragments.TransactionListFragment"
+        android:name="com.example.youbank.fragments.listFragments.TransactionListFragment"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"

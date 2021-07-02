@@ -18,6 +18,7 @@ class Account {
     var transactions: List<Transaction> = listOf()
 }
 
+// TODO - Refactor
 //fun generateAccNumber(): String {
 //    val acclength = 16
 //    val chunksize = 4

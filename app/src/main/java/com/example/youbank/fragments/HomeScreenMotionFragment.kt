@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.example.youbank.databinding.FragmentHomeScreenMotionBinding
 import com.example.youbank.fragments.buttomModals.AccountSupportDialogFragment
-import com.example.youbank.room.viewmodels.CustomerViewModel
+import com.example.youbank.viewModels.CustomerViewModel
 import com.example.youbank.viewModels.SharedPreferenceViewModel
 
 class HomeScreenMotionFragment: Fragment() {
@@ -32,6 +32,7 @@ class HomeScreenMotionFragment: Fragment() {
             }
             else {
                 vm.deleteCustomer(it)
+                // TODO - Refactor
                 vm.addCustomerToRoomDB(spvm.getCustomerIdInSp()) //maybe change to logout ?
             }
         })
@@ -48,16 +49,9 @@ class HomeScreenMotionFragment: Fragment() {
         }
 
         vm.readCustomer.observe(viewLifecycleOwner, { room ->
-
             if (room.fullName.isNotBlank()) {
                 binding.header.text = room.fullName
             }
-            else {
-                binding.header.text = "room was empty"
-                binding.accountBoxHeader.text = "room was empty"
-                binding.transactionBoxHeader.text = "room was empty"
-            }
-
         })
     }
 

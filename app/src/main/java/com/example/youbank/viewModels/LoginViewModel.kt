@@ -7,12 +7,9 @@ import androidx.lifecycle.liveData
 import androidx.lifecycle.viewModelScope
 import com.example.youbank.models.Card
 import com.example.youbank.models.Customer
-import com.example.youbank.retrofit.AccountService
-import com.example.youbank.retrofit.ApiService
 import com.example.youbank.retrofit.repo.LoginRepo
 import com.example.youbank.retrofit.repo.RetroAccountRepository
 import com.example.youbank.retrofit.repo.RetroCustomerRepo
-import com.example.youbank.retrofit.repo.RetroTransactionRepository
 import com.example.youbank.room.CustomerDatabase
 import com.example.youbank.room.daos.AccountDao
 import com.example.youbank.room.daos.CardDao
@@ -40,11 +37,10 @@ class LoginViewModel(application: Application): AndroidViewModel(application) {
 
     private val transactionDao: TransactionDao = CustomerDatabase.getDatabase(application, viewModelScope).transactionDao()
     private val transactionRepository: TransactionRepository = TransactionRepository(transactionDao)
-    private val retroTransactionRepository: RetroTransactionRepository = RetroTransactionRepository()
 
     //Api calls / Room saving
 
-    public fun getAccounts(){
+    fun getAccounts() {
         viewModelScope.launch(Dispatchers.IO) {
             val req2 = retroCustomerRepo.getCustomerById(user.customerId)
             //val req = retroAccountRepository.getAccountById(user.customerId)
@@ -52,33 +48,18 @@ class LoginViewModel(application: Application): AndroidViewModel(application) {
         }
     }
 
-    public fun getTransactions(){
-        viewModelScope.launch(Dispatchers.IO){
-            val req = retroTransactionRepository.getTransactions()
-            transactionRepository.insertMultiple(req)
-        }
-    }
-
-    public fun getTransactions2(cId: Int){
+    fun getTransactions2(cId: Int) {
         viewModelScope.launch(Dispatchers.IO) {
             val req = retroAccountRepository.getAccountById(cId)
             transactionRepository.insertMultiple(req.transactions)
         }
     }
 
-    fun getCards(cId: Int){
-        viewModelScope.launch(Dispatchers.IO) {
-            val req = retroAccountRepository.getAccountById(cId)
-            Log.i("cards", req.cards.size.toString())
-            cardRepository.insertMultiple(req.cards)
-        }
-    }
-
-    fun getCards2(){
+    fun getCards2() {
         viewModelScope.launch(Dispatchers.IO) {
             val req2 = retroCustomerRepo.getCustomerById(user.customerId)
-            var cardsList : MutableList<Card> = mutableListOf()
-            req2.accounts.forEach { it ->
+            val cardsList: MutableList<Card> = mutableListOf()
+            req2.accounts.forEach {
                 it.cards.forEach { cc ->
                     Log.i("card", cc.cardNumber.toString())
                     cardsList.add(cc)
@@ -95,7 +76,7 @@ class LoginViewModel(application: Application): AndroidViewModel(application) {
         emit(response)
     }
 
-    fun setData(emval: String,psval: String){
+    fun setData(emval: String, psval: String) {
         user.email = emval
         user.password = psval
     }

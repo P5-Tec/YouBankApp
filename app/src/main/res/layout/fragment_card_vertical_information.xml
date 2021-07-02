@@ -6,7 +6,7 @@
     android:layout_height="400dp"
     android:background="@drawable/square_rounded_corners"
     android:orientation="vertical"
-    tools:context=".fragments.CardVerticalInformationFragment">
+    tools:context=".fragments.cardFragments.CardVerticalInformationFragment">
 
     <ImageView
         android:id="@+id/cardLogo"

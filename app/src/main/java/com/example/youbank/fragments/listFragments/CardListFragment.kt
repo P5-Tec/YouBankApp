@@ -1,7 +1,6 @@
 package com.example.youbank.fragments.fragmentLists
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,8 +11,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SnapHelper
-import com.example.youbank.Adapters.CardAdapter
 import com.example.youbank.R
+import com.example.youbank.adapters.CardAdapter
 import com.example.youbank.viewModels.CardListViewModel
 
 class CardListFragment: Fragment() {
@@ -46,10 +45,9 @@ class CardListFragment: Fragment() {
                 val snapHelper: SnapHelper = PagerSnapHelper()
                 snapHelper.attachToRecyclerView(rl)
 
-                //adapter = CardAdapter(DummyContent.ITEMS)
                 cardAdapter = CardAdapter()
                 adapter = cardAdapter
-                model.allCards.observe(viewLifecycleOwner, {it?.let{ cardAdapter.submitList(it)}})
+                model.allCards.observe(viewLifecycleOwner, { it?.let { cardAdapter.submitList(it) } })
             }
         }
         return view

@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import com.example.youbank.databinding.TransactionItemBinding
 
 class TransactionItemFragment: Fragment() {
+
     private var _binding: TransactionItemBinding? = null
     private val binding get() = _binding!!
 
@@ -15,7 +16,7 @@ class TransactionItemFragment: Fragment() {
         super.onCreate(savedInstanceState)
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = TransactionItemBinding.inflate(inflater, container, false)
         return binding.root
     }

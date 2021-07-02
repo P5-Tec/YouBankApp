@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="?attr/backgroundColor"
     android:orientation="vertical"
-    tools:context=".fragments.CardOverviewFragment">
+    tools:context=".fragments.cardFragments.CardOverviewFragment">
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/backbtn"

@@ -6,14 +6,15 @@ import com.example.youbank.sharedPreferences.SharedPreference
 
 class SharedPreferenceViewModel(application: Application): AndroidViewModel(application) {
 
-    val sp: SharedPreference = SharedPreference(application)
+    private val sp: SharedPreference = SharedPreference(application)
 
-    fun saveCustomerInSp(id:Int, password: String, name: String){
+    fun saveCustomerInSp(id: Int, password: String, name: String) {
         sp.saveInt("customerId", id)
         sp.saveString("password", password)
         sp.saveString("name", name)
     }
 
+    // TODO - Delete once 4 digit password is posted together with customer
     fun saveCustomerIdInSp(id: Int) {
         sp.saveInt("customerId", id)
     }
@@ -22,6 +23,7 @@ class SharedPreferenceViewModel(application: Application): AndroidViewModel(appl
         return sp.getInt("customerId")
     }
 
+    // TODO - Delete once 4 digit password is posted together with customer
     fun savePasswordInSp(password: String) {
         sp.saveString("password", password)
     }
@@ -30,16 +32,8 @@ class SharedPreferenceViewModel(application: Application): AndroidViewModel(appl
         return sp.getString("password", null)
     }
 
-    fun saveNameInSp(name: String) {
-        sp.saveString("name", name)
-    }
-
     fun getNameInSp(): String? {
         return sp.getString("name", null)
-    }
-
-    fun removeSpValue(KEY_NAME: String) {
-        sp.removeValue(KEY_NAME)
     }
 
     fun clearSharedPreferences() {

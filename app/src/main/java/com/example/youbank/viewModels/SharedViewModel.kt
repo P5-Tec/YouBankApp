@@ -22,7 +22,7 @@ class SharedViewModel: ViewModel() {
         password = BCrypt.hashpw(passwordHash, BCrypt.gensalt(7))
     }
 
-    fun setPassword(){
+    fun setPassword() {
         c.value?.password = password
     }
 

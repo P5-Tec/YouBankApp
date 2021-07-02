@@ -1,10 +1,14 @@
 package com.example.youbank.room.daos
 
 import androidx.lifecycle.LiveData
-import androidx.room.*
+import androidx.room.Dao
+import androidx.room.Delete
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
+import androidx.room.Transaction
 import com.example.youbank.models.Account
 import com.example.youbank.models.AccountWithTransactions
-import com.example.youbank.models.Card
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -16,8 +20,7 @@ interface AccountDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insertAccount(a: Account)
 
-    //@Insert(onConflict = OnConflictStrategy.IGNORE)
-    @Insert()
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertMultiple(accounts: List<Account>)
 
     @Delete

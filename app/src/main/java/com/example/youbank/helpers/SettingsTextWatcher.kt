@@ -3,9 +3,9 @@ package com.example.youbank.helpers
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.EditText
-import com.example.youbank.room.viewmodels.CustomerViewModel
+import com.example.youbank.viewModels.CustomerViewModel
 
-class SettingsTextWatcher(edList: List<EditText>, vm: CustomerViewModel): TextWatcher {
+class SettingsTextWatcher(edList: List<EditText>, private val vm: CustomerViewModel): TextWatcher {
 
     private var editTextFullname: EditText = edList[0]
     private var editTextEmail: EditText = edList[1]
@@ -13,8 +13,6 @@ class SettingsTextWatcher(edList: List<EditText>, vm: CustomerViewModel): TextWa
     private var editTextAddress: EditText = edList[3]
     private var editTextCity: EditText = edList[4]
     private var editTextPostcode: EditText = edList[5]
-
-    private val vm = vm
 
     override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
     }

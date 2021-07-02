@@ -1,4 +1,4 @@
-package com.example.youbank.room.viewmodels
+package com.example.youbank.viewModels
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
@@ -16,7 +16,7 @@ class CustomerViewModel(application: Application): AndroidViewModel(application)
 
     val readCustomer: LiveData<Customer>
     private val customerRepo: CustomerRepository
-    val database: CustomerDatabase = CustomerDatabase.getDatabase(application,viewModelScope)
+    val database: CustomerDatabase = CustomerDatabase.getDatabase(application, viewModelScope)
 
     var isSettingsValid: Boolean = false
 
@@ -62,9 +62,9 @@ class CustomerViewModel(application: Application): AndroidViewModel(application)
         }
     }
 
-    fun nukeDB(){
+    fun nukeDB() {
         viewModelScope.launch(Dispatchers.IO) {
-        database.clearAllTables()
+            database.clearAllTables()
         }
     }
 

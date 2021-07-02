@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="?attr/backgroundColor"
     android:focusableInTouchMode="true"
-    tools:context=".fragments.AccountCreationFragment">
+    tools:context=".fragments.accountFragments.AccountCreationFragment">
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/backbtn"
@@ -133,8 +133,8 @@
         android:id="@+id/btnCreatePassword"
         android:layout_width="360dp"
         android:layout_height="60dp"
-        android:focusable="false"
         android:enabled="false"
+        android:focusable="false"
         android:text="@string/account_create_password_btn"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline8"

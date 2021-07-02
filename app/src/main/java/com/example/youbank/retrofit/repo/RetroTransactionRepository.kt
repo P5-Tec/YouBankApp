@@ -7,5 +7,4 @@ class RetroTransactionRepository {
     var client: TransactionService = ApiService.buildService(TransactionService::class.java)
 
     suspend fun getTransactions() = client.listTransactions()
-    suspend fun getTransactionsById(tId: Int) = client.getTransactionById(tId)
 }

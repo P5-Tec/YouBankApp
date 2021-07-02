@@ -19,12 +19,12 @@ class CustomerRepository(private val customerDao: CustomerDao) {
         customerDao.updateCustomer(c)
     }
 
-    suspend fun deleteCustomer(c: Customer){
+    suspend fun deleteCustomer(c: Customer) {
         customerDao.deleteCustomer(c)
     }
 
     @WorkerThread
-    fun getAllInfo(id: Int) : Flow<List<CustomerWithAccounts>> {
+    fun getAllInfo(id: Int): Flow<List<CustomerWithAccounts>> {
         return customerDao.getCustomerWithAccountsID(id)
     }
 }

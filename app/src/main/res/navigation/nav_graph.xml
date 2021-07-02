@@ -36,7 +36,7 @@
     </fragment>
     <fragment
         android:id="@+id/accountCreationFragment"
-        android:name="com.example.youbank.fragments.AccountCreationFragment"
+        android:name="com.example.youbank.fragments.accountFragments.AccountCreationFragment"
         android:label="fragment_account_creation"
         tools:layout="@layout/fragment_account_creation">
         <action
@@ -76,7 +76,7 @@
     </fragment>
     <fragment
         android:id="@+id/accountOverviewFragment"
-        android:name="com.example.youbank.fragments.AccountOverviewFragment"
+        android:name="com.example.youbank.fragments.accountFragments.AccountOverviewFragment"
         android:label="fragment_account_overview"
         tools:layout="@layout/fragment_account_overview">
         <action
@@ -111,7 +111,7 @@
     </fragment>
     <fragment
         android:id="@+id/cardOverviewFragment"
-        android:name="com.example.youbank.fragments.CardOverviewFragment"
+        android:name="com.example.youbank.fragments.cardFragments.CardOverviewFragment"
         android:label="fragment_card_overview"
         tools:layout="@layout/fragment_card_overview">
         <action

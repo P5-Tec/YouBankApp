@@ -12,7 +12,6 @@
     <color name="brand_main">#30D95D</color>
     <color name="holo_dark">#121212</color>
 
-
     <!-- New Colors -->
     <color name="n_brand_main">#319B41</color>
     <color name="n_brand_sec">#EC8E3C</color>
@@ -23,13 +22,11 @@
     <color name="n_stroke_brand">#FAFAFA</color>
     <color name="n_stroke_brand_light">#292929</color>
 
-
     <!-- New Light Blue -->
     <color name="n_l_main">#3B4F8C</color>
     <color name="n_l_secondary">#283059</color>
     <color name="n_l_surface">#F2F2F2</color>
     <color name="n_l_stroke">#F4F4F4</color>
-
 
     <!-- Dracula Theme -->
     <color name="drac_bg">#282a36</color>

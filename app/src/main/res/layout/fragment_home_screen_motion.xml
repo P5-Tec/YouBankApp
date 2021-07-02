@@ -55,7 +55,7 @@
 
         <fragment
             android:id="@+id/cards_list"
-            android:name="com.example.youbank.fragments.fragmentLists.CardListFragment"
+            android:name="com.example.youbank.fragments.listFragments.CardListFragment"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:layout_marginStart="16dp"
@@ -87,7 +87,7 @@
 
         <fragment
             android:id="@+id/accounts_list"
-            android:name="com.example.youbank.fragments.fragmentLists.AccountListFragment"
+            android:name="com.example.youbank.fragments.listFragments.AccountListFragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
@@ -118,7 +118,7 @@
 
         <fragment
             android:id="@+id/transactions_list"
-            android:name="com.example.youbank.fragments.TransactionListFragment"
+            android:name="com.example.youbank.fragments.listFragments.TransactionListFragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"

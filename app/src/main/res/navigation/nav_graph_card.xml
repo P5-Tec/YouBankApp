@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/cardVerticalFragment"
-        android:name="com.example.youbank.fragments.CardVerticalFragment"
+        android:name="com.example.youbank.fragments.cardFragments.CardVerticalFragment"
         android:label="fragment_card_vertical"
         tools:layout="@layout/fragment_card_vertical">
         <action
@@ -23,7 +23,7 @@
     </fragment>
     <fragment
         android:id="@+id/cardVerticalInformationFragment"
-        android:name="com.example.youbank.fragments.CardVerticalInformationFragment"
+        android:name="com.example.youbank.fragments.cardFragments.CardVerticalInformationFragment"
         android:label="fragment_card_vertical_information"
         tools:layout="@layout/fragment_card_vertical_information">
         <action
@@ -39,7 +39,7 @@
     </fragment>
     <fragment
         android:id="@+id/cardVerticalPinFragment"
-        android:name="com.example.youbank.fragments.CardVerticalPinFragment"
+        android:name="com.example.youbank.fragments.cardFragments.CardVerticalPinFragment"
         android:label="fragment_card_vertical_pin"
         tools:layout="@layout/fragment_card_vertical_pin">
         <action
