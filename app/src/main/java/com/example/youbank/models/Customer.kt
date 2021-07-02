@@ -1,6 +1,7 @@
 package com.example.youbank.models
 
 import androidx.room.Entity
+import androidx.room.Ignore
 import androidx.room.PrimaryKey
 
 /*
@@ -43,6 +44,8 @@ class Customer{
     var birthday: String? = null
     var password: String = ""
     var pincode: String? = ""
+    @Ignore
+    lateinit var accounts: List<Account>
 }
 
 

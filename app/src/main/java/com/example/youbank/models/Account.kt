@@ -3,7 +3,7 @@ package com.example.youbank.models
 import android.util.Log
 import androidx.room.*
 
-enum class AccountType { Basic, Premium }
+enum class AccountType(value: Int) { Checking(0), Holdings(1) }
 
 @Entity(
     tableName = "account_table"
@@ -14,7 +14,7 @@ data class Account(
     var accountId: Int = -1
 ){
     var accountNumber: Long? = 0
-    var accountType: AccountType? = null
+    var accountType: AccountType? = AccountType.Checking
     var balance: Double = 0.0
     var customerId: Int = 0
     @Ignore

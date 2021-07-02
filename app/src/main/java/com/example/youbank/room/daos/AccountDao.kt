@@ -18,10 +18,11 @@ interface AccountDao {
     @Delete
     fun deleteAccount(a: Account)
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    //@Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert()
     suspend fun insertMultiple(accounts: List<Account>)
 
     @Transaction
-    @Query("SELECT * FROM account_table WHERE accountId = :id")
+    @Query("SELECT * FROM account_table WHERE customerId = :id")
     fun getAccountWithTransactionsById(id: Int): Flow<List<AccountWithTransactions>>
 }

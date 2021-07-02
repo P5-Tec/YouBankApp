@@ -6,6 +6,8 @@ import androidx.lifecycle.LiveData
 import com.example.youbank.models.Account
 import com.example.youbank.models.Card
 import com.example.youbank.room.daos.CardDao
+import kotlinx.coroutines.flow.Flow
+
 
 class CardRepository(private val cardDao: CardDao) {
 
@@ -21,5 +23,17 @@ class CardRepository(private val cardDao: CardDao) {
         cards?.let {
             Log.i("card", it[0].cardId.toString())
             cardDao.insertMultiple(it) }
+    }
+
+    @WorkerThread
+    suspend fun insertMultiple2(cards: MutableList<Card>) {
+        cards?.let {
+            Log.i("card", it[0].cardId.toString())
+            cardDao.insertMultiple(it) }
+    }
+
+    @WorkerThread
+    fun getAllCards(): Flow<List<Card>> {
+        return cardDao.getAllCards()
     }
 }

@@ -22,7 +22,7 @@ class AccountAdapter :
         private val accountBalance: TextView = binding.txtAccountBalance
 
         fun bind(data: Account){
-            accountName.text = "Account"
+            accountName.text = data.accountType.toString()
             accountNumber.text = data.accountNumber.toString()
             accountValuta.text = "$"
             accountBalance.text = data.balance.toString()

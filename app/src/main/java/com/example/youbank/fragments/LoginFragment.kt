@@ -46,7 +46,8 @@ class LoginFragment: Fragment() {
                     //get data from api and save to room
                     vm.getAccounts()
                     vm.getTransactions2(it.customerId)
-                    vm.getCards(it.customerId)
+                    //vm.getCards(it.customerId)
+                    vm.getCards2()
 
                     findNavController().navigate(R.id.action_loginFragment_to_homeScreenMotionFragment)
                 }else{

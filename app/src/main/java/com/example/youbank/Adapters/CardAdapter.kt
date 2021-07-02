@@ -1,10 +1,13 @@
 package com.example.youbank.Adapters
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import android.view.ViewParent
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.youbank.Util.DiffUtilCardCallback
@@ -18,6 +21,7 @@ class CardAdapter : ListAdapter<Card,CardAdapter.CardViewHolder>(DiffUtilCardCal
 
     class CardViewHolder(private val binding: CardItemBinding) : RecyclerView.ViewHolder(binding.root){
 
+        private val cardCLayout: ConstraintLayout = binding.cardCLayout
         private val txtBalance: TextView = binding.txtBalance
         private val cardIcon: ImageView = binding.cardIcon
         private val txtCardTitle: TextView = binding.txtCardTitle
@@ -27,6 +31,11 @@ class CardAdapter : ListAdapter<Card,CardAdapter.CardViewHolder>(DiffUtilCardCal
             //TODO - make a getBalance function on account
             //txtBalance.text =
             txtCardNumber.text = data.cardNumber.toString()
+        }
+
+        fun setWidth(){
+            var params = itemView.layoutParams
+            params.width = MATCH_PARENT
         }
 
         companion object{
@@ -43,6 +52,11 @@ class CardAdapter : ListAdapter<Card,CardAdapter.CardViewHolder>(DiffUtilCardCal
     }
 
     override fun onBindViewHolder(holder: CardAdapter.CardViewHolder, position: Int) {
+        //if item position is less than 2, set to match parent
+        //only works with exactly 1 item in the list
+        if (itemCount < 2){
+            holder.setWidth()
+        }
         holder.bind(getItem(position))
     }
 }

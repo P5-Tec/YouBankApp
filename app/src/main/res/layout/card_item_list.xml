@@ -7,6 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
+    android:layout_gravity="center_horizontal"
     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
     tools:context=".fragments.fragmentLists.CardListFragment"
     tools:listitem="@layout/card_item" />
