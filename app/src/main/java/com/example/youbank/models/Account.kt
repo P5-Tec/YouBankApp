@@ -9,7 +9,7 @@ class Account {
     @PrimaryKey
     var accountId: Int = -1
     var accountNumber: Long = 0
-    var accountType: AccountType? = AccountType.Checking
+    var accountType: AccountType? = AccountType.Unknown
     var balance: Double = 0.0
     var customerId: Int = 0
     @Ignore
