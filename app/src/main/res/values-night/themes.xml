@@ -10,7 +10,7 @@
         <item name="colorSecondaryVariant">@color/teal_200</item>
         <item name="colorOnSecondary">@color/white</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">@color/black</item>
+        <item name="android:statusBarColor" tools:targetApi="l">@color/drac_bg</item>
         <!-- Customize your theme here. -->
         <item name="logo">@drawable/ic_yb_logo</item>
         <item name="backgroundColor">@color/black</item>
