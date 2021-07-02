@@ -13,6 +13,8 @@ class Account {
     var balance: Double = 0.0
     var customerId: Int = 0
     @Ignore
+    var cards: List<Card> = listOf()
+    @Ignore
     var transactions: List<Transaction> = listOf()
 }
 

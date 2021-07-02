@@ -42,11 +42,10 @@ class LoginFragment: Fragment() {
                     cvm.addCustomerToRoomDB(it.customerId)
 
                     //get data from api and save to room
-                    vm.addAccountToRoomDB(it.customerId)
-                    //vm.getTransactions()
-                    vm.getTransactions(it.customerId)
-
-
+                    vm.getAccounts()
+                    vm.getTransactions2(it.customerId)
+                    //vm.getCards(it.customerId)
+                    vm.getCards2()
 
                     findNavController().navigate(R.id.action_loginFragment_to_homeScreenMotionFragment)
                 }
