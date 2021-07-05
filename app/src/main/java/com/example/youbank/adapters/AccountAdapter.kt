@@ -3,8 +3,11 @@ package com.example.youbank.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.example.youbank.R
 import com.example.youbank.adapters.util.DiffUtilAccountCallback
 import com.example.youbank.databinding.FragmentAccountBinding
 import com.example.youbank.models.Account
@@ -29,6 +32,12 @@ class AccountAdapter: ListAdapter<Account, AccountAdapter.AccountViewHolder>(Dif
             fun from(parent: ViewGroup): AccountViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
                 val binding = FragmentAccountBinding.inflate(layoutInflater, parent, false)
+
+
+                binding.root.setOnClickListener(){
+                    binding.root.findNavController().navigate(R.id.action_homeScreenMotionFragment_to_accountOverviewFragment)
+                }
+
                 return AccountViewHolder(binding)
             }
         }

@@ -27,10 +27,5 @@ class AccountFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        // TODO - Move to adapter
-        binding.clayout.setOnClickListener {
-            findNavController().navigate(R.id.action_homeScreenMotionFragment_to_accountOverviewFragment)
-        }
     }
 }
