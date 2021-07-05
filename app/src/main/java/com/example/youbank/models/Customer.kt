@@ -14,7 +14,7 @@ class Customer {
     var email: String = ""
     var birthday: String? = null
     var password: String = ""
-    var pincode: String? = ""
+    var pincode: String = ""
 
     @Ignore
     lateinit var accounts: List<Account>

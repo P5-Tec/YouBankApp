@@ -40,7 +40,7 @@ class LoginFragment: Fragment() {
                 // TODO - Handle failed login error so it doesn't just crash
 
                 if (it.customerId != 0) {
-                    spvm.saveCustomerInSp(it.customerId, it.pincode.toString(), it.fullName)
+                    spvm.saveCustomerInSp(it.customerId, it.pincode, it.fullName)
                     cvm.addCustomerToRoomDB(it.customerId)
 
                     //get data from api and save to room

@@ -177,7 +177,8 @@
             app:destination="@id/greeterFragment"
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/slide_out_right"
-            app:popUpTo="@id/greeterFragment" />
+            app:popUpTo="@id/greeterFragment"
+            app:popUpToInclusive="false" />
         <action
             android:id="@+id/action_homeScreenMotionFragment_to_settingsFragment"
             app:destination="@id/settingsFragment"
@@ -196,7 +197,7 @@
             app:destination="@id/homeScreenMotionFragment"
             app:enterAnim="@android:anim/fade_in"
             app:exitAnim="@android:anim/fade_out"
-            app:popUpTo="@id/homeScreenMotionFragment"
+            app:popUpTo="@id/loginFragment"
             app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_loginFragmentBackBtn"

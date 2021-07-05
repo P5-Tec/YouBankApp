@@ -1,6 +1,7 @@
 package com.example.youbank.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,6 +28,8 @@ class HomeScreenMotionFragment: Fragment() {
         _binding = FragmentHomeScreenMotionBinding.inflate(inflater, container, false)
 
         vm.readCustomer.observe(viewLifecycleOwner, {
+            Log.d("spvm", spvm.getCustomerIdInSp().toString() + ": " + it.customerId)
+            Log.d("it", it.customerId.toString())
             if (spvm.getCustomerIdInSp() == it.customerId) {
                 //nothing changes
             }
