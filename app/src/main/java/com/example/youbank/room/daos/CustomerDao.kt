@@ -19,7 +19,7 @@ interface CustomerDao {
     fun getCustomer(): LiveData<Customer>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun insertCustomer(c: Customer)
+    suspend fun insertCustomer(c: Customer)
 
     @Update
     suspend fun updateCustomer(c: Customer)

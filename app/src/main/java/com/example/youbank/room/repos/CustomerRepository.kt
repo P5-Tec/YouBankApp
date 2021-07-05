@@ -11,7 +11,7 @@ class CustomerRepository(private val customerDao: CustomerDao) {
 
     val readCustomer: LiveData<Customer> = customerDao.getCustomer()
 
-    fun insertCustomer(c: Customer) {
+    suspend fun insertCustomer(c: Customer) {
         customerDao.insertCustomer(c)
     }
 
