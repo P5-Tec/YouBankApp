@@ -178,7 +178,7 @@
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/slide_out_right"
             app:popUpTo="@id/greeterFragment"
-            app:popUpToInclusive="false" />
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_homeScreenMotionFragment_to_settingsFragment"
             app:destination="@id/settingsFragment"
