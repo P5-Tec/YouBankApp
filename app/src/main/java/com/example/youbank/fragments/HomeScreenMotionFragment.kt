@@ -28,8 +28,7 @@ class HomeScreenMotionFragment: Fragment() {
         _binding = FragmentHomeScreenMotionBinding.inflate(inflater, container, false)
 
         vm.readCustomer.observe(viewLifecycleOwner, {
-            Log.d("spvm", spvm.getCustomerIdInSp().toString() + ": " + it.customerId)
-            Log.d("it", it.customerId.toString())
+            
             if (spvm.getCustomerIdInSp() == it.customerId) {
                 //nothing changes
             }
