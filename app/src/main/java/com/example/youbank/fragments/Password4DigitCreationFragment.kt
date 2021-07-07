@@ -50,8 +50,6 @@ class Password4DigitCreationFragment: Fragment() {
             //  or be lazy and make a seperate post with just the 4 digit password
             //  pest eller kolera
 
-            spvm.savePasswordInSp(binding.passwordConfirmInput.text.toString())
-
             Toast.makeText(context, "Password saved", Toast.LENGTH_SHORT).show()
             findNavController().navigate(R.id.action_password4DigitCreationFragment_to_greeterFragment)
         }

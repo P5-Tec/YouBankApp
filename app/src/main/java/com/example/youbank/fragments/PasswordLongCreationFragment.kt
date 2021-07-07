@@ -81,7 +81,6 @@ class PasswordLongCreationFragment: Fragment() {
                         override fun onResponse(call: Call<Void>, response: Response<Void>) {
                             if (response.isSuccessful) {
 
-                                spvm.saveCustomerIdInSp(it.id)
                                 newCustomer.customerId = it.id
 
                                 vm.setCustomer(newCustomer)

@@ -14,18 +14,8 @@ class SharedPreferenceViewModel(application: Application): AndroidViewModel(appl
         sp.saveString("name", name)
     }
 
-    // TODO - Delete once 4 digit password is posted together with customer
-    fun saveCustomerIdInSp(id: Int) {
-        sp.saveInt("customerId", id)
-    }
-
     fun getCustomerIdInSp(): Int {
         return sp.getInt("customerId")
-    }
-
-    // TODO - Delete once 4 digit password is posted together with customer
-    fun savePasswordInSp(password: String) {
-        sp.saveString("password", password)
     }
 
     fun getPasswordInSp(): String? {
