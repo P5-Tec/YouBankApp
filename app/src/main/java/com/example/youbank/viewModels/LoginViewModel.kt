@@ -1,15 +1,14 @@
 package com.example.youbank.viewModels
 
 import android.app.Application
-import android.util.Log
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.liveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.youbank.models.Card
 import com.example.youbank.models.Customer
-import com.example.youbank.retrofit.repo.LoginRepo
+import com.example.youbank.retrofit.repo.LoginRepository
 import com.example.youbank.retrofit.repo.RetroAccountRepository
-import com.example.youbank.retrofit.repo.RetroCustomerRepo
+import com.example.youbank.retrofit.repo.RetrofitCustomerRepository
 import com.example.youbank.room.CustomerDatabase
 import com.example.youbank.room.daos.AccountDao
 import com.example.youbank.room.daos.CardDao
@@ -19,14 +18,15 @@ import com.example.youbank.room.repos.CardRepository
 import com.example.youbank.room.repos.TransactionRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import retrofit2.Response
 
 class LoginViewModel(application: Application): AndroidViewModel(application) {
     private var user = Customer()
 
-    private val repository: LoginRepo = LoginRepo()
+    private val loginRepo: LoginRepository = LoginRepository()
 
     //Api & Room stuff
-    private val retroCustomerRepo: RetroCustomerRepo = RetroCustomerRepo()
+    private val retrofitCustomerRepo: RetrofitCustomerRepository = RetrofitCustomerRepository()
 
     private val accountDao: AccountDao = CustomerDatabase.getDatabase(application, viewModelScope).accountDao()
     private val accountRepository: AccountRepository = AccountRepository(accountDao)
@@ -40,28 +40,26 @@ class LoginViewModel(application: Application): AndroidViewModel(application) {
 
     //Api calls / Room saving
 
-    fun getAccounts() {
+    fun getAccounts(id: Int) {
         viewModelScope.launch(Dispatchers.IO) {
-            val req2 = retroCustomerRepo.getCustomerById(user.customerId)
-            //val req = retroAccountRepository.getAccountById(user.customerId)
-            accountRepository.insertMultiple(req2.accounts)
+            val req = retrofitCustomerRepo.getCustomerById(id)
+            accountRepository.insertMultiple(req.accounts)
         }
     }
 
-    fun getTransactions2(cId: Int) {
+    fun getTransactions(cId: Int) {
         viewModelScope.launch(Dispatchers.IO) {
             val req = retroAccountRepository.getAccountById(cId)
             transactionRepository.insertMultiple(req.transactions)
         }
     }
 
-    fun getCards2() {
+    fun getCards(id: Int) {
         viewModelScope.launch(Dispatchers.IO) {
-            val req2 = retroCustomerRepo.getCustomerById(user.customerId)
+            val req = retrofitCustomerRepo.getCustomerById(id)
             val cardsList: MutableList<Card> = mutableListOf()
-            req2.accounts.forEach {
+            req.accounts.forEach {
                 it.cards.forEach { cc ->
-                    Log.i("card", cc.cardNumber.toString())
                     cardsList.add(cc)
                 }
             }
@@ -69,12 +67,50 @@ class LoginViewModel(application: Application): AndroidViewModel(application) {
         }
     }
 
-    //fix this to make 1 api call
-    val loggedin = liveData(Dispatchers.IO) {
-        val response = repository.getLogin(user)
-        user = response
-        emit(response)
+
+    val loginResponse: MutableLiveData<Response<Customer>> = MutableLiveData()
+
+    fun login() {
+        viewModelScope.launch {
+            val response = loginRepo.login(user)
+            loginResponse.value = response
+        }
     }
+
+    //fun doLogin() = runBlocking {
+    //    val job = launch {
+    //        login()
+    //    }
+    //    job.join()
+    //}
+    //
+    //
+    //var job: Job? = null
+    //
+    //private fun login(): Customer? {
+    //    //response = repository.getLogin(user)
+    //
+    //
+    //    val client: LoginService = RetrofitClient.retrofit.create(LoginService::class.java)
+    //    val response = client.getLogin(user)
+    //    return response.body()
+    //
+    //
+    //
+    //
+    //}
+
+    //fun canLogin(): Boolean{
+    //    return response.customerId != 0
+    //}
+
+
+    //fix this to make 1 api call
+    //val loggedin = liveData(Dispatchers.IO) {
+    //    val response = repository.getLogin(user)
+    //    user = response
+    //    emit(response)
+    //}
 
     fun setData(emval: String, psval: String) {
         user.email = emval

@@ -30,31 +30,93 @@ class LoginFragment: Fragment() {
         vm = ViewModelProvider(this).get(LoginViewModel::class.java)
 
         binding.loginBtn.setOnClickListener {
+
             vm.setData(
                 binding.emailInput.text.toString(),
                 binding.passwordInput.text.toString()
             )
 
-            //navigate on bool, instead of observeing forever
-            vm.loggedin.observe(viewLifecycleOwner, {
-                // TODO - Handle failed login error so it doesn't just crash
+            vm.login()
 
-                if (it.customerId != 0) {
-                    spvm.saveCustomerInSp(it.customerId, it.pincode, it.fullName)
-                    cvm.addCustomerToRoomDB(it.customerId)
+            vm.loginResponse.observe(viewLifecycleOwner, {
+                if (it.isSuccessful) {
+
+                    spvm.saveCustomerInSp(
+                        it.body()!!.customerId,
+                        it.body()!!.pincode,
+                        it.body()!!.fullName)
+
+                    cvm.addCustomerToRoomDB(it.body()!!.customerId)
 
                     //get data from api and save to room
-                    vm.getAccounts()
-                    vm.getTransactions2(it.customerId)
-                    vm.getCards2()
+                    vm.getAccounts(it.body()!!.customerId)
+                    vm.getTransactions(it.body()!!.customerId)
+                    vm.getCards(it.body()!!.customerId)
 
+                    Toast.makeText(context, "Welcome, ${it.body()!!.fullName}", Toast.LENGTH_SHORT).show()
                     findNavController().navigate(R.id.action_loginFragment_to_homeScreenMotionFragment)
+
                 }
                 else {
-                    Toast.makeText(this.context, "Try again", Toast.LENGTH_SHORT).show()
                     binding.passwordInput.text.clear()
+                    Toast.makeText(
+                        context, "Incorrect email or password, please check for any typos and try again!", Toast.LENGTH_LONG)
+                        .show()
                 }
             })
+
+            //vm.login()
+
+            //val c: Any = vm.doLogin()
+
+            //Log.d("c", c.customerId.toString())
+
+            //Log.d("c is a customer", (c is Customer).toString())
+
+            //if (c is Customer) {
+            //    Toast.makeText(context, "Successful login", Toast.LENGTH_SHORT).show()
+            //
+            //    Log.d("c id", c.customerId.toString())
+            //    Log.d("c email", c.email)
+            //    Log.d("c fn", c.fullName)
+            //    Log.d("c pin", c.pincode)
+            //
+            //    spvm.saveCustomerInSp(c.customerId, c.pincode, c.fullName)
+            //    cvm.addCustomerToRoomDB(c.customerId)
+            //
+            //    //get data from api and save to room
+            //    vm.getAccounts()
+            //    vm.getTransactions2(c.customerId)
+            //    vm.getCards2()
+            //
+            //    findNavController().navigate(R.id.action_loginFragment_to_homeScreenMotionFragment)
+            //}
+            //else {
+            //    Toast.makeText(this.context, "Incorrect email or password", Toast.LENGTH_SHORT).show()
+            //    binding.passwordInput.text.clear()
+            //}
+
+
+            //navigate on bool, instead of observeing forever
+            //vm.loggedin.observe(viewLifecycleOwner, {
+            //    // TODO - Handle failed login error so it doesn't just crash
+            //
+            //    if (it.customerId != 0) {
+            //        spvm.saveCustomerInSp(it.customerId, it.pincode, it.fullName)
+            //        cvm.addCustomerToRoomDB(it.customerId)
+            //
+            //        //get data from api and save to room
+            //        vm.getAccounts()
+            //        vm.getTransactions2(it.customerId)
+            //        vm.getCards2()
+            //
+            //        findNavController().navigate(R.id.action_loginFragment_to_homeScreenMotionFragment)
+            //    }
+            //    else {
+            //        Toast.makeText(this.context, "Try again", Toast.LENGTH_SHORT).show()
+            //        binding.passwordInput.text.clear()
+            //    }
+            //})
         }
 
         binding.backbtn.setOnClickListener {
