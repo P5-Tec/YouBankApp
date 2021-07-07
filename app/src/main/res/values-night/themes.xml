@@ -36,6 +36,8 @@
 
         <item name="accBalancePos">@color/drac_green</item>
         <item name="accBalanceNeg">@color/drac_red</item>
+
+        <item name="colorAccent">@color/drac_orange</item>
     </style>
 
     <style name="Theme.YouBank.New.Dark">
