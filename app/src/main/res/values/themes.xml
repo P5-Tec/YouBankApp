@@ -37,6 +37,8 @@
         <item name="materialRippleColor">@color/n_l_surface</item>
 
         <item name="materialButtonTint">@color/n_l_main</item>
+
+        <item name="colorAccent">@color/n_l_main</item>
     </style>
 
     <style name="Theme.YouBank.NoActionBar" parent="Theme.YouBank.New">

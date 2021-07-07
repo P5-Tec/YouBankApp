@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.youbank.R
+import com.example.youbank.biometric.BiometricsUtil
 import com.example.youbank.databinding.FragmentKeypadBinding
 import com.example.youbank.viewModels.KeypadViewModel
 import com.example.youbank.viewModels.SharedPreferenceViewModel
@@ -25,8 +26,12 @@ class KeypadFragment: Fragment(), View.OnClickListener {
     private val vm: KeypadViewModel by activityViewModels()
     private val spvm: SharedPreferenceViewModel by activityViewModels()
 
+    private lateinit var bioUtil: BiometricsUtil
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        bioUtil = BiometricsUtil
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -67,6 +72,17 @@ class KeypadFragment: Fragment(), View.OnClickListener {
         // onClickListener for ForgotPassword button
         binding.btnForgotPassword.setOnClickListener {
             findNavController().navigate(R.id.action_keypadFragment_to_forgotPasswordFragment)
+        }
+
+        binding.btnBioAuth.setOnClickListener {
+            if (spvm.getBiometricUseStatus()) {
+                if (bioUtil.isBiometricAvailable(view.context)) {
+                    bioUtil.bioLogin(this)
+                }
+            }
+            else {
+                Toast.makeText(context, "Biometric login not allowed", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
