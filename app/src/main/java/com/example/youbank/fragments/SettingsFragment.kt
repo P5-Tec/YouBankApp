@@ -15,6 +15,7 @@ import com.example.youbank.databinding.FragmentSettingsBinding
 import com.example.youbank.helpers.SettingsTextWatcher
 import com.example.youbank.models.Customer
 import com.example.youbank.viewModels.CustomerViewModel
+import com.example.youbank.viewModels.SharedPreferenceViewModel
 
 class SettingsFragment: Fragment() {
 
@@ -22,6 +23,7 @@ class SettingsFragment: Fragment() {
     private val binding get() = _binding!!
 
     private val vm: CustomerViewModel by activityViewModels()
+    private val spvm: SharedPreferenceViewModel by activityViewModels()
     private lateinit var updatedCustomer: Customer
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -56,6 +58,9 @@ class SettingsFragment: Fragment() {
             binding.addressInput.setText(substrings[0])
             binding.postcodeInput.setText(substrings[1])
             binding.cityInput.setText(substrings[2])
+
+            // Getting biometricUseStatus from shared preferences
+            binding.biometricSwitch.isChecked = spvm.getBiometricUseStatus()
         })
         return binding.root
     }
@@ -106,6 +111,8 @@ class SettingsFragment: Fragment() {
             updatedCustomer.email = binding.emailInput.text.toString()
 
             vm.updateCustomerInRoom(updatedCustomer)
+
+            spvm.saveBiometricUseStatus(binding.biometricSwitch.isChecked)
 
             Toast.makeText(context, "Your settings were saved", Toast.LENGTH_LONG).show()
         }

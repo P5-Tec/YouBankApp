@@ -75,8 +75,13 @@ class KeypadFragment: Fragment(), View.OnClickListener {
         }
 
         binding.btnBioAuth.setOnClickListener {
-            if (bioUtil.isBiometricAvailable(view.context)) {
-                bioUtil.bioLogin(this)
+            if (spvm.getBiometricUseStatus()) {
+                if (bioUtil.isBiometricAvailable(view.context)) {
+                    bioUtil.bioLogin(this)
+                }
+            }
+            else {
+                Toast.makeText(context, "Biometric login not allowed", Toast.LENGTH_SHORT).show()
             }
         }
     }

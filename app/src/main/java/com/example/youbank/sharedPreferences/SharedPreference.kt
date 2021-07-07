@@ -32,6 +32,18 @@ class SharedPreference(val context: Context) {
         return sharedPref.getInt(KEY_NAME, 0)
     }
 
+    fun saveBoolean(KEY_NAME: String, status: Boolean) {
+
+        val editor: SharedPreferences.Editor = sharedPref.edit()
+        editor.putBoolean(KEY_NAME, status)
+        editor.apply()
+    }
+
+    fun getBoolean(KEY_NAME: String, defaultValue: Boolean): Boolean {
+
+        return sharedPref.getBoolean(KEY_NAME, defaultValue)
+    }
+
     fun removeValue(KEY_NAME: String) {
 
         val editor: SharedPreferences.Editor = sharedPref.edit()
