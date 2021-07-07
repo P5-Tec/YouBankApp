@@ -5,8 +5,11 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -22,6 +25,7 @@ class AccountListFragment: Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -39,11 +43,24 @@ class AccountListFragment: Fragment() {
                     else -> GridLayoutManager(context, columnCount)
                 }
                 accountAdapter = AccountAdapter()
-                adapter = accountAdapter
+
+                view.adapter = accountAdapter
+
+                accountAdapter.onItemClick = { it ->
+                    //parentFragmentManager.setFragmentResult("data", bundleOf("bundleKey" to "you did it"))
+                    Log.i("accountResult", "logged, hopefully")
+                    findNavController().navigate(R.id.action_homeScreenMotionFragment_to_accountOverviewFragment, bundleOf("data" to it.accountId))
+                }
+
                 model.allAccounts.observe(viewLifecycleOwner, { it?.let { accountAdapter.submitList(it) } })
-                Log.i("accounts", adapter?.itemCount.toString())
+
+
             }
         }
         return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
     }
 }

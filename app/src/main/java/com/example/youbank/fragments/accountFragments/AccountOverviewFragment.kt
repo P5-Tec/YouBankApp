@@ -1,6 +1,7 @@
 package com.example.youbank.fragments.accountFragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,6 +21,10 @@ class AccountOverviewFragment: Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        arguments?.getInt("data")
+
+        Log.i("accountResult", "${arguments?.getInt("data").toString()}")
+
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {

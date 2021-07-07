@@ -44,11 +44,4 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="Theme.YouBank.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-
-    <style name="Theme.YouBank.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-
-    <style name="splashScreen" parent="Theme.YouBank.NoActionBar">
-        <item name="android:windowBackground">@drawable/splash_image</item>
-    </style>
 </resources>

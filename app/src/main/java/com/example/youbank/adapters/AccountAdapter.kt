@@ -3,41 +3,36 @@ package com.example.youbank.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.youbank.R
 import com.example.youbank.adapters.util.DiffUtilAccountCallback
 import com.example.youbank.databinding.FragmentAccountBinding
 import com.example.youbank.models.Account
 
-class AccountAdapter: ListAdapter<Account, AccountAdapter.AccountViewHolder>(DiffUtilAccountCallback()) {
+class AccountAdapter(): ListAdapter<Account, AccountAdapter.AccountViewHolder>(DiffUtilAccountCallback()) {
 
-    class AccountViewHolder(binding: FragmentAccountBinding): RecyclerView.ViewHolder(binding.root) {
+    var onItemClick: ((Account) -> Unit)? = null
+
+    class AccountViewHolder(val binding: FragmentAccountBinding) : RecyclerView.ViewHolder(binding.root) {
 
         private val accountName: TextView = binding.txtAccountName
         private val accountNumber: TextView = binding.txtAccountNumber
         private val accountValuta: TextView = binding.valutaIcon
         private val accountBalance: TextView = binding.txtAccountBalance
 
+
         fun bind(data: Account) {
             accountName.text = data.accountType.toString()
             accountNumber.text = data.accountNumber.toString()
             accountValuta.text = "$"
             accountBalance.text = data.balance.toString()
+
         }
 
         companion object {
             fun from(parent: ViewGroup): AccountViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
                 val binding = FragmentAccountBinding.inflate(layoutInflater, parent, false)
-
-
-                binding.root.setOnClickListener(){
-                    binding.root.findNavController().navigate(R.id.action_homeScreenMotionFragment_to_accountOverviewFragment)
-                }
-
                 return AccountViewHolder(binding)
             }
         }
@@ -49,5 +44,8 @@ class AccountAdapter: ListAdapter<Account, AccountAdapter.AccountViewHolder>(Dif
 
     override fun onBindViewHolder(holder: AccountViewHolder, position: Int) {
         holder.bind(getItem(position))
+        holder.itemView.setOnClickListener {  onItemClick?.invoke(getItem(position))}
     }
+
+
 }

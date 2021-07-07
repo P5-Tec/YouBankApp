@@ -38,31 +38,9 @@
         <item name="accBalanceNeg">@color/drac_red</item>
     </style>
 
-    <style name="Theme.YouBank.New.Dark">
-        <item name="colorPrimary">@color/drac_orange</item>
-        <item name="colorOnPrimary">@color/drac_gray</item>
-        <item name="colorSecondary">@color/drac_gray</item>
-        <item name="colorOnBackground">@color/drac_comment</item>
-        <item name="backgroundColor">@color/drac_gray</item>
-        <item name="colorSurface">@color/drac_gray</item>
-        <item name="colorOnSurface">@color/drac_forground</item>
-        <item name="strokeColor">@color/drac_forground</item>
-
-        <item name="textAppearanceHeadline1">@color/drac_comment</item>
-        <item name="textAppearanceBody1">@color/drac_forground</item>
-
-        <item name="materialButtonTint">@color/drac_gray</item>
-        <item name="materialRippleColor">@color/drac_forground</item>
-
-        <item name="android:textColorPrimary">@color/drac_forground</item>
-    </style>
-
     <style name="Theme.YouBank.NoActionBar" parent="Theme.YouBank.New">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="splashScreen" parent="Theme.YouBank.NoActionBar">
-        <item name="android:windowBackground">@drawable/splash_image</item>
-    </style>
 </resources>
