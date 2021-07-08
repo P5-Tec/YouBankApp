@@ -17,6 +17,8 @@ import com.example.youbank.models.Card
 
 class CardAdapter: ListAdapter<Card, CardAdapter.CardViewHolder>(DiffUtilCardCallback()) {
 
+    var onItemClick: ((Card) -> Unit)? = null
+
     class CardViewHolder(binding: CardItemBinding): RecyclerView.ViewHolder(binding.root) {
         private val cardCLayout: ConstraintLayout = binding.cardCLayout
         private var cardIdNav: Long? = 0
@@ -24,6 +26,7 @@ class CardAdapter: ListAdapter<Card, CardAdapter.CardViewHolder>(DiffUtilCardCal
         private val cardIcon: ImageView = binding.cardIcon
         private val txtCardTitle: TextView = binding.txtCardTitle
         private val txtCardNumber: TextView = binding.txtCardNumber
+
 
         fun bind(data: Card) {
             //TODO - make a getBalance function on account
@@ -55,5 +58,6 @@ class CardAdapter: ListAdapter<Card, CardAdapter.CardViewHolder>(DiffUtilCardCal
             holder.setWidth()
         }
         holder.bind(getItem(position))
+        holder.itemView.setOnClickListener { onItemClick?.invoke(getItem(position)) }
     }
 }

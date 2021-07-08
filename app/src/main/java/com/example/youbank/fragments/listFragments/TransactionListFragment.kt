@@ -18,6 +18,7 @@ class TransactionListFragment: Fragment() {
     private val model: TransactionListViewModel by activityViewModels()
     private lateinit var transactionAdapter: TransactionAdapter
 
+
     private var columnCount = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {

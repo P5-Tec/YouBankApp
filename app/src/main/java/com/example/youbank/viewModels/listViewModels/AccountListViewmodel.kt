@@ -15,4 +15,5 @@ class AccountListViewmodel(application: Application): AndroidViewModel(applicati
     private val accountDao: AccountDao = CustomerDatabase.getDatabase(application, viewModelScope).accountDao()
     val repository = AccountRepository(accountDao)
     val allAccounts: LiveData<List<Account>> = repository.getallAccounts().asLiveData()
+
 }

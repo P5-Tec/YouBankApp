@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
@@ -47,6 +48,12 @@ class CardListFragment: Fragment() {
 
                 cardAdapter = CardAdapter()
                 adapter = cardAdapter
+
+
+                cardAdapter.onItemClick = { it ->
+                    findNavController().navigate(R.id.action_homeScreenMotionFragment_to_cardOverviewFragment)
+                }
+
                 model.allCards.observe(viewLifecycleOwner, { it?.let { cardAdapter.submitList(it) } })
             }
         }

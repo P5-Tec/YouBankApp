@@ -27,7 +27,7 @@ interface AccountDao {
     fun deleteAccount(a: Account)
 
     @Transaction
-    @Query("SELECT * FROM account_table WHERE customerId = :id")
+    @Query("SELECT * FROM account_table WHERE accountId = :id")
     fun getAccountWithTransactionsById(id: Int): Flow<List<AccountWithTransactions>>
 
     @Query("SELECT * FROM account_table")
