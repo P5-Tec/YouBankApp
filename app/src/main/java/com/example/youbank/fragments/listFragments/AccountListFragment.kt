@@ -1,7 +1,6 @@
 package com.example.youbank.fragments.listFragments
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -41,7 +40,6 @@ class AccountListFragment: Fragment() {
                 accountAdapter = AccountAdapter()
                 adapter = accountAdapter
                 model.allAccounts.observe(viewLifecycleOwner, { it?.let { accountAdapter.submitList(it) } })
-                Log.i("accounts", adapter?.itemCount.toString())
             }
         }
         return view
