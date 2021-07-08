@@ -32,7 +32,7 @@ class HomeScreenMotionFragment: Fragment() {
                 //nothing changes
             }
             else {
-                vm.deleteCustomer(it)
+                vm.nukeDB()
                 // TODO - Refactor
                 vm.addCustomerToRoomDB(spvm.getCustomerIdInSp()) //maybe change to logout ?
             }
