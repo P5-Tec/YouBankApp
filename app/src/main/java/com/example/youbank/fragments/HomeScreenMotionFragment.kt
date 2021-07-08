@@ -55,5 +55,5 @@ class HomeScreenMotionFragment: Fragment() {
             }
         })
     }
-
+    
 }
