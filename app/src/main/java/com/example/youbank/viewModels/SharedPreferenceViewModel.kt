@@ -26,6 +26,7 @@ class SharedPreferenceViewModel(application: Application): AndroidViewModel(appl
         return sp.getString("name", null)
     }
 
+    // Used in settings view
     fun saveBiometricUseStatus(b: Boolean) {
         sp.saveBoolean("biometricUseStatus", b)
     }
