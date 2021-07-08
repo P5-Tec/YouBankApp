@@ -8,12 +8,6 @@
         <item name="android:textColor">?attr/colorOnBackground</item>
     </style>
 
-    <style name="pinLinearStyle">
-        <item name="android:layout_height">match_parent</item>
-        <item name="android:layout_width">0dp</item>
-        <item name="android:layout_columnWeight">1</item>
-    </style>
-
     <style name="circularImgView" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>

@@ -5,9 +5,12 @@ import android.view.ViewGroup
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.example.youbank.R
 import com.example.youbank.adapters.util.DiffUtilCardCallback
 import com.example.youbank.databinding.CardItemBinding
 import com.example.youbank.models.Card
@@ -15,8 +18,8 @@ import com.example.youbank.models.Card
 class CardAdapter: ListAdapter<Card, CardAdapter.CardViewHolder>(DiffUtilCardCallback()) {
 
     class CardViewHolder(binding: CardItemBinding): RecyclerView.ViewHolder(binding.root) {
-
         private val cardCLayout: ConstraintLayout = binding.cardCLayout
+        private var cardIdNav: Long? = 0
         private val txtBalance: TextView = binding.txtBalance
         private val cardIcon: ImageView = binding.cardIcon
         private val txtCardTitle: TextView = binding.txtCardTitle
