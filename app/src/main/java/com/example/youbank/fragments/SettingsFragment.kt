@@ -114,7 +114,7 @@ class SettingsFragment: Fragment() {
 
             spvm.saveBiometricUseStatus(binding.biometricSwitch.isChecked)
 
-            Toast.makeText(context, "Your settings were saved", Toast.LENGTH_LONG).show()
+            Toast.makeText(context, "Settings were saved", Toast.LENGTH_SHORT).show()
         }
         else {
             Toast.makeText(context, "Invalid input", Toast.LENGTH_LONG).show()
