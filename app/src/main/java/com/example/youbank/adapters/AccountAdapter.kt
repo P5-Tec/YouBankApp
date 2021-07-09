@@ -9,11 +9,11 @@ import com.example.youbank.adapters.util.DiffUtilAccountCallback
 import com.example.youbank.databinding.FragmentAccountBinding
 import com.example.youbank.models.Account
 
-class AccountAdapter(): ListAdapter<Account, AccountAdapter.AccountViewHolder>(DiffUtilAccountCallback()) {
+class AccountAdapter: ListAdapter<Account, AccountAdapter.AccountViewHolder>(DiffUtilAccountCallback()) {
 
     var onItemClick: ((Account) -> Unit)? = null
 
-    class AccountViewHolder(val binding: FragmentAccountBinding) : RecyclerView.ViewHolder(binding.root) {
+    class AccountViewHolder(val binding: FragmentAccountBinding): RecyclerView.ViewHolder(binding.root) {
 
         private val accountName: TextView = binding.txtAccountName
         private val accountNumber: TextView = binding.txtAccountNumber
@@ -44,8 +44,7 @@ class AccountAdapter(): ListAdapter<Account, AccountAdapter.AccountViewHolder>(D
 
     override fun onBindViewHolder(holder: AccountViewHolder, position: Int) {
         holder.bind(getItem(position))
-        holder.itemView.setOnClickListener {  onItemClick?.invoke(getItem(position))}
+        holder.itemView.setOnClickListener { onItemClick?.invoke(getItem(position)) }
     }
-
 
 }

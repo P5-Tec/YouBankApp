@@ -2,23 +2,21 @@ package com.example.youbank.models
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.example.youbank.models.enums.CardStatus
+import com.example.youbank.models.enums.CardTypes
 import com.google.gson.annotations.SerializedName
 
-// TODO - Use below enums
-enum class CardType { Debit, Credit, Virtual }
-enum class CardStatus { Active, Frosen, Inactive }
-
 @Entity(tableName = "cards_table")
-class Card(
+class Card {
     @PrimaryKey
     var cardId: Long = -1
-) {
+    // TODO - Fix typo in api so below line isnt needed
     @SerializedName("cardnNumber")
     var cardNumber: Long = -1
     var ccv: Int = -1
+    var expirationDate: String = ""
+    var cardType: CardTypes = CardTypes.Unknown
+    var cardStatus: CardStatus = CardStatus.Unknown
     var accountId: Int = -1
-    lateinit var expirationDate: String
-    //lateinit var cardType: CardType
-    //lateinit var cardStatus: CardStatus
 }
 

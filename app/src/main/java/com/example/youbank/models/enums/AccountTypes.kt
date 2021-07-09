@@ -1,8 +1,8 @@
-package com.example.youbank.models
+package com.example.youbank.models.enums
 
 import com.google.gson.annotations.SerializedName
 
-enum class AccountType(val value: Int) {
+enum class AccountTypes(val value: Int) {
     @SerializedName("0")
     Checking(0),
     @SerializedName("1")

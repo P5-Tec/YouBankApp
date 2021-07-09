@@ -15,6 +15,7 @@ class CardOverviewFragment: Fragment() {
 
     private var _binding: FragmentCardOverviewBinding? = null
     private val binding get() = _binding!!
+
     private lateinit var localController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {

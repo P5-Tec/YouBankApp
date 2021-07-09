@@ -5,9 +5,8 @@ import android.view.ViewGroup
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.navigation.findNavController
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.youbank.R
@@ -20,6 +19,7 @@ class CardAdapter: ListAdapter<Card, CardAdapter.CardViewHolder>(DiffUtilCardCal
     var onItemClick: ((Card) -> Unit)? = null
 
     class CardViewHolder(binding: CardItemBinding): RecyclerView.ViewHolder(binding.root) {
+
         private val cardCLayout: ConstraintLayout = binding.cardCLayout
         private var cardIdNav: Long? = 0
         private val txtBalance: TextView = binding.txtBalance
@@ -27,10 +27,19 @@ class CardAdapter: ListAdapter<Card, CardAdapter.CardViewHolder>(DiffUtilCardCal
         private val txtCardTitle: TextView = binding.txtCardTitle
         private val txtCardNumber: TextView = binding.txtCardNumber
 
-
         fun bind(data: Card) {
             //TODO - make a getBalance function on account
             txtCardNumber.text = data.cardNumber.toString()
+            txtCardTitle.text = data.cardType.name
+
+            when (data.cardStatus.value) {
+                0 -> cardIcon.setColorFilter(
+                    ContextCompat.getColor(itemView.context, R.color.drac_green))
+                1 -> cardIcon.setColorFilter(
+                    ContextCompat.getColor(itemView.context, R.color.drac_orange))
+                2 -> cardIcon.setColorFilter(
+                    ContextCompat.getColor(itemView.context, R.color.drac_red))
+            }
         }
 
         fun setWidth() {

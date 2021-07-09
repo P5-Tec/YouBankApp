@@ -49,8 +49,8 @@ class CardListFragment: Fragment() {
                 cardAdapter = CardAdapter()
                 adapter = cardAdapter
 
-
-                cardAdapter.onItemClick = { it ->
+                cardAdapter.onItemClick = {
+                    cardAdapter.currentList
                     findNavController().navigate(R.id.action_homeScreenMotionFragment_to_cardOverviewFragment)
                 }
 

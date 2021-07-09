@@ -3,13 +3,14 @@ package com.example.youbank.models
 import androidx.room.Entity
 import androidx.room.Ignore
 import androidx.room.PrimaryKey
+import com.example.youbank.models.enums.AccountTypes
 
 @Entity(tableName = "account_table")
 class Account {
     @PrimaryKey
     var accountId: Int = -1
     var accountNumber: Long = 0
-    var accountType: AccountType? = AccountType.Unknown
+    var accountType: AccountTypes? = AccountTypes.Unknown
     var balance: Double = 0.0
     var customerId: Int = 0
     @Ignore
