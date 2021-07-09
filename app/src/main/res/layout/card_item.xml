@@ -5,7 +5,7 @@
     android:id="@+id/cardCLayout"
     android:layout_width="300dp"
     android:layout_height="180dp"
-    android:layout_marginRight="10dp"
+    android:layout_marginEnd="10dp"
     android:background="@drawable/card_shape"
     android:maxWidth="400dp"
     tools:context=".fragments.items.CardItemFragment">
