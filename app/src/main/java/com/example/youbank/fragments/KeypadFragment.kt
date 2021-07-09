@@ -75,12 +75,19 @@ class KeypadFragment: Fragment(), View.OnClickListener {
         }
 
         binding.btnBioAuth.setOnClickListener {
+            // Checking shared preferences if user has allowed the use of biometric login
             if (spvm.getBiometricUseStatus()) {
+                // If above statement is true then it checks if biometrics hardware can be used on the device
                 if (bioUtil.isBiometricAvailable(view.context)) {
+                    // Prompts biometric login
                     bioUtil.bioLogin(this)
                 }
+                else { // bioUtil.isBiometricAvailable(view.context) returned false
+                    // isBiometricAvailable returned false and here the reason is shown to the user
+                    Toast.makeText(context, bioUtil.biometricsErrorString(view.context), Toast.LENGTH_SHORT).show()
+                }
             }
-            else {
+            else { // spvm.getBiometricUseStatus() returned false
                 Toast.makeText(context, "Biometric login not allowed", Toast.LENGTH_SHORT).show()
             }
         }

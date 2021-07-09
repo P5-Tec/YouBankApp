@@ -20,16 +20,6 @@ object BiometricsUtil {
         return biometricManager.canAuthenticate(BiometricManager.Authenticators.BIOMETRIC_STRONG)
     }
 
-    fun checkBio(context: Context): String {
-        return when (hasBiometrics(context)) {
-            BiometricManager.BIOMETRIC_SUCCESS -> "Device is biometrics ready"
-            BiometricManager.BIOMETRIC_ERROR_NONE_ENROLLED -> "Device user not enrolled"
-            BiometricManager.BIOMETRIC_ERROR_NO_HARDWARE -> "No biometrics hardware present"
-            BiometricManager.BIOMETRIC_ERROR_HW_UNAVAILABLE -> "Can't access hardware, right now"
-            else -> "Check failed"
-        }
-    }
-
     fun isBiometricAvailable(context: Context): Boolean {
         return when (hasBiometrics(context)) {
             BiometricManager.BIOMETRIC_SUCCESS -> {
@@ -48,6 +38,18 @@ object BiometricsUtil {
         }
     }
 
+    // Returns a string depending on the biometrics error found, it is shown to the user in KeypadFragment
+    fun biometricsErrorString(context: Context): String {
+        return when (hasBiometrics(context)) {
+            BiometricManager.BIOMETRIC_ERROR_NONE_ENROLLED -> "Biometrics not enrolled on device"
+            BiometricManager.BIOMETRIC_ERROR_NO_HARDWARE -> "Biometrics hardware not found"
+            BiometricManager.BIOMETRIC_ERROR_HW_UNAVAILABLE -> "Biometrics hardware unavailable"
+            else -> "Check failed"
+        }
+    }
+
+
+    // Biometrics prompt
     fun bioLogin(fragment: Fragment) {
         val executor = ContextCompat.getMainExecutor(fragment.context)
         val callback = object: BiometricPrompt.AuthenticationCallback() {
