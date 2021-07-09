@@ -10,8 +10,6 @@ import com.google.gson.annotations.SerializedName
 class Card {
     @PrimaryKey
     var cardId: Long = -1
-    // TODO - Fix typo in api so below line isnt needed
-    @SerializedName("cardnNumber")
     var cardNumber: Long = -1
     var ccv: Int = -1
     var expirationDate: String = ""
