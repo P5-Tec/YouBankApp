@@ -16,7 +16,7 @@ class CustomerViewModel(application: Application): AndroidViewModel(application)
 
     val readCustomer: LiveData<Customer>
     private val customerRepo: CustomerRepository
-    val database: CustomerDatabase = CustomerDatabase.getDatabase(application, viewModelScope)
+    val database: CustomerDatabase = CustomerDatabase.getDatabase(application)
 
     var isSettingsValid: Boolean = false
 

@@ -38,13 +38,14 @@ class AccountOverviewFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         aId?.let { it ->
-            vm.getAccount(it).observe(viewLifecycleOwner, { it ->
-            it.forEach {
-                binding.accountBalance.text = it.account.balance.toString()
-                binding.accountNumber.text = it.account.accountNumber.toString()
-                Log.i("hello","${it.transactions}")
+            vm.getAccount(it).observe(viewLifecycleOwner) { it ->
+                it.forEach {
+                    binding.accountBalance.text = it.account.balance.toString()
+                    binding.accountNumber.text = it.account.accountNumber.toString()
+                    Log.i("hello", "${it.transactions}")
+                }
             }
-        })}
+        }
 
         binding.backbtn.setOnClickListener {
             findNavController().navigate(R.id.action_accountOverviewBackBtn)

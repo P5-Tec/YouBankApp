@@ -18,12 +18,7 @@ class TransactionListFragment: Fragment() {
     private val model: TransactionListViewModel by activityViewModels()
     private lateinit var transactionAdapter: TransactionAdapter
 
-
     private var columnCount = 1
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.transaction_item_list, container, false)

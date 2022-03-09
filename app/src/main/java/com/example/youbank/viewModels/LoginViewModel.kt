@@ -28,14 +28,14 @@ class LoginViewModel(application: Application): AndroidViewModel(application) {
     //Api & Room stuff
     private val retrofitCustomerRepo: RetrofitCustomerRepository = RetrofitCustomerRepository()
 
-    private val accountDao: AccountDao = CustomerDatabase.getDatabase(application, viewModelScope).accountDao()
+    private val accountDao: AccountDao = CustomerDatabase.getDatabase(application).accountDao()
     private val accountRepository: AccountRepository = AccountRepository(accountDao)
     private val retroAccountRepository: RetroAccountRepository = RetroAccountRepository()
 
-    private val cardDao: CardDao = CustomerDatabase.getDatabase(application, viewModelScope).cardDao()
+    private val cardDao: CardDao = CustomerDatabase.getDatabase(application).cardDao()
     private val cardRepository: CardRepository = CardRepository(cardDao)
 
-    private val transactionDao: TransactionDao = CustomerDatabase.getDatabase(application, viewModelScope).transactionDao()
+    private val transactionDao: TransactionDao = CustomerDatabase.getDatabase(application).transactionDao()
     private val transactionRepository: TransactionRepository = TransactionRepository(transactionDao)
 
     //Api calls / Room saving

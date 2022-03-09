@@ -49,7 +49,7 @@ class AccountCreationTextWatcher(var edList: List<EditText>, var btnCreatePasswo
             editTextCpr.removeTextChangedListener(this)
 
             editTextCpr.setOnKeyListener(
-                View.OnKeyListener { v, keyCode, event ->
+                View.OnKeyListener { _, keyCode, event ->
                     // Backspace is pressed on on-screen keyboard(Not physical hardware)
                     // Is only true when releasing the key(KeyEvent.ACTION_UP) so that it doesn't fire twice
                     if (keyCode == KeyEvent.KEYCODE_DEL && event.action == KeyEvent.ACTION_UP) {

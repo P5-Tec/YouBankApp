@@ -17,7 +17,7 @@ class AccountOverviewViewModel(application: Application): AndroidViewModel(appli
     private val accountRepo: AccountRepository
 
     init {
-        val accountDao = CustomerDatabase.getDatabase(application, viewModelScope).accountDao()
+        val accountDao = CustomerDatabase.getDatabase(application).accountDao()
         accountRepo = AccountRepository(accountDao)
 
         readAccount = accountRepo.readAccounts

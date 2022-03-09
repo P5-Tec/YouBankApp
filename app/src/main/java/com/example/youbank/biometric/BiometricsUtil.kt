@@ -10,10 +10,9 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.example.youbank.R
 
-
 object BiometricsUtil {
     // TAG value
-    private val TAG = "BioCheck"
+    private const val TAG = "BioCheck"
 
     private fun hasBiometrics(context: Context): Int {
         val biometricManager = BiometricManager.from(context)
@@ -51,8 +50,8 @@ object BiometricsUtil {
 
     // Biometrics prompt
     fun bioLogin(fragment: Fragment) {
-        val executor = ContextCompat.getMainExecutor(fragment.context)
-        val callback = object: BiometricPrompt.AuthenticationCallback() {
+        val executor = ContextCompat.getMainExecutor(fragment.requireContext())
+        val callback = object : BiometricPrompt.AuthenticationCallback() {
             override fun onAuthenticationError(
                 errorCode: Int,
                 errString: CharSequence

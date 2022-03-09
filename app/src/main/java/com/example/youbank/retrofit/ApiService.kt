@@ -10,7 +10,7 @@ object ApiService {
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
-    fun <T> buildService(serviceType: Class<T>?): T {
+    fun <T> buildService(serviceType: Class<T>): T {
         return retrofit.create(serviceType)
     }
 }

@@ -29,7 +29,7 @@ abstract class CustomerDatabase: RoomDatabase() {
         @Volatile
         private var INSTANCE: CustomerDatabase? = null
 
-        fun getDatabase(context: Context, scope: CoroutineScope): CustomerDatabase {
+        fun getDatabase(context: Context): CustomerDatabase {
             return INSTANCE
                 ?: synchronized(this) {
                     val instance = Room.databaseBuilder(
