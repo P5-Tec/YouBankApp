@@ -1,0 +1,26 @@
+<resources>
+
+    <style name="pinBtnStyle">
+        <item name="android:layout_height">65dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textSize">30dp</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:textColor">?attr/colorOnBackground</item>
+    </style>
+
+    <style name="circularImgView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <!-- Rounded Bottom Dialog-->
+    <style name="dialog_round">
+        <item name="cornerSize">8dp</item>
+        <item name="cornerFamily">rounded</item>
+    </style>
+
+    <style name="button_border">
+        <item name="strokeWidth">1dp</item>
+        <item name="strokeColor">?attr/strokeColor</item>
+    </style>
+</resources>

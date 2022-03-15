@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetEnd="@+id/end"
+        motion:constraintSetStart="@id/start"
+        motion:duration="1000"
+        motion:pathMotionArc="none">
+        <KeyFrameSet>
+            <KeyAttribute
+                android:alpha="0.1"
+                motion:framePosition="100"
+                motion:motionTarget="@id/card_box" />
+        </KeyFrameSet>
+        <OnSwipe
+            motion:touchAnchorId="@+id/transaction_box"
+            motion:touchAnchorSide="top" />
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+        <Constraint
+            android:id="@+id/card_box"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:visibility="visible"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toBottomOf="@id/header_box" />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@+id/card_box"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="visible"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toBottomOf="@id/header_box" />
+        <Constraint
+            android:id="@+id/account_box"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            motion:layout_constraintEnd_toEndOf="@id/guideline10"
+            motion:layout_constraintStart_toStartOf="@id/guideline9"
+            motion:layout_constraintTop_toBottomOf="@id/card_box" />
+    </ConstraintSet>
+</MotionScene>

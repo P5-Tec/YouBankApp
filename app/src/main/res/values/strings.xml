@@ -1,12 +1,46 @@
 <resources>
     <string name="app_name">YouBank</string>
-    <string name="action_settings">Settings</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <!-- Greetings screen -->
+    <string name="greet_login">Login</string>
+    <string name="greet_create_account">Create Account</string>
+
+    <!-- Content descriptions -->
+    <string name="greet_logo_descriptions">YouBank Logo</string>
+
+    <!-- Account creation -->
+    <string name="account_create_btn">Create Account</string>
+    <string name="account_create_password_btn">Create Password</string>
+
+    <!-- Account Support modal -->
+    <string name="account_support_greeting">What\'s Up ?</string>
+    <string name="account_support_chat">Chat support</string>
+    <string name="account_support_chat_sub">24/7 Meme support</string>
+    <string name="account_support_settings">Account Settings</string>
+    <string name="account_support_logout">Log Out</string>
+
+    <!--Transfer screen -->
+    <string-array name="select_accounts">
+        <item>Martin</item>
+        <item>Dainish</item>
+        <item>Patrick</item>
+    </string-array>
+
+    <!-- Card Freeze modal -->
+
+    <string name="btn_freezecard"><font size="16">Freeze Card</font>\n\<font size="8">All new transactions will be declined</font></string>
+    <string name="btn_showinformation"><font size="16">Show Information</font>\n\<font size="8">Card number, Expiry date and CCV</font></string>
+
+    <!-- Forgot Password -->
+    <string name="forgot_password_text">Have you forgotten your password? Oh no! Do not worry, we got your back covered. Please enter your email below, and we\'ll reset it for you.
+        </string>
+
+    <!-- Create Passowrd notice -->
+    <string name="create_4_digit_password_notice">Type in a 4 digit password combination. You will need this to login once you have been created in our system. Please refrain from using easy combinations like 0000 or 1111.
+        </string>
+    <string name="create_password_notice">This password will be used to log you in the first time and if you logout you will have to use this password again. After this screen you have to create a 4 digit password to log you in for everyday use.</string>
+
+    <!-- Warning Label -->
+    <string name="warningLabelNoMatch">Passwords doesn\'t match each other!</string>
+    <!-- TODO: Remove or change this placeholder text -->
 </resources>

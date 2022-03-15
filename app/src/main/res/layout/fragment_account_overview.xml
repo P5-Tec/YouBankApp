@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/backgroundColor"
+    tools:context=".fragments.accountFragments.AccountOverviewFragment">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/backbtn"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:backgroundTint="?attr/backgroundColor"
+            app:icon="@drawable/ic_baseline_arrow_back_24"
+            app:iconGravity="start"
+            app:iconTint="?attr/colorOnBackground"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <TextView
+        android:id="@+id/title_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Account"
+        android:textColor="?attr/colorOnBackground"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/left_spacing_guideline"
+        app:layout_constraintTop_toTopOf="@+id/TopBar_Guideline" />
+
+    <TextView
+        android:id="@+id/account_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Empty"
+        android:textColor="@color/drac_gray"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/left_spacing_guideline"
+        app:layout_constraintTop_toBottomOf="@+id/title_header" />
+
+    <TextView
+        android:id="@+id/currency_symbol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DKK"
+        android:textColor="@color/drac_gray"
+        android:textSize="32sp"
+        app:layout_constraintBottom_toBottomOf="@+id/account_balance"
+        app:layout_constraintEnd_toStartOf="@+id/right_spacing_guideline"
+        app:layout_constraintHorizontal_bias="0.08"
+        app:layout_constraintStart_toEndOf="@+id/account_balance"
+        app:layout_constraintTop_toTopOf="@+id/account_balance"
+        app:layout_constraintVertical_bias="0.595" />
+
+    <TextView
+        android:id="@+id/account_balance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:autoSizeMaxTextSize="72sp"
+        android:autoSizeMinTextSize="64sp"
+        android:autoSizeTextType="uniform"
+        android:backgroundTint="?attr/backgroundColor"
+        android:text="0"
+        android:textColor="?attr/accBalancePos"
+        android:textSize="64sp"
+        app:layout_constraintBottom_toTopOf="@+id/account_spacing_guideline"
+        app:layout_constraintStart_toStartOf="@+id/left_spacing_guideline"
+        app:layout_constraintTop_toBottomOf="@+id/account_number" />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/add_money_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Money"
+        android:textColor="?attr/colorOnPrimary"
+        app:backgroundTint="?attr/materialButtonTint"
+        app:layout_constraintBottom_toBottomOf="@+id/transaction_button"
+        app:layout_constraintEnd_toStartOf="@+id/transaction_button"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="@id/left_spacing_guideline"
+        app:rippleColor="?attr/materialRippleColor" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/transaction_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Transfer"
+        android:textColor="?attr/colorOnPrimary"
+        app:backgroundTint="?attr/materialButtonTint"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/details_btn"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/add_money_btn"
+        app:layout_constraintTop_toTopOf="@+id/account_spacing_guideline"
+        app:layout_constraintVertical_bias="0.0"
+        app:rippleColor="?attr/materialRippleColor" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/details_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Details"
+        android:textColor="?attr/colorOnPrimary"
+        app:backgroundTint="?attr/materialButtonTint"
+        app:layout_constraintBottom_toBottomOf="@+id/transaction_button"
+        app:layout_constraintEnd_toEndOf="@id/right_spacing_guideline"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/transaction_button"
+        app:rippleColor="?attr/materialRippleColor" />
+
+    <fragment
+        android:id="@+id/transaction_fragment"
+        android:name="com.example.youbank.fragments.listFragments.TransactionListFragment"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="@id/right_spacing_guideline"
+        app:layout_constraintHorizontal_bias="0.466"
+        app:layout_constraintStart_toStartOf="@id/left_spacing_guideline"
+        app:layout_constraintTop_toBottomOf="@+id/subHeader"
+        tools:ignore="MissingConstraints"
+        tools:layout="@layout/transaction_item_list" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/TopBar_Guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="45dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/left_spacing_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="16dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/account_spacing_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="269dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/right_spacing_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="16dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/button_spacing_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="318dp" />
+
+    <TextView
+        android:id="@+id/subHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Transactions"
+        android:textColor="?attr/colorOnBackground"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/left_spacing_guideline"
+        app:layout_constraintTop_toTopOf="@+id/button_spacing_guideline" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

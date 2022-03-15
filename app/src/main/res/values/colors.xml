@@ -1,10 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Custom colors-->
+    <color name="brand_main">#30D95D</color>
+
+    <!-- New Colors -->
+    <color name="color_error">#E55838</color>
+
+    <!-- New Light Blue -->
+    <color name="n_l_main">#3B4F8C</color>
+    <color name="n_l_secondary">#283059</color>
+    <color name="n_l_surface">#F2F2F2</color>
+
+    <!-- Dracula Theme -->
+    <color name="drac_bg">#282a36</color>
+    <color name="drac_gray">#44475a</color>
+    <color name="drac_forground">#f8f8f2</color>
+    <color name="drac_green">#50fa7b</color>
+    <color name="drac_orange">#ffb86c</color>
+    <color name="drac_red">#ff5555</color>
 </resources>

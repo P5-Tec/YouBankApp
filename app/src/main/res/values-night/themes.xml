@@ -2,15 +2,47 @@
     <!-- Base application theme. -->
     <style name="Theme.YouBank" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_200</item>
+        <item name="colorPrimary">@color/drac_orange</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/black</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
         <item name="colorSecondaryVariant">@color/teal_200</item>
-        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorOnSecondary">@color/white</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor" tools:targetApi="l">@color/drac_bg</item>
         <!-- Customize your theme here. -->
+        <item name="logo">@drawable/ic_yb_logo</item>
+        <item name="backgroundColor">@color/black</item>
+        <item name="shapeAppearanceLargeComponent">@style/dialog_round</item>
+
+        <item name="strokeColor">@color/white</item>
+
+        <!-- Makes checkboxes green when checked -->
+        <item name="buttonTint">@color/brand_main</item>
     </style>
+
+    <style name="Theme.YouBank.New">
+        <item name="colorPrimary">@color/drac_orange</item>
+        <item name="colorOnPrimary">@color/drac_forground</item>
+        <item name="colorSecondary">@color/drac_gray</item>
+        <item name="backgroundColor">@color/drac_bg</item>
+        <item name="colorSurface">@color/drac_gray</item>
+        <item name="colorOnSurface">@color/drac_forground</item>
+        <item name="strokeColor">@color/drac_forground</item>
+
+        <item name="materialButtonTint">@color/drac_gray</item>
+        <item name="materialRippleColor">@color/drac_forground</item>
+
+        <item name="accBalancePos">@color/drac_green</item>
+        <item name="accBalanceNeg">@color/drac_red</item>
+
+        <item name="colorAccent">@color/drac_orange</item>
+    </style>
+
+    <style name="Theme.YouBank.NoActionBar" parent="Theme.YouBank.New">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
 </resources>
