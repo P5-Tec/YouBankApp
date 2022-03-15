@@ -7,7 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class RetrofitClient {
     companion object {
-        private const val URL = "http://api.saxproduction.dk/api/"
+        private const val URL = ""
 
         private val interceptor: HttpLoggingInterceptor = HttpLoggingInterceptor().apply {
             this.level = HttpLoggingInterceptor.Level.BODY
