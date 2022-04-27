@@ -20,13 +20,11 @@ class AccountAdapter: ListAdapter<Account, AccountAdapter.AccountViewHolder>(Dif
         private val accountValuta: TextView = binding.valutaIcon
         private val accountBalance: TextView = binding.txtAccountBalance
 
-
         fun bind(data: Account) {
             accountName.text = data.accountType.toString()
             accountNumber.text = data.accountNumber.toString()
             accountValuta.text = "$"
             accountBalance.text = data.balance.toString()
-
         }
 
         companion object {

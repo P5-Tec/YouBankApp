@@ -4,4 +4,9 @@
     <attr name="materialRippleColor" format="color" />
     <attr name="accBalancePos" format="color" />
     <attr name="accBalanceNeg" format="color" />
+    <declare-styleable name="AppWidgetAttrs">
+        <attr name="appWidgetPadding" format="dimension" />
+        <attr name="appWidgetInnerRadius" format="dimension" />
+        <attr name="appWidgetRadius" format="dimension" />
+    </declare-styleable>
 </resources>

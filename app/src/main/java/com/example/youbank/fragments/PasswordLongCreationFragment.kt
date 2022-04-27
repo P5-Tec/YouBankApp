@@ -44,13 +44,13 @@ class PasswordLongCreationFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        vm.getCustomer().observe(viewLifecycleOwner, { c ->
+        vm.getCustomer().observe(viewLifecycleOwner) { c ->
             newCustomer = c
             val txt: String =
                 newCustomer.birthday + "\n" + newCustomer.fullName + "\n" + newCustomer.email + "\n" + newCustomer.phone + "\n" + newCustomer.address
 
             binding.description.text = txt
-        })
+        }
 
         val textWatcher =
             PasswordLongCreationTextWatcher(
@@ -72,12 +72,12 @@ class PasswordLongCreationFragment: Fragment() {
             vm.setPassword()
 
             // Get the customer from viewmodel then post it with api to database
-            vm.getCustomer().observe(viewLifecycleOwner, { c ->
+            vm.getCustomer().observe(viewLifecycleOwner) { c ->
                 val service: CustomerService = ApiService.buildService(CustomerService::class.java)
                 val req: Call<Void> = service.addNewCustomer(c)
 
                 try {
-                    req.enqueue(object: Callback<Void> {
+                    req.enqueue(object : Callback<Void> {
                         override fun onResponse(call: Call<Void>, response: Response<Void>) {
                             if (response.isSuccessful) {
 
@@ -85,14 +85,20 @@ class PasswordLongCreationFragment: Fragment() {
 
                                 vm.setCustomer(newCustomer)
 
-                                Toast.makeText(context, "Successfully Created - Congratulations!!", Toast.LENGTH_LONG).show()
-                                findNavController().navigate(
-                                    R.id.action_passwordLongCreationFragment_to_password4DigitCreationFragment)
-                            }
-                            else {
                                 Toast.makeText(
-                                    context, "Please try again, something went wrong - ${response.code()}",
-                                    Toast.LENGTH_LONG).show()
+                                    context,
+                                    "Successfully Created - Congratulations!!",
+                                    Toast.LENGTH_LONG
+                                ).show()
+                                findNavController().navigate(
+                                    R.id.action_passwordLongCreationFragment_to_password4DigitCreationFragment
+                                )
+                            } else {
+                                Toast.makeText(
+                                    context,
+                                    "Please try again, something went wrong - ${response.code()}",
+                                    Toast.LENGTH_LONG
+                                ).show()
                             }
                         }
 
@@ -103,7 +109,7 @@ class PasswordLongCreationFragment: Fragment() {
                 } catch (e: Exception) {
                     Log.d("Catch: ", e.message.toString())
                 }
-            })
+            }
 
         }
 

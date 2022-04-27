@@ -50,10 +50,7 @@ class AccountListFragment: Fragment() {
                 model.allAccounts.observe(viewLifecycleOwner, { it?.let { accountAdapter.submitList(it) } })
             }
         }
-        return view
-    }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+        return view
     }
 }
