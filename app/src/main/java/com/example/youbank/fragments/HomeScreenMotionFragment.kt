@@ -26,17 +26,16 @@ class HomeScreenMotionFragment: Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentHomeScreenMotionBinding.inflate(inflater, container, false)
 
-        vm.readCustomer.observe(viewLifecycleOwner, {
+        vm.readCustomer.observe(viewLifecycleOwner) {
 
             if (spvm.getCustomerIdInSp() == it.customerId) {
                 //nothing changes
-            }
-            else {
+            } else {
                 vm.nukeDB()
                 // TODO - Refactor
                 vm.addCustomerToRoomDB(spvm.getCustomerIdInSp()) //maybe change to logout ?
             }
-        })
+        }
 
         // Inflate the layout for this fragment
         return binding.root

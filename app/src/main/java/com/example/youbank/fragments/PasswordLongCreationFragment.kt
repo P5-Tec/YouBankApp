@@ -68,6 +68,7 @@ class PasswordLongCreationFragment: Fragment() {
 
             // Hashing password and saving it in viewmodel
             vm.hashPassword(binding.passwordInput.text.toString())
+            Log.d("hash pass", vm.getPasswordHash())
             // Assigning the hash to the customer object
             vm.setPassword()
 
@@ -79,6 +80,7 @@ class PasswordLongCreationFragment: Fragment() {
                 try {
                     req.enqueue(object: Callback<Void> {
                         override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                            Log.d("response", response.toString())
                             if (response.isSuccessful) {
 
                                 newCustomer.customerId = it.id
